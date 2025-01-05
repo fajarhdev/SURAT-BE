@@ -1,7 +1,8 @@
 const jwt = require("jsonwebtoken");
+require("dotenv").config();
 
 // Secret key untuk memverifikasi token
-const secretKey = process.env.JWT_SECRET || "your-secret-key";
+const secretKey = process.env.ACCESS_TOKEN_KEY;
 
 const verifyToken = (req, res, next) => {
 	// Ambil token dari header Authorization

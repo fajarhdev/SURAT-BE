@@ -1,0 +1,954 @@
+[
+	{
+		"master": {
+			"code": "EVP",
+			"name": "EVP - SL SUPPORT - MARKETING",
+			"details": [
+				{
+					"code": "DR4-10000000",
+					"name": "RIJANTO UTOMO, RADEN, IR",
+					"desc": "EVP TELKOM REGIONAL IV",
+					"children": [
+						{
+							"code": "DR4-10500000",
+							"name": "SOERACHMAD ADI WAHJONO, IR.MT.",
+							"desc": "SENIOR ADVISOR III"
+						},
+						{
+							"code": "DR4-1a000000",
+							"name": "SOERACHMAD ADI WAHJONO, IR.MT.",
+							"desc": "GM REGIONAL ENTERPRISE & GOVERNMENT SERV",
+							"children": [
+								{
+									"code": "DR4-1a000000",
+									"name": "DWI KRISTIANTI, SH",
+									"desc": "SENIOR ACCOUNT MANAGER"
+								},
+								{
+									"code": "DR4-1a100000",
+									"name": "SUNANTO",
+									"desc": "MGR REGIONAL ENTERPRISE SERVICE"
+								},
+								{
+									"code": "DR4-1a200000",
+									"name": "DJAJA WIGUNA",
+									"desc": "MGR REGIONAL GOVERNMENT SERVICE"
+								}
+							]
+						},
+						{
+							"code": "DR4-1b000000",
+							"name": "MUHAMMAD ASHARI, ST, MM",
+							"desc": "OSM REGIONAL BUSINESS SERVICE",
+							"children": [
+								{
+									"code": "DR4-1b100000",
+									"name": "ATIK RAHMAWATI TRI ASTUTI, ST",
+									"desc": "MGR REGIONAL BUSINESS SERVICE"
+								},
+								{
+									"code": "DR4-1b200000",
+									"name": "EVA MARYAM SANI",
+									"desc": "MGR BUSINESS SUPPORT"
+								},
+								{
+									"code": "DR4-1b300000",
+									"name": "YUSTINA ANEKE SARI",
+									"desc": "MGR WIFI & FBB LEGACY"
+								}
+							]
+						},
+						{
+							"code": "DR4-1c000000",
+							"name": "AMIR SYARIFUDIN, ST",
+							"desc": "OSM REGIONAL WHOLESALE SERVICE",
+							"children": [
+								{
+									"code": "DR4-1c000000",
+									"name": "DIANI MARDISAR",
+									"desc": "SENIOR ACCOUNT MANAGER"
+								},
+								{
+									"code": "DR4-1c100000",
+									"name": "MARTA DAMAYANTI",
+									"desc": "MGR REGIONAL WHOLESALE SUPPORT"
+								}
+							]
+						},
+						{
+							"code": "DR4-1d000000",
+							"name": "AMIR SYARIFUDIN, ST",
+							"desc": "SM REGIONAL SOLUTION, DELIVERY&ASSURANCE",
+							"children": [
+								{
+									"code": "DR4-1d400000",
+									"name": "DIANI MARDISAR",
+									"desc": "MGR SOLUTION & OFFERING"
+								},
+								{
+									"code": "DR4-1d100000",
+									"name": "MARTA DAMAYANTI",
+									"desc": "MGR PROJECT OPERATION&QUALITY ASSURANCE"
+								},
+								{
+									"code": "DR4-1d200000",
+									"name": "MARTA DAMAYANTI",
+									"desc": "MGR BIDDING MGMT & BUSINESS SUPPORT"
+								},
+								{
+									"code": "DR4-1d300000",
+									"name": "MARTA DAMAYANTI",
+									"desc": "MGR PARTNER INVOICING & SDA SUPPORT"
+								}
+							]
+						},
+						{
+							"code": "DR4-1e000000",
+							"name": "AMIR SYARIFUDIN, ST",
+							"desc": "SM BUSS PLANNING,PERFORM,LOGISTIC&PROCUR",
+							"children": [
+								{
+									"code": "DR4-1e100000",
+									"name": "DIANI MARDISAR",
+									"desc": "MGR PLANNING, BUDGET CONTROL&PERFORMANCE"
+								},
+								{
+									"code": "DR4-1e200000",
+									"name": "MARTA DAMAYANTI",
+									"desc": "MGR QUALITY,CHANGE,RISK MGMT&REV ASSURAN"
+								},
+								{
+									"code": "DR4-1e300000",
+									"name": "MARTA DAMAYANTI",
+									"desc": "MGR LEGAL & REGULATORY AFFAIR"
+								},
+								{
+									"code": "DR4-1e400000",
+									"name": "MARTA DAMAYANTI",
+									"desc": "MGR LOGISTIC & PROCUREMENT"
+								}
+							]
+						},
+						{
+							"code": "DR4-1f000000",
+							"name": "AMIR SYARIFUDIN, ST",
+							"desc": "SM SHARED SERVICE & SUPPORT",
+							"children": [
+								{
+									"code": "DR4-1f100000",
+									"name": "DIANI MARDISAR",
+									"desc": "MGR FINANCE SERVICE, TAX&HUMAN CAPITAL"
+								},
+								{
+									"code": "DR4-1f200000",
+									"name": "MARTA DAMAYANTI",
+									"desc": "MGR BILLING & PAYMENT COLLECTION"
+								},
+								{
+									"code": "DR4-1f300000",
+									"name": "MARTA DAMAYANTI",
+									"desc": "MGR GENERAL SUPPORT"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	},
+	{
+		"master": {
+			"code": "DEVPMKT",
+			"name": "DEVP - SL INFRASTRUKTUR",
+			"details": [
+				{
+					"code": "DR4-20000000",
+					"name": "FIRMANSYAH, IR",
+					"desc": "DEPUTY EVP TELKOM REGIONAL IV",
+					"children": [
+						{
+							"code": "DR4-2a000000",
+							"name": "ERNA WIYATI",
+							"desc": "OSM REGIONAL OPERATION CENTER",
+							"children": [
+								{
+									"code": "DR4-2a100000",
+									"name": "ALBERTUS DJOKO SOESENO, IR, MT",
+									"desc": "MGR FBB FULFILLMENT SUPERVISION"
+								},
+								{
+									"code": "DR4-2a200000",
+									"name": "YULIA DWI MARTINI",
+									"desc": "MGR FBB ASSURANCE SUPERVISION"
+								},
+								{
+									"code": "DR4-2a300000",
+									"name": "ALBERTUS DJOKO SOESENO, IR, MT",
+									"desc": "MGR BGES FULFILLMENT SUPERVISION"
+								},
+								{
+									"code": "DR4-2a400000",
+									"name": "YULIA DWI MARTINI",
+									"desc": "MGR BGES ASSURANCE SUPERVISION"
+								},
+								{
+									"code": "DR4-2a500000",
+									"name": "YULIA DWI MARTINI",
+									"desc": "MGR PERFORM,SERV QUALITY&HELPDESK OPERAT"
+								}
+							]
+						},
+						{
+							"code": "DR4-2b000000",
+							"name": "WIJAYANTO, M.T",
+							"desc": "OSM MANAGED SERVICE OPERATION",
+							"children": [
+								{
+									"code": "DR4-2b100000",
+									"name": "VANDY AULIA ABKHARI",
+									"desc": "MGR CNOP & OLO FULFILLMENT"
+								},
+								{
+									"code": "DR4-2b200000",
+									"name": "HIDAYAT KURNIAWAN, S.T.,M.MT.",
+									"desc": "MGR CNOP & OLO ASSURANCE"
+								},
+								{
+									"code": "DR4-2b300000",
+									"name": "JOKO SUSANTOYO, ST",
+									"desc": "MGR PERFORM MGMT & SLA MONITORING"
+								}
+							]
+						},
+						{
+							"code": "DR4-2c000000",
+							"name": "SULISTYAWAN",
+							"desc": "OSM REGIONAL ACCESS MANAGEMENT",
+							"children": [
+								{
+									"code": "DR4-2c100000",
+									"name": "WIDYA MAHARANI",
+									"desc": "MGR OSP & CAPEX QE"
+								},
+								{
+									"code": "DR4-2c200000",
+									"name": "MOHAMAD ARIF SETYABUDI, ST",
+									"desc": "MGR ACCESS DATA VALIDAT & INVENTORY MGMT"
+								},
+								{
+									"code": "DR4-2c300000",
+									"name": "NATASIA BENITA KINARTO",
+									"desc": "MGR NTE & NE OM"
+								},
+								{
+									"code": "DR4-2c400000",
+									"name": "RISMAWATI",
+									"desc": "MGR PARTNERSHIP & PERFORMANCE"
+								}
+							]
+						},
+						{
+							"code": "DR4-2d000000",
+							"name": "ARIF NURJAYANTO,IR, MBA",
+							"desc": "OSM REGIONAL NETWORK OPERATION",
+							"children": [
+								{
+									"code": "DR4-2d100000",
+									"name": "ABDUL AZIZ MUSLIM",
+									"desc": "MGR OM BACKBONE"
+								},
+								{
+									"code": "DR4-2d200000",
+									"name": "CHRISTIANUS WIDYA UTOMO",
+									"desc": "MGR OM DATA CENTER & DEFA"
+								},
+								{
+									"code": "DR4-2d300000",
+									"name": "HARIS SUNANDAR, IR",
+									"desc": "MGR IP, IS&SERVICE NODE OPERATION"
+								},
+								{
+									"code": "DR4-2d400000",
+									"name": "HUSNA MAULIDA , S.KOM",
+									"desc": "MGR INFRA MAINTENANCE"
+								}
+							]
+						},
+						{
+							"code": "DR4-2e000000",
+							"name": "ARIF NURJAYANTO,IR, MBA",
+							"desc": "OSM PLANNING, ENGINEERING & DEPLOYMENT",
+							"children": [
+								{
+									"code": "DR4-2e100000",
+									"name": "ABDUL AZIZ MUSLIM",
+									"desc": "MGR PLANNING, ENGINEERING & CAPEX MGMT"
+								},
+								{
+									"code": "DR4-2e200000",
+									"name": "CHRISTIANUS WIDYA UTOMO",
+									"desc": "MGR NETWORK DEPLOY & PROJECT SUPERVISION"
+								},
+								{
+									"code": "DR4-2e300000",
+									"name": "HARIS SUNANDAR, IR",
+									"desc": "MGR ACCESS NEW FTTH&MODERNIZATION DEPLOY"
+								},
+								{
+									"code": "DR4-2e400000",
+									"name": "HUSNA MAULIDA , S.KOM",
+									"desc": "MGR ENTERPRISE, OLO & WIFI DEPLOYMENT"
+								},
+								{
+									"code": "NFO-DR407000",
+									"name": "HUSNA MAULIDA , S.KOM",
+									"desc": "MGR SHARED SERVICE PAYMENT COLLECT (MPP)"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	},
+	{
+		"master": {
+			"code": "WSMG",
+			"name": "WITEL SEMARANG",
+			"details": [
+				{
+					"code": "R4W-a0000000",
+					"name": "WITEL SEMARANG",
+					"desc": "WITEL SEMARANG",
+					"children": [
+						{
+							"code": "R4W-a0100000",
+							"name": "MIRA KOMALA DEWI",
+							"desc": "MGR WITEL BUSINESS SERVICE"
+						},
+						{
+							"code": "R4W-a0200000",
+							"name": "AGUNG SUGIHARTO",
+							"desc": "MGR SHARED SERVICE & GENERAL SUPPORT"
+						},
+						{
+							"code": "R4W-a0300000",
+							"name": "JUNI HARIANTO,ST",
+							"desc": "MGR PERFORMANCE, RISK & QOS"
+						},
+						{
+							"code": "R4W-a0400000",
+							"name": "PARYONO, ST",
+							"desc": "MGR FBB ACCESS & SERVICE OPERATION"
+						},
+						{
+							"code": "R4W-a0500000",
+							"name": "KEMAS CEK AGUS ABDUSSOMAD A.",
+							"desc": "MGR BGES & MBB SERVICE OPERATION"
+						},
+						{
+							"code": "R4W-a0600000",
+							"name": "MYTA IRWANTI",
+							"desc": "MGR NETWORK AREA & IS OPERATION"
+						},
+						{
+							"code": "R4W-a0700000",
+							"name": "ADHI WIDYANTO",
+							"desc": "MGR ACCESS OPTIMA,MAINTENANCE,QE&DAMAN"
+						},
+						{
+							"code": "R4W-a0800000",
+							"name": "TRI ADI SANTOSA, ST",
+							"desc": "KAKANDATEL KENDAL"
+						},
+						{
+							"code": "R4W-a0900000",
+							"name": "NUNUNG SADTOMO PRAPTO, ST",
+							"desc": "KAKANDATEL UNGARAN"
+						},
+						{
+							"code": "R4W-a0a00000",
+							"name": "HIRMAG MART DANY",
+							"desc": "KAKANDATEL SALATIGA"
+						},
+						{
+							"code": "R4W-a0000000",
+							"name": "AMBAR PRIHADI",
+							"desc": "HERO SEMARANG TUGU"
+						},
+						{
+							"code": "R4W-a0000000",
+							"name": "RONI SETIYAWAN, ST",
+							"desc": "HERO MAJAPAHIT"
+						},
+						{
+							"code": "R4W-a0000000",
+							"name": "YOGI ANGGUN SALOKO YUDO",
+							"desc": "HERO JOHAR"
+						},
+						{
+							"code": "R4W-a0800000",
+							"name": "IMPERATA JOKO SUBROTO",
+							"desc": "HERO WELERI"
+						},
+						{
+							"code": "R4W-a0900000",
+							"name": "RETNO YULISTYAWATI, ST",
+							"desc": "HERO AMBARAWA"
+						}
+					]
+				}
+			]
+		}
+	},
+	{
+		"master": {
+			"code": "WPWK",
+			"name": "WITEL PURWOKERTO",
+			"details": [
+				{
+					"code": "R4W-d0000000",
+					"name": "NANANG SETIYO UTOMO, ST",
+					"desc": "GM WITEL PURWOKERTO",
+					"children": [
+						{
+							"code": "R4W-d0100000",
+							"name": "MIRA KOMALA DEWI",
+							"desc": "MGR WITEL BUSINESS SERVICE"
+						},
+						{
+							"code": "R4W-d0200000",
+							"name": "AGUNG SUGIHARTO",
+							"desc": "MGR SHARED SERVICE & GENERAL SUPPORT"
+						},
+						{
+							"code": "R4W-d0300000",
+							"name": "JUNI HARIANTO, ST",
+							"desc": "MGR PERFORMANCE, RISK & QOS"
+						},
+						{
+							"code": "R4W-d0400000",
+							"name": "PARYONO, ST",
+							"desc": "MGR BGES, MBB, FBB ACCESS & SERVICE OPERAT"
+						},
+						{
+							"code": "R4W-d0500000",
+							"name": "KEMAS CEK AGUS ABDUSSOMAD A.",
+							"desc": "MGR NETWORK AREA & IS OPERATION"
+						},
+						{
+							"code": "R4W-d0600000",
+							"name": "MYTA IRWANTI",
+							"desc": "MGR ACCESS OPTIMA, MAINTENANCE, QE & DAMAN"
+						},
+						{
+							"code": "R4W-d0700000",
+							"name": "ADHI WIDYANTO",
+							"desc": "KAKANDATEL BANJARNEGARA"
+						},
+						{
+							"code": "R4W-d0800000",
+							"name": "TRI ADI SANTOSA, ST",
+							"desc": "KAKANDATEL CILACAPA"
+						},
+						{
+							"code": "R4W-d0900000",
+							"name": "NUNUNG SADTOMO PRAPTO, ST",
+							"desc": "KAKANDATEL PURBALINGGA"
+						},
+						{
+							"code": "R4W-d0000000",
+							"name": "HIRMAG MART DANY",
+							"desc": "HERO AJIBARANG"
+						},
+						{
+							"code": "R4W-d0700000",
+							"name": "AMBAR PRIHADI",
+							"desc": "HERO KLAMPOK"
+						},
+						{
+							"code": "R4W-d0800000",
+							"name": "RONI SETIYAWAN, ST",
+							"desc": "HERO KROYA"
+						},
+						{
+							"code": "R4W-d0800000",
+							"name": "YOGI ANGGUN SALOKO YUDO",
+							"desc": "HERO MAJENANG"
+						},
+						{
+							"code": "R4W-d0900000",
+							"name": "IMPERATA JOKO SUBROTO",
+							"desc": "HERO BOBOTSARI"
+						}
+					]
+				}
+			]
+		}
+	},
+	{
+		"master": {
+			"code": "WPKL",
+			"name": "WITEL PEKALONGAN",
+			"details": [
+				{
+					"code": "R4W-c0000000",
+					"name": "DWI KIANSANTANG",
+					"desc": "GM WITEL PEKALONGAN",
+					"children": [
+						{
+							"code": "R4W-c0100000",
+							"name": "MIRA KOMALA DEWI",
+							"desc": "MGR WITEL BUSINESS SERVICE"
+						},
+						{
+							"code": "R4W-c0200000",
+							"name": "AGUNG SUGIHARTO",
+							"desc": "MGR SHARED SERVICE & GENERAL SUPPORT"
+						},
+						{
+							"code": "R4W-c0300000",
+							"name": "JUNI HARIANTO, ST",
+							"desc": "MGR PERFORMANCE, RISK & QOS"
+						},
+						{
+							"code": "R4W-c0400000",
+							"name": "PARYONO, ST",
+							"desc": "MGR BGES, MBB, FBB ACCESS & SERVICE OPERAT"
+						},
+						{
+							"code": "R4W-c0500000",
+							"name": "KEMAS CEK AGUS ABDUSSOMAD A.",
+							"desc": "MGR NETWORK AREA & IS OPERATION"
+						},
+						{
+							"code": "R4W-c0600000",
+							"name": "MYTA IRWANTI",
+							"desc": "MGR ACCESS OPTIMA, MAINTENANCE, QE & DAMAN"
+						},
+						{
+							"code": "R4W-c0700000",
+							"name": "ADHI WIDYANTO",
+							"desc": "KAKANDATEL BATANG"
+						},
+						{
+							"code": "R4W-c0800000",
+							"name": "TRI ADI SANTOSA, ST",
+							"desc": "KAKANDATEL BREBES"
+						},
+						{
+							"code": "R4W-c0900000",
+							"name": "NUNUNG SADTOMO PRAPTO, ST",
+							"desc": "KAKANDATEL SLAWI"
+						},
+						{
+							"code": "R4W-c0a00000",
+							"name": "HIRMAG MART DANY",
+							"desc": "KAKANDATEL PEMALANG"
+						},
+						{
+							"code": "R4W-c0b00000",
+							"name": "AMBAR PRIHADI",
+							"desc": "KAKANDATEL TEGAL"
+						},
+						{
+							"code": "R4W-c0000000",
+							"name": "RONI SETIYAWAN, ST",
+							"desc": "HERO KAJEN"
+						},
+						{
+							"code": "R4W-c0700000",
+							"name": "YOGI ANGGUN SALOKO YUDO",
+							"desc": "HERO SUBAH"
+						},
+						{
+							"code": "R4W-c0800000",
+							"name": "IMPERATA JOKO SUBROTO",
+							"desc": "HERO KETANGGUGAN"
+						},
+						{
+							"code": "R4W-c0800000",
+							"name": "IMPERATA JOKO SUBROTO",
+							"desc": "HERO BUMIAYU"
+						},
+						{
+							"code": "R4W-c0900000",
+							"name": "IMPERATA JOKO SUBROTO",
+							"desc": "HERO ADIWERNA"
+						},
+						{
+							"code": "R4W-c0a00000",
+							"name": "IMPERATA JOKO SUBROTO",
+							"desc": "HERO RADUDONGKAL"
+						}
+					]
+				}
+			]
+		}
+	},
+	{
+		"master": {
+			"code": "WKDS",
+			"name": "WITEL KUDUS",
+			"details": [
+				{
+					"code": "R4W-e0000000",
+					"name": "SULKAN",
+					"desc": "GM WITEL KUDUS",
+					"children": [
+						{
+							"code": "R4W-e0100000",
+							"name": "MIRA KOMALA DEWI",
+							"desc": "MGR WITEL BUSINESS SERVICE"
+						},
+						{
+							"code": "R4W-e0200000",
+							"name": "AGUNG SUGIHARTO",
+							"desc": "MGR SHARED SERVICE & GENERAL SUPPORT"
+						},
+						{
+							"code": "R4W-e0300000",
+							"name": "JUNI HARIANTO, ST",
+							"desc": "MGR PERFORMANCE, RISK & QOS"
+						},
+						{
+							"code": "R4W-e0400000",
+							"name": "PARYONO, ST",
+							"desc": "MGR BGES, MBB, FBB ACCESS & SERVICE OPERAT"
+						},
+						{
+							"code": "R4W-e0500000",
+							"name": "KEMAS CEK AGUS ABDUSSOMAD A.",
+							"desc": "MGR NETWORK AREA & IS OPERATION"
+						},
+						{
+							"code": "R4W-e0600000",
+							"name": "MYTA IRWANTI",
+							"desc": "MGR ACCESS OPTIMA, MAINTENANCE, QE & DAMAN"
+						},
+						{
+							"code": "R4W-e0700000",
+							"name": "ADHI WIDYANTO",
+							"desc": "KAKANDATEL BLORA"
+						},
+						{
+							"code": "R4W-e0800000",
+							"name": "TRI ADI SANTOSA, ST",
+							"desc": "KAKANDATEL JEPARA"
+						},
+						{
+							"code": "R4W-e0900000",
+							"name": "NUNUNG SADTOMO PRAPTO, ST",
+							"desc": "KAKANDATEL PATI"
+						},
+						{
+							"code": "R4W-e0a00000",
+							"name": "HIRMAG MART DANY",
+							"desc": "KAKANDATEL PURWODADI"
+						},
+						{
+							"code": "R4W-e0700000",
+							"name": "AMBAR PRIHADI",
+							"desc": "HERO CEPU"
+						},
+						{
+							"code": "R4W-e0800000",
+							"name": "RONI SETIYAWAN, ST",
+							"desc": "HERO DEMAK"
+						},
+						{
+							"code": "R4W-e0800000",
+							"name": "YOGI ANGGUN SALOKO YUDO",
+							"desc": "HERO PECANGAAN"
+						},
+						{
+							"code": "R4W-e0900000",
+							"name": "IMPERATA JOKO SUBROTO",
+							"desc": "HERO REMBANG"
+						},
+						{
+							"code": "R4W-e0a00000",
+							"name": "IMPERATA JOKO SUBROTO",
+							"desc": "HERO GUBUG"
+						},
+						{
+							"code": "R4W-e0a00000",
+							"name": "IMPERATA JOKO SUBROTO",
+							"desc": "HERO WIROSARI"
+						}
+					]
+				}
+			]
+		}
+	},
+	{
+		"master": {
+			"code": "WMGL",
+			"name": "WITEL MAGELANG",
+			"details": [
+				{
+					"code": "R4W-f0000000",
+					"name": "MUSTADI, ST",
+					"desc": "GM WITEL MAGELANG",
+					"children": [
+						{
+							"code": "R4W-f0100000",
+							"name": "MIRA KOMALA DEWI",
+							"desc": "MGR WITEL BUSINESS SERVICE"
+						},
+						{
+							"code": "R4W-f0200000",
+							"name": "AGUNG SUGIHARTO",
+							"desc": "MGR SHARED SERVICE & GENERAL SUPPORT"
+						},
+						{
+							"code": "R4W-f0300000",
+							"name": "JUNI HARIANTO, ST",
+							"desc": "MGR PERFORMANCE, RISK & QOS"
+						},
+						{
+							"code": "R4W-f0400000",
+							"name": "PARYONO, ST",
+							"desc": "MGR BGES, MBB, FBB ACCESS & SERVICE OPERAT"
+						},
+						{
+							"code": "R4W-f0500000",
+							"name": "KEMAS CEK AGUS ABDUSSOMAD A.",
+							"desc": "MGR NETWORK AREA & IS OPERATION"
+						},
+						{
+							"code": "R4W-f0600000",
+							"name": "MYTA IRWANTI",
+							"desc": "MGR ACCESS OPTIMA, MAINTENANCE, QE & DAMAN"
+						},
+						{
+							"code": "R4W-f0700000",
+							"name": "ADHI WIDYANTO",
+							"desc": "KAKANDATEL KEBUMEN"
+						},
+						{
+							"code": "R4W-f0800000",
+							"name": "TRI ADI SANTOSA, ST",
+							"desc": "KAKANDATEL MUNTILAN"
+						},
+						{
+							"code": "R4W-f0900000",
+							"name": "NUNUNG SADTOMO PRAPTO, ST",
+							"desc": "KAKANDATEL PURWOREJO"
+						},
+						{
+							"code": "R4W-f0a00000",
+							"name": "HIRMAG MART DANY",
+							"desc": "KAKANDATEL TEMANGGUNG"
+						},
+						{
+							"code": "R4W-f0b00000",
+							"name": "AMBAR PRIHADI",
+							"desc": "KAKANDATEL WONOSOBO"
+						},
+						{
+							"code": "R4W-f0000000",
+							"name": "RONI SETIYAWAN, ST",
+							"desc": "HERO METROYUDAN"
+						},
+						{
+							"code": "R4W-f0700000",
+							"name": "YOGI ANGGUN SALOKO YUDO",
+							"desc": "HERO GOMBONG"
+						},
+						{
+							"code": "R4W-f0800000",
+							"name": "IMPERATA JOKO SUBROTO",
+							"desc": "HERO MUNTILAN"
+						},
+						{
+							"code": "R4W-f0900000",
+							"name": "IMPERATA JOKO SUBROTO",
+							"desc": "HERO KUTOARJO"
+						},
+						{
+							"code": "R4W-f0a00000",
+							"name": "IMPERATA JOKO SUBROTO",
+							"desc": "HERO WIROSARI"
+						}
+					]
+				}
+			]
+		}
+	},
+	{
+		"master": {
+			"code": "WSLO",
+			"name": "WITEL SOLO",
+			"details": [
+				{
+					"code": "R4W-g0000000",
+					"name": "PRIBADI NIRWANA, ST, MT",
+					"desc": "GM WITEL SOLO",
+					"children": [
+						{
+							"code": "R4W-g0100000",
+							"name": "MIRA KOMALA DEWI",
+							"desc": "MGR WITEL BUSINESS SERVICE"
+						},
+						{
+							"code": "R4W-g0200000",
+							"name": "AGUNG SUGIHARTO",
+							"desc": "MGR SHARED SERVICE & GENERAL SUPPORT"
+						},
+						{
+							"code": "R4W-g0300000",
+							"name": "JUNI HARIANTO, ST",
+							"desc": "MGR PERFORMANCE, RISK & QOS"
+						},
+						{
+							"code": "R4W-g0400000",
+							"name": "PARYONO, ST",
+							"desc": "MGR BGES, MBB, FBB ACCESS & SERVICE OPERAT"
+						},
+						{
+							"code": "R4W-g0500000",
+							"name": "KEMAS CEK AGUS ABDUSSOMAD A.",
+							"desc": "MGR NETWORK AREA & IS OPERATION"
+						},
+						{
+							"code": "R4W-g0600000",
+							"name": "MYTA IRWANTI",
+							"desc": "MGR ACCESS OPTIMA, MAINTENANCE, QE & DAMAN"
+						},
+						{
+							"code": "R4W-g0700000",
+							"name": "ADHI WIDYANTO",
+							"desc": "KAKANDATEL SRAGEN"
+						},
+						{
+							"code": "R4W-g0800000",
+							"name": "TRI ADI SANTOSA, ST",
+							"desc": "KAKANDATEL WONOGORI"
+						},
+						{
+							"code": "R4W-g0900000",
+							"name": "NUNUNG SADTOMO PRAPTO, ST",
+							"desc": "KAKANDATEL KLATEN"
+						},
+						{
+							"code": "R4W-g0000000",
+							"name": "HIRMAG MART DANY",
+							"desc": "HERO SOLO PALUR"
+						},
+						{
+							"code": "R4W-g0000000",
+							"name": "AMBAR PRIHADI",
+							"desc": "HERO SOLO KARTOSURO"
+						},
+						{
+							"code": "R4W-g0700000",
+							"name": "RONI SETIYAWAN, ST",
+							"desc": "HERO KARANGANYAR"
+						},
+						{
+							"code": "R4W-g0800000",
+							"name": "YOGI ANGGUN SALOKO YUDO",
+							"desc": "HERO SUKOHARJO"
+						},
+						{
+							"code": "R4W-g0900000",
+							"name": "IMPERATA JOKO SUBROTO",
+							"desc": "HERO BOYOLALI"
+						},
+						{
+							"code": "R4W-g0900000",
+							"name": "IMPERATA JOKO SUBROTO",
+							"desc": "HERO DELANGGU"
+						}
+					]
+				}
+			]
+		}
+	},
+	{
+		"master": {
+			"code": "WYGY",
+			"name": "WITEL YOGYAKARTA",
+			"details": [
+				{
+					"code": "R4W-b0000000",
+					"name": "AGUS FAISAL, ST",
+					"desc": "GM WITEL YOGYAKARTA",
+					"children": [
+						{
+							"code": "R4W-b0100000",
+							"name": "MIRA KOMALA DEWI",
+							"desc": "MGR WITEL BUSINESS SERVICE"
+						},
+						{
+							"code": "R4W-b0200000",
+							"name": "AGUNG SUGIHARTO",
+							"desc": "MGR SHARED SERVICE & GENERAL SUPPORT"
+						},
+						{
+							"code": "R4W-b0300000",
+							"name": "JUNI HARIANTO, ST",
+							"desc": "MGR PERFORMANCE, RISK & QOS"
+						},
+						{
+							"code": "R4W-b0400000",
+							"name": "PARYONO, ST",
+							"desc": "MGR FBB ACCESS & SERVICE OPERATION"
+						},
+						{
+							"code": "R4W-b0500000",
+							"name": "KEMAS CEK AGUS ABDUSSOMAD A.",
+							"desc": "MGR BGES & MBB SERVICE OPERATION"
+						},
+						{
+							"code": "R4W-b0600000",
+							"name": "MYTA IRWANTI",
+							"desc": "MGR NETWORK AREA & IS OPERATION"
+						},
+						{
+							"code": "R4W-b0700000",
+							"name": "ADHI WIDYANTO",
+							"desc": "MGR ACCESS OPTIMA, MAINTENANCE, QE & DAMAN"
+						},
+						{
+							"code": "R4W-b0800000",
+							"name": "TRI ADI SANTOSA, ST",
+							"desc": "KAKANDATEL BANTUL"
+						},
+						{
+							"code": "R4W-b0900000",
+							"name": "NUNUNG SADTOMO PRAPTO, ST",
+							"desc": "KAKANDATEL SLEMAN"
+						},
+						{
+							"code": "R4W-b0000000",
+							"name": "HIRMAG MART DANY",
+							"desc": "HERO KENTUNGAN"
+						},
+						{
+							"code": "R4W-b0000000",
+							"name": "AMBAR PRIHADI",
+							"desc": "HERO KOTA GEDE"
+						},
+						{
+							"code": "R4W-b0800000",
+							"name": "RONI SETIYAWAN, ST",
+							"desc": "HERO WONOSARI"
+						},
+						{
+							"code": "R4W-b0800000",
+							"name": "YOGI ANGGUN SALOKO YUDO",
+							"desc": "HERO WATES"
+						},
+						{
+							"code": "R4W-b0900000",
+							"name": "IMPERATA JOKO SUBROTO",
+							"desc": "HERO KALASAN"
+						}
+					]
+				}
+			]
+		}
+	}
+]

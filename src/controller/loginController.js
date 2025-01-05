@@ -5,10 +5,11 @@ const {
 	userFindById,
 	createSuperAdmin,
 } = require("../service/user");
+require("dotenv").config();
 
 // Secret keys
-const JWT_SECRET = "your-jwt-secret";
-const REFRESH_SECRET = "your-refresh-secret";
+const JWT_SECRET = process.env.ACCESS_TOKEN_KEY;
+const REFRESH_SECRET = process.env.REFRESH_TOKEN_KEY;
 
 // Refresh token storage (In production, use a database)
 let refreshTokens = [];

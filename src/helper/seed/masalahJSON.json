@@ -1,0 +1,2399 @@
+[
+	{
+		"code": "HK.000",
+		"name": "Hukum",
+		"desc": "Naskah/Dokumen yang berkaitan dengan fungsi/kegiatan hukum di lingkungan PT Telkom",
+		"children": [
+			{
+				"code": "HK.100",
+				"name": "Peraturan Non perusahaan",
+				"desc": "Peraturan yang dikeluarkan oleh instansi - instansi diluar perusahaan yang berkaitan dengan : - Kebijakan dasar, - strategi pengelolaan, - standar peralatan/pengoperasian alat telekomunikasi",
+				"children": [
+					{
+						"code": "HK.110",
+						"name": "Peraturan Lembaga",
+						"desc": "Kebijakan dasar yang dikeluarkan oleh lembaga lembaga tinggi negara seperti MPR, DPR, DPA & lembaga pemerintah lainnya. Contoh : - TAP MPR, - Peraturan Pemerintah ,- Inpres/kepres, - Perda"
+					},
+					{
+						"code": "HK.120",
+						"name": "Peraturan Departemen",
+						"desc": "Kebijakan dasar yang tingkatannya lebih operasional dari yang dikeluarkan oleh departemen-departemen teknik (misal: DEPARPOSTEL, DEPNAKER, Perindustrian, dll) dan Direktorat Jendral yang bernaung dibawahnya"
+					},
+					{
+						"code": "HK.130",
+						"name": "Peraturan Non Departemen",
+						"desc": "Kebijakan dasar yang dikeluarkan oleh lembaga lembaga tinggi negara seperti MPR, DPR, DPA & lembaga pemerintah lainnya"
+					},
+					{
+						"code": "HK.140",
+						"name": "Peraturan Internasional",
+						"desc": "Kebijakan dasar yang berkaitan dengan spesifikasi peralatan dan pengelolaan telekomunikasi secara umum yang dikeluarkan oleh lembaga internasional yang berwenang (ITU, CCITT, dll)"
+					},
+					{
+						"code": "HK.150",
+						"name": "Peraturan Non perusahaan lainnya",
+						"desc": "Naskah/dokumen yang berkaitan dengan produk peraturan non perusahaan lainnya"
+					}
+				]
+			},
+			{
+				"code": "HK.200",
+				"name": "Peraturan Perusahaan",
+				"desc": "Peraturan-peraturan yang dikeluarkan oleh unit kerja yang berwenang didalam perusahaan (peraturan, keputusan, instruksi SE) yang meliputi : -kebijaksanaan dasar, -petunjuk pelaksanaan (juklak), -petunjuk tekhnis (juknis), -prosedur tetap (protap)",
+				"children": [
+					{
+						"code": "HK.210",
+						"name": "Peraturan bidang tekhnik telekomunikasi",
+						"desc": "peraturan peraturan dalam bidang tekhnik telekomunikasi yang meliputi operasi tekhnik, pemeliharaan, instalasi & Konstruksi, ataupun network dari perangkat : -sentral telekomunikasi, -sistem transmisi, -jaringan lokal/kabel, -catu daya/mechanical electrical dan sarpen lainnya"
+					},
+					{
+						"code": "HK.220",
+						"name": "Peraturan bidang pelayanan",
+						"desc": "Peraturan peraturan dalam bidang pelayanan (service) terhadap pelanggan yang meliputi: -pelayanan jasa telekomunikasi perorangan (telepon,telex/telegrap, faksimil, sistem komunikasi data, sirkit langganan, jasa transponder, mobile telephone, JASNITA dan lainnya), - pelayanan jasa telekomunikasi umum (TUC, TUK, kamar bicara umum WARTEL, Telegram, kartu telepon dan lainnya)"
+					},
+					{
+						"code": "HK.230",
+						"name": "Peraturan bidang-bidang keuangan",
+						"desc": "peraturan peraturan dalam bidang keuangan misalnya : -bank, -anggaran, -perbendaharaaan, -akuntansi, -pendapatan, -pembiayaan, -tarif"
+					},
+					{
+						"code": "HK.240",
+						"name": "Peraturan bidang Logistik",
+						"desc": "Peraturan peraturan dalam bidang logistik/perlengkapan, misalnya :-kebijaksanaan perlengkapan, -tata cara pengadaan jasa"
+					},
+					{
+						"code": "HK.250",
+						"name": "Peraturan bidang sumber Daya Manusia / DIKLAT",
+						"desc": "Peraturan peraturan dalam bidang sumber daya manusia dan pendidikan dan latihan misalnya : -mutasi karyawan/cuti, -penghargaan, -fasilitas karyawan"
+					},
+					{
+						"code": "HK.260",
+						"name": "Peraturan bidang pengawasan Hukum",
+						"desc": "peraturan peraturan dan bidang pengawasan dan hukum"
+					},
+					{
+						"code": "HK.270",
+						"name": "Peraturan bidang pengolahan data/pelaporan",
+						"desc": "peraturan peraturan dalam bidang pengelohan data/pelaporan : -peraturan SIMAK"
+					},
+					{
+						"code": "HK.280",
+						"name": "Peraturan bidang penelitian/pengembangan",
+						"desc": "peraturan peraturan dalam bidang penelitian/pengembangan"
+					},
+					{
+						"code": "HK.290",
+						"name": "Peraturan bidang lainnya",
+						"desc": "peraturan peraturan dalam bidang bidang yang tidak termasuk dalam klasifikasi diatas: -peraturan bidang umum (kebersihan, building management, dll)"
+					}
+				]
+			},
+			{
+				"code": "HK.300",
+				"name": "PERDATA",
+				"desc": "naskah/dokumen yang berkaitan dengan urusan keperdataan didalam perusahaan dan antara perusahaan dengan pihak luar",
+				"children": [
+					{
+						"code": "HK.310",
+						"name": "Perseorangan",
+						"desc": "naskah/dokumen yang berkaitan dengan urusan keperdataaan antara perseorangan didalam perusahaan dan dengan pihak luar"
+					},
+					{
+						"code": "HK.320",
+						"name": "Kebendaan",
+						"desc": "naskah / dokumen yang berkaitan dengan urusan keperdataan dalam hal kebendaan"
+					},
+					{
+						"code": "HK.330",
+						"name": "Pembuktian dan kadaluarsa",
+						"desc": "naskah/dokumen yang berkaitan dengan urusan pembuktian masalah keperdataan dan kadaluarsa"
+					},
+					{
+						"code": "HK.340",
+						"name": "Tanah/Bangunan",
+						"desc": "naskah/dokumen yang berkaitan dengan urusan tanah/bangunan: -pembebasan tanah, -pembebasan rumah"
+					}
+				]
+			}
+		]
+	},
+	{
+		"code": "IN.000",
+		"name": "DAPENTEL Investasi",
+		"desc": "Dapentel Investasi",
+		"children": [
+			{
+				"code": "IN.100",
+				"name": "Investasi Langsung",
+				"desc": "Investasi langsung",
+				"children": [
+					{
+						"code": "IN.110",
+						"name": "Properti",
+						"desc": "Properti"
+					},
+					{
+						"code": "IN.120",
+						"name": "Penyertaan saham",
+						"desc": "Penyertaan saham"
+					},
+					{
+						"code": "IN.130",
+						"name": "Investasi Lainnya",
+						"desc": "Investasi Lainnya"
+					}
+				]
+			},
+			{
+				"code": "IN.200",
+				"name": "Investasi Tidak Langsung",
+				"desc": "Investasi Tidak Langsung",
+				"children": [
+					{
+						"code": "IN.210",
+						"name": "Deposito",
+						"desc": "Deposito"
+					},
+					{
+						"code": "IN.220",
+						"name": "Saham Bursa",
+						"desc": "Saham Bursa"
+					},
+					{
+						"code": "IN.230",
+						"name": "Obligasi",
+						"desc": "Obligasi"
+					},
+					{
+						"code": "IN.240",
+						"name": "SBI",
+						"desc": "SBI"
+					},
+					{
+						"code": "IN.250",
+						"name": "Reksadana",
+						"desc": "Reksadana"
+					},
+					{
+						"code": "IN.260",
+						"name": "Fund Manager",
+						"desc": "Fund Manager"
+					},
+					{
+						"code": "IN.270",
+						"name": "SUN",
+						"desc": "SUN"
+					},
+					{
+						"code": "IN.280",
+						"name": "Custodian",
+						"desc": "Custodian"
+					},
+					{
+						"code": "IN.290",
+						"name": "Investasi tak langsung lainnya",
+						"desc": "Investasi tak langsung lainnya"
+					}
+				]
+			}
+		]
+	},
+	{
+		"code": "KA.000",
+		"name": "DAPENTEL Kepesertaan",
+		"desc": "Dapentel Kepesertaan",
+		"children": [
+			{
+				"code": "KA.100",
+				"name": "Manajemen peserta",
+				"desc": "Manajemen peserta",
+				"children": [
+					{
+						"code": "KA.110",
+						"name": "Pemberitahuan Pensiun",
+						"desc": "Pemberitahuan Pensiun"
+					},
+					{
+						"code": "KA.120",
+						"name": "Penerbitan keputusan pemberian MP Karyawan",
+						"desc": "Penerbitan keputusan pemberian MP Karyawan"
+					},
+					{
+						"code": "KA.130",
+						"name": "Penerbitan keputusan pemberian janda, Duda, anak",
+						"desc": "Penerbitan keputusan pemberian janda, Duda, anak"
+					},
+					{
+						"code": "KA.140",
+						"name": "iuran dana pensiun",
+						"desc": "iuran dana pensiun"
+					},
+					{
+						"code": "KA.150",
+						"name": "murasi data peserta",
+						"desc": "murasi data peserta"
+					},
+					{
+						"code": "KA.160",
+						"name": "mutasi data penerima manfaat pensiun",
+						"desc": "mutasi data penerima manfaat pensiun"
+					}
+				]
+			},
+			{
+				"code": "KA.200",
+				"name": "Manajemen Pelayanan",
+				"desc": "Manajemen Pelayanan",
+				"children": [
+					{
+						"code": "KA.210",
+						"name": "Pembayaran Manfaat pensiun",
+						"desc": "Pembayaran Manfaat pensiun"
+					},
+					{
+						"code": "KA.220",
+						"name": "Pembayaran THT MPS",
+						"desc": "Pembayaran THT MPS"
+					},
+					{
+						"code": "KA.230",
+						"name": "Pembayaran dana peserta",
+						"desc": "Pembayaran dana peserta"
+					},
+					{
+						"code": "KA.240",
+						"name": "penghentian pembayaran manfaat pensiun",
+						"desc": "penghentian pembayaran manfaat pensiun"
+					},
+					{
+						"code": "KA.250",
+						"name": "pelayanan kartu pengenal manfaat pensiun",
+						"desc": "pelayanan kartu pengenal manfaat pensiun"
+					},
+					{
+						"code": "KA.260",
+						"name": "pelayanan kepesertaan lainnya",
+						"desc": "pelayanan kepesertaan lainnya"
+					},
+					{
+						"code": "KA.270",
+						"name": "costumer service",
+						"desc": "costumer service"
+					}
+				]
+			}
+		]
+	},
+	{
+		"code": "KU.000",
+		"name": "Keuangan",
+		"desc": "naskah dokumen yang berkaitan dengan fungsi keuangan dan merupakan kegiatan yang melibatkan koordinasi antara fungsi fungsi perbankan anggaran, perbendaharaan, pendapatan",
+		"children": [
+			{
+				"code": "KU.100",
+				"name": "Perbankan",
+				"desc": "naskah dokumen yang berkaitan dengan fungsi perbankan secara umum",
+				"children": [
+					{
+						"code": "KU.110",
+						"name": "Bank",
+						"desc": "naskah dokumen yang berkaitan dengan bank yang meliputi : -Bank pemerintah bank asing, -bank swasta nasional"
+					},
+					{
+						"code": "KU.120",
+						"name": "Deposito",
+						"desc": "naskah dokumen yang berkaitan dengan deposito"
+					},
+					{
+						"code": "KU.130",
+						"name": "Garansi Bank",
+						"desc": "naskah dokumen yang berkaitan dengan garansi bank. Contoh: -file bank garansi, -pembukaan bank garansi, -surat peringatan bank garansi, -mutasi bank garansi"
+					},
+					{
+						"code": "KU.140",
+						"name": "Valuta Asing",
+						"desc": "naskah dokumen yang berkaitan dengan valutas asing, antara lain : kurs valuta asing, -simpanan valas"
+					},
+					{
+						"code": "KU.150",
+						"name": "Hutang (pinjaman)   kredit",
+						"desc": "naskah dokumen yang berkaitan dengan hutang(pinjaman)   kredit dengan bank pihak lain. Contoh: pembuatan status pengurusan kredit luar negeri, -angsuran hutang pokok, -hutang jangka panjang, hutang, hutang kompensasi,dll"
+					},
+					{
+						"code": "KU.160",
+						"name": "Rekening",
+						"desc": "naskah dokumen yang berkaitan dengan rekening simpanan perusahaan"
+					},
+					{
+						"code": "KU.170",
+						"name": "Check Giro Kiriman uang",
+						"desc": "naskah dokumen yang berkaitan dengan cek giro dan kiriman uang, antara lain: -mutasi cek giro, Girat, dll"
+					},
+					{
+						"code": "KU.180",
+						"name": "Bunga Bank",
+						"desc": "naskah dokumen yang berkaitan dengan bunga bank"
+					}
+				]
+			},
+			{
+				"code": "KU.200",
+				"name": "Anggaran",
+				"desc": "naskah dokumen yang berkaitan dengan anggaran secara umum",
+				"children": [
+					{
+						"code": "KU.210",
+						"name": "Penyusunan Rencana kerja dan anggaran",
+						"desc": "naskah dokumen yang berkaitan dengan penyusunan anggaran antara lain : -RKA RKB, -DRKA"
+					},
+					{
+						"code": "KU.220",
+						"name": "Permintaan dana dan anggaran",
+						"desc": "naskah dokumen yang berkaitan dengan dengan permintaan dana anggaran, contoh: permintaan panjar, -dropping uang, dll"
+					},
+					{
+						"code": "KU.230",
+						"name": "Distribusi dan Redistribusi",
+						"desc": "naskah dokumen yang berkaitan dengan distribusi dan redistribusi anggaran"
+					},
+					{
+						"code": "KU.240",
+						"name": "Realisasi Anggaran",
+						"desc": "naskah dokumen yang berkaitan dengan realisasi penggunana dana anggaran"
+					},
+					{
+						"code": "KU.250",
+						"name": "SUKKA",
+						"desc": "naskah dokumen yang berkaitan dengan SUKKA"
+					},
+					{
+						"code": "KU.260",
+						"name": "Pertanggungan",
+						"desc": "naskah dokumen yang berkaitan dengan pertanggungan penggunaan dana anggaran"
+					}
+				]
+			},
+			{
+				"code": "KU.300",
+				"name": "Perbendaharaan",
+				"desc": "naskah dokumen yang berkaitan dengan perbendaharaan secara umum",
+				"children": [
+					{
+						"code": "KU.310",
+						"name": "Letter of credit",
+						"desc": "naskah dokumen yang berkaitan dengan letter of credit"
+					},
+					{
+						"code": "KU.320",
+						"name": "Perpajakan",
+						"desc": "naskah dokumen yang berkaitan dengan perpajakan antara lain: -Pajak penghasilan (PPH), -pajak pertambahan nilai (PPN) contoh: -keberatan pajak -daftar nominatif pajak"
+					},
+					{
+						"code": "KU.330",
+						"name": "Petty cash",
+						"desc": "naskah dokumen yang berkaitan dengan petty cash"
+					},
+					{
+						"code": "KU.340",
+						"name": "Credit card",
+						"desc": "naskah dokumen yang berkaitan dengan credit card"
+					},
+					{
+						"code": "KU.350",
+						"name": "Penggunaan laba",
+						"desc": "naskah dokumen yang berkaitan dengan penggunaan laba perusahaan"
+					},
+					{
+						"code": "KU.360",
+						"name": "Asuransi",
+						"desc": "naskah dokumen yang berkaitan dengan asuransi antara lain :-asuransi kerugian benda, -asuransi tenaga kerja jiwa, -taspen,dll. Contoh: -penyuluhan bersama PT jasindo, -klaim astek dan taspen"
+					},
+					{
+						"code": "KU.370",
+						"name": "Piutang",
+						"desc": "naskah dokumen yang berkaitan dengan piutang perusahaan atau tunggakan hutang pihak lain kepada perusahaan. Contoh: -surat pemberitahuan tunggakan, -perhitungan saldo hutang rekanan dan piutang uang muka, -analisis piutang usaha, -piutang usaha nasional"
+					},
+					{
+						"code": "KU.380",
+						"name": "Kas",
+						"desc": "naskah dokumen yang berkaitan dengan kas"
+					},
+					{
+						"code": "KU.390",
+						"name": "Uang jaminan",
+						"desc": "naskah dokumen yang berkaitan dengan uang jaminan"
+					}
+				]
+			},
+			{
+				"code": "KU.400",
+				"name": "Pendapatan Jasa Dasar",
+				"desc": "naskah dokumen yang berkaitan dengan seluruh pendapatan perusahaan yang diperoleh melalui jasa dasar perusahaan",
+				"children": [
+					{
+						"code": "KU.410",
+						"name": "Pendapatan Telepon",
+						"desc": "naskah dokumen yang berkaitan dengan pendapatan perusahaan yang diperoleh melalui jasa telepon yang meliputi: -pendapatan jasa telepon pelanggan (telepon otomat, mobile telephone,dll), -pendapatan jasa telepon umum (TUK TUC,wartel, kios, KBU,dll), -pendapatan jasa radio panggil (paging) &amp; trunking. Contoh: -Billing (tagihan), -surat perintah setor pembayaran PSB kepada calang, -daftar kuitansi pertanggal 25 bulan bersangkutan"
+					},
+					{
+						"code": "KU.420",
+						"name": "Pendapatan Telex Telegraph faksmili",
+						"desc": "naskah dokumen yang berkaitan dengan pendapatan perusahaan yang diperoleh melalui jasa telex telegraph faksimil birofax. Contoh: -billing (tagihan) telex, pendapatan birofax"
+					},
+					{
+						"code": "KU.430",
+						"name": "Pendapatan Telegram",
+						"desc": "naskah dokumen yang berkaitan dengan pendapatan perusaahn yang diperoleh melalui telegram antara lain: -pendapatan jasa telegram indah, -pendapatan jasa telegram biasa,dll"
+					},
+					{
+						"code": "KU.440",
+						"name": "Pendapatan sirkit langganan",
+						"desc": "naskah dokumen yang berkaitan dengan pendapatan perusahaan yang diperoleh melalui jasa sirkit langganan (sirkit sewa)"
+					},
+					{
+						"code": "KU.450",
+						"name": "pendapatan jasa transpoder",
+						"desc": "naskah dokumen yang berkaitan dengan pendapatan perusahaan yang diperoleh melalui jasa penyewaan transponder satelit"
+					},
+					{
+						"code": "KU.460",
+						"name": "pedapatan sistem komunikasi data",
+						"desc": "naskah dokumen yang berkaitan dengan pendapatan perusahaan yang diperoleh melalui jasa sistem komunikasi data, antara lain: -jasa SKDP, -jasa sistem informasi elektronik, -jasa SKSBM VSAT"
+					},
+					{
+						"code": "KU.470",
+						"name": "pendapatan jasa nilai tambah",
+						"desc": "naskah dokumen yang berkaitan dengan pendapatan perusahaan yang diperoleh melalui jasa nilai tambah"
+					},
+					{
+						"code": "KU.480",
+						"name": "pendapatan jasa dasar lainnya",
+						"desc": "naskah dokumen yang berkaitan dengan pendapatan perusahaan yang diperoleh melalui jasa dasar lainnya"
+					}
+				]
+			},
+			{
+				"code": "KU.500",
+				"name": "Pendapatan Jasa Khusus",
+				"desc": "naskah dokumen yang berkaitan dengan seluruh pendapatan perusahaan yang diperoleh melalui jasa khusus perusahaan",
+				"children": [
+					{
+						"code": "KU.510",
+						"name": "Pendapatan kartu telepon",
+						"desc": "naskah dokumen yang berkaitan dengan pendapatan perusahaan yang diperoleh melalui hasil penjualan kartu telepon. Contoh: transaksi TUK"
+					},
+					{
+						"code": "KU.520",
+						"name": "pendapatan radio kapal",
+						"desc": "naskah dokumen yang berkaitan dengan pendapatan perusahaan"
+					},
+					{
+						"code": "KU.530",
+						"name": "pendapatan proyek",
+						"desc": "naskah dokumen yang berkaitan dengan pendapatan perusahaan yang diperoleh melalui pendapatan proyek"
+					},
+					{
+						"code": "KU.540",
+						"name": "pendapatan jasa konsultasi",
+						"desc": "naskah dokumen yang berkaitan dengan pendapatan perusahaan yang diperoleh melalui jasa konsultasi yang diberikan oleh perusahaan kepada pihak lain"
+					},
+					{
+						"code": "KU.550",
+						"name": "pendapatan royalties",
+						"desc": "naskah dokumen yang berkaitan dengan pendapatan perusahaan yang diperoleh melalui royalties dari jasa tertentu. Contoh: -tagihan royalties dengan PT ELNUSA untuk YELOOW PAGES"
+					},
+					{
+						"code": "KU.560",
+						"name": "pendapatan khusus lainnya",
+						"desc": "naskah dokumen yang berkaitan dengan pendapatan perusahaan yang diperoleh melalui jasa khusus lainnya"
+					}
+				]
+			},
+			{
+				"code": "KU.600",
+				"name": "PEMBAYARAN PEMBIAYAAN",
+				"desc": "naskah dokumen yang berkaitan dengan seluruh pembayaran pembiayaan yang dilakukan oleh perusahaan",
+				"children": [
+					{
+						"code": "KU.610",
+						"name": "Rekening Kerumahtanggaan",
+						"desc": "naskah dokumen yang berkaitan dengan pembayaran pembiayaan perusahaan untuk rekening kerumahtanggaan. Contoh: -pembiayaan biaya rapat, -pembayaran biaya bulanan PAM, AQUA, ARTESIS"
+					},
+					{
+						"code": "KU.620",
+						"name": "Pembayaran pegawai pensiunan",
+						"desc": "naskah dokumen yang berkaitan dengan pembayaran pembiayaan perusahaan untuk pegawai dan pensiunan seperti: -pembayaran gaji pegawai, -pembayaran pengobatan pegawai, -pembayaran SPPD, -pembayaran tunjangan, -dll Contoh: -restitusi pengobatan (dokter, apotik, rumah sakit kontrak), -pembayaran sumbangan kematian  tunjangan duka, -master listing kepegawaian, -pembayaran panjar THT, -pembiayaan pengasramaan"
+					},
+					{
+						"code": "KU.630",
+						"name": "pembayaran operasi dan pemeliharaan",
+						"desc": "naskah dokumen yang berkaitan dengan pembayaran pembiayaan perusahaan untuk operasional dan pemeliharaan saran produksi. Contoh: -bon pengeluaran bahan bakar, -biaya pengecetan gedung, dll"
+					},
+					{
+						"code": "KU.640",
+						"name": "pembayaran sewa",
+						"desc": "naskah dokumen yang berkaitan dengan pembayaran pembiayaan perusahaan untuk sewa kepada pihak lain. Contoh: -sewa gedung rumah ruang, -sewa peralatan dll"
+					},
+					{
+						"code": "KU.650",
+						"name": "pembayaran proyek",
+						"desc": "naskah dokumen yang berkaitan dengan pembayaran pembiayaan perusahaan untuk proyek dalam bentuk apapun. Contoh: -pendanaan untuk proyek bantuan LN ke DIRPEN"
+					},
+					{
+						"code": "KU.660",
+						"name": "pembayaran peralatan perangkat",
+						"desc": "naskah dokumen yang berkaitan dengan pembayaran pembiayaan perusahaan untuk perangkat peralatan. Contoh: -pembayaran pembelian perangkat sentral, -pembayaran pembelian spare parts kendaraan, dll"
+					},
+					{
+						"code": "KU.670",
+						"name": "pembayaran jasa konsultas",
+						"desc": "naskah dokumen yang berkaitan dengan pembayaran pembiayaan perusahaan untuk jasa konsultan yang digunakan oleh perusahaan, seperti: pembayaran PA Consulting group, -pembayaran untuk konsultan JICA dll"
+					},
+					{
+						"code": "KU.680",
+						"name": "pembayaran Hutang angsuran",
+						"desc": "naskah dokumen yang berkaitan dengan pembayaran hutang angsuran perusahaan"
+					},
+					{
+						"code": "KU.690",
+						"name": "pembayaran pembiayaan lainnya",
+						"desc": "naskah dokumen yang berkaitan dengan pembayaran pembiayaan perusahaan untuk keperluan lainnya, seperti: pembayaran panjar uang muka dll"
+					}
+				]
+			},
+			{
+				"code": "KU.700",
+				"name": "AKUNTANSI",
+				"desc": "naskah dokumen yang berkaitan dengan perlakuan akuntasi. Cotnoh: -pengujian perlakuan akuntasi wilayah pusat, -informasi kekeliruan perlakuan akuntasi wilayah",
+				"children": [
+					{
+						"code": "KU.710",
+						"name": "perlakuan akuntansi",
+						"desc": "naskah dokumen yang berkaitan dengan cashflow perusahaan. Contoh: -pembuatan cashflow harian, mingguan, dll"
+					},
+					{
+						"code": "KU.720",
+						"name": "cash flow",
+						"desc": "naskah dokumen yang berkaitan dengan neraca keuangan rugi laba perusahaan"
+					},
+					{
+						"code": "KU.730",
+						"name": "neraca rugi laba",
+						"desc": "naskah dokumen yang berkaitan dengan analisa laporan keuangan seperti analisa RSL (Rentabilitas, solvabilitas, Rentabilitas) -analisa ratio keuangan, dll"
+					},
+					{
+						"code": "KU.740",
+						"name": "analisa laporan keuangan",
+						"desc": "naskah dokumen yang berkaitan dengan pembukuan perusahaan. Contoh: -pembukuan penerimaan dan pengeluaraan kas, -pembukuan K-7 CN ke buku bank rek. A dengan model input S.011"
+					},
+					{
+						"code": "KU.750",
+						"name": "pembukuan",
+						"desc": "naskah dokumen yang berkaitan dengan rekonsiliasi. Contoh: -pembuatan rekonsiliasi bank, -rekonsiliasi antara SIMAK 110 dengan GI 565, -Rekonsiliasi saldo bank antara saldo SIMAK 106 dengan saldo RC untuk BDN"
+					},
+					{
+						"code": "KU.760",
+						"name": "rekonsiliasi",
+						"desc": "naskah dokumen yang berkaitan dengan administrasi pendapatan secara umum"
+					}
+				]
+			},
+			{
+				"code": "KU.800",
+				"name": "ADMINISTRASI KEUANGAN",
+				"desc": "naskah dokumen yang berkaitan dengan administrasi keuangan",
+				"children": [
+					{
+						"code": "KU.810",
+						"name": "Statistik",
+						"desc": "naskah dokumen yang berkaitan dengan statistik pendapatan perusahaan"
+					},
+					{
+						"code": "KU.820",
+						"name": "Pentarifan",
+						"desc": "naskah dokumen yang berkaitan dengan pentarifan, contoh: -evaluasi dan analisan peraturan operasi tarif, -penyesuain tarif baru pulsa telpon"
+					},
+					{
+						"code": "KU.830",
+						"name": "Surat berharga",
+						"desc": "naskah dokumen yang berkaitan dengan surat surat berharga, contoh: obligasi saham dll"
+					},
+					{
+						"code": "KU.840",
+						"name": "administrasi keuangan lainnya",
+						"desc": "naskah dokumen yang berkaitan dengan adminsitrasi lainnya"
+					}
+				]
+			}
+		]
+	},
+	{
+		"code": "LB.000",
+		"name": "PENELITIAN DAN PENGEMBANGAN",
+		"desc": "naskah dokumen yang berkaitan dengan kegiatan penelitian dan pengembangan yang meliputi penelitian, pengembangan pengujian perangkat maupun manajemen",
+		"children": [
+			{
+				"code": "LB.100",
+				"name": "Perencanaan perusahaan",
+				"desc": "naskah dokumen yang berkaitan dengan perencanaan perusahaan",
+				"children": [
+					{
+						"code": "LB.110",
+						"name": "corporate plan",
+						"desc": "naskah dokumen yang berkaitan dengan corporate plan PT"
+					},
+					{
+						"code": "LB.120",
+						"name": "repelita",
+						"desc": "naskah dokumen yang berkaitan dengan rencana pembangunan lima tahunan (REPELITA)"
+					},
+					{
+						"code": "LB.130",
+						"name": "business plan",
+						"desc": "naskah dokumen yang berkaitan dengan business plan"
+					}
+				]
+			},
+			{
+				"code": "LB.200",
+				"name": "PENELITIAN, PENGEMBANGAN DAN PENGUJIAN PERANGKAT",
+				"desc": "naskah dokumen yang berkaitan dengan penelitian, pengembangan dan pengujian perangkat sarana peralatan sentral yang meliputi sentral telepon, sentral telex, sentral ata ataupun sentral lainnya",
+				"children": [
+					{
+						"code": "LB.210",
+						"name": "Penelitian Pengujian Pengembangan Perangkat sentral",
+						"desc": "naskah dokumen yang berkaitan dengan penelitian, pengembangan dan pengujian perangkat saran peralatan sistem transmisi yang meliputi sistem transmisi kabel, sistem transmisi terestial, sistem transmisi satelit atupun sistem transimisi lainnya"
+					},
+					{
+						"code": "LB.220",
+						"name": "Penelitian Pengujian Pengembangan perangkat sistem transmisi",
+						"desc": "naskah dokumen yang berkaitan dengan penelitian, pengembangan dan pengujian sistem jaringan kabel (lokal) dan sarannya dll"
+					},
+					{
+						"code": "LB.230",
+						"name": "Penelitian Pengujian Pengembangan jaringan",
+						"desc": "naskah dokumen yang berkaitan dengan penelitian, pengembangan dan pengujian perangkat telepon"
+					},
+					{
+						"code": "LB.240",
+						"name": "Penelitian Pengujian Pengembangan perangkat telepon",
+						"desc": "naskah dokumen yang berkaitan dengan penelitian pengembangan dan pengujian perangkat sarana peralatan catudaya mechanical electrical (AC, trafo, genset, AVR, UPS, Battery,dll)"
+					},
+					{
+						"code": "LB.250",
+						"name": "Penelitian Pengujian Pengembangan perangkat telex telegraph faksimile",
+						"desc": "naskah dokumen yang berkaitan dengan penelitian, pengembangan dan pengujian perangkat sarana peralatan catudaya mechanical electrical (AC, trafo, genset, AVR, UPS, battery dll)"
+					},
+					{
+						"code": "LB.260",
+						"name": "Penelitian Pengujian Pengembangan perangkat catu daya ME",
+						"desc": "naskah dokumen yang berkaitan dengan penelitian, pengembangan dan pengujian perangkat   sarana peralatan lainnya"
+					},
+					{
+						"code": "LB.270",
+						"name": "Penelitian Pengujian Pengembangan perangkat lainnya",
+						"desc": "naskah dokumen yang berkaitan dengan penelitian dan pengembangan manajemen secara umum yang meliputi penelitian, pengembangan sistem prosedur dan administrasi dari fungsi yang ada di PT Telkom"
+					}
+				]
+			},
+			{
+				"code": "LB.300",
+				"name": "PENELITIAN DAN PENGEMBANGAN MANAJEMEN FUNGSIONAL",
+				"desc": "naskah dokumen yang berkaitan dengan penelitian dan pengembangan manajemen dibidang teknik yang meliputi manajemen operasi, instalasi kontruksi (pembangunan) maupun pemeliharaan perangkat. Contoh: -penelitian dan pengembangan sisdur operasi dan pemeliharaan",
+				"children": [
+					{
+						"code": "LB.310",
+						"name": "Penelitian pengembangan manajemen teknik",
+						"desc": "naskah dokumen yang berkaitan dengan penelitian dan pengembangan manajemen bidang pelayanan (service) kepada pelanggan. Contoh: - penelitian dan pengembangan sistem dan prosedur pelayanan pasang baru telepon. -pembuatan market survey produk pelayanan jasa baru"
+					},
+					{
+						"code": "LB.320",
+						"name": "Penelitian pengembangan manajemen pelayanan",
+						"desc": "naskah dokumen yang berkaitan dengan penelitian dan pengembangan manajemen bidang personalia atau SDM. Contoh: -pengkajian, penyusunan, penyempurnaan peraturan pokok kepegawaian. -penelitian produktivitas unit kerja maupun perorangan"
+					},
+					{
+						"code": "LB.330",
+						"name": "Penelitian pengembangan manajemen personalia",
+						"desc": "naskah dokumen yang berkaitan dengan penelitian dan pengembangan manajemen bidang pendidikan dan pelatihan"
+					},
+					{
+						"code": "LB.340",
+						"name": "Penelitian pengembangan manajemen pendidikan dan pelatihan",
+						"desc": "naskah dokumen yang berkaitan dengan penelitian dan pengembangan manajemen bidang logistik, contoh: -perancangan sistem dan prosedur pengadaan barang dan jasa"
+					},
+					{
+						"code": "LB.350",
+						"name": "Penelitian pengembangan manajemen logistik",
+						"desc": "naskah dokumen yang berkaitan dengan penelitian dan pengembangan manajemen bidang keuangan"
+					},
+					{
+						"code": "LB.360",
+						"name": "Penelitian pengembangan manajemen keuangan",
+						"desc": "naskah dokumen yang berkaitan dengan penelitian dan pengembangan  manajemen bidang pengawasan (controlling) dan hukum. Contoh: -penelitian, perumusan standarisasi perikatan dalam negeri non pengadaan"
+					},
+					{
+						"code": "LB.370",
+						"name": "Penelitian pengembangan manajemen pengawasan dan hukum",
+						"desc": "naskah dokumen yang berkaitan dengan penelitian dan pengembangan manajemen bidang pelaporan dan pengolahan data"
+					},
+					{
+						"code": "LB.380",
+						"name": "Penelitian pengembangan manajemen pelaporan dan pengolahan data",
+						"desc": "naskah dokumen yang berkaitan dengan penelitian dan pengembangan manajemen fungsional lainnya"
+					},
+					{
+						"code": "LB.390",
+						"name": "Penelitian pengembangan manajemen fungsional lainnya",
+						"desc": "naskah dokumen yang berkaitan dengan fungsi logistik atau kegiatan bidang logistik yang meliputi: -perencananaan   analisis kebutuhan barang dan atau jasa, -proses pegadaan, penyerahaan penerimaan ditribusi, penghapusan dan adminsitrasi logistik"
+					}
+				]
+			}
+		]
+	},
+	{
+		"code": "LG.000",
+		"name": "LOGISTIK",
+		"desc": "naskah dokumen yang berkaitan dengan perencanaan   analisa dan evaluasi kebutuhan barang dan atau jasa",
+		"children": [
+			{
+				"code": "LG.100",
+				"name": "PERENCANAAN DAN ANALISA KEBUTUHAN",
+				"desc": "naskah dokumen yang berkaitan dengan perencanaan dan analisa kebutuhan",
+				"children": [
+					{
+						"code": "LG.110",
+						"name": "perencanaan kebutuhan",
+						"desc": "naskah dokumen yang berkaitan dengan  perencanaan kebutuhan barang dan atau jasa baik jangka pendek ataupun jangka panjang"
+					},
+					{
+						"code": "LG.120",
+						"name": "harga standar harga refrensi harga patok",
+						"desc": "naskah dokumen yang berkaitan dengan harga standar  harga refrensi,"
+					}
+				]
+			},
+			{
+				"code": "LG.200",
+				"name": "PENGADAAN",
+				"desc": "naskah dokumen yang berkaitan dengan Pengadaan",
+				"children": [
+					{
+						"code": "LG.210",
+						"name": "Permintaan barang jasa",
+						"desc": "naskah dokumen yang berkaitan dengan permintaan barang dan atau jasa"
+					},
+					{
+						"code": "LG.220",
+						"name": "penawaran harga",
+						"desc": "naskah dokumen yang berkaitan dengan penawaran harga barang dan jasa atau yang dajukan rekanan barang dan atau jasa"
+					},
+					{
+						"code": "LG.230",
+						"name": "konfirmasi",
+						"desc": "naskah dokumen yang berkaitan dengan konfirmasi tekhnik ataupun administrasi kepada pihak luar"
+					},
+					{
+						"code": "LG.240",
+						"name": "tender",
+						"desc": "naskah dokumen yang berkaitan dengan tender atau lelang"
+					},
+					{
+						"code": "LG.250",
+						"name": "evaluasi",
+						"desc": "naskah dokumen yang berkaitan dengan evaluasi"
+					},
+					{
+						"code": "LG.260",
+						"name": "klasifikasi negosiasi",
+						"desc": "naskah dokumen yang berkaitan dengan klarifikasi barang dan atau jasa dan proses negosiasinya"
+					},
+					{
+						"code": "LG.270",
+						"name": "penetapan pemenang",
+						"desc": "naskah dokumen yang berkaitan dengan penetapan pemenang pengadaan barang atau jasa"
+					},
+					{
+						"code": "LG.280",
+						"name": "pengadaan pembelian langsung",
+						"desc": "naskah dokumen yang berkaitan dengan pembelian barang   material dan atau jasa tanpa melalui tender"
+					}
+				]
+			},
+			{
+				"code": "LG.300",
+				"name": "PENERIMAAN PENYERAHAN DAN DISTRIBUSI",
+				"desc": "naskah dokumen yang berkaitan dengan kegiatan penyerahan penerimaan barang dan kegiatan pergudangan",
+				"children": [
+					{
+						"code": "LG.310",
+						"name": "Pemeriksanaan",
+						"desc": "naskah dokumen yang berkaitan dengan pemeriksanaan barang dan atau jasa yang akan diterima"
+					},
+					{
+						"code": "LG.320",
+						"name": "Penerimaan",
+						"desc": "naskah dokumen yang berkaitan dengan penerimaan barang"
+					},
+					{
+						"code": "LG.330",
+						"name": "penyimpanan pergudangan",
+						"desc": "pergudangan dan penyimpanan barang Contoh: PER 42"
+					},
+					{
+						"code": "LG.340",
+						"name": "distribusi pengiriman",
+						"desc": "naskah dokumen yang berkaitan dengan pengalokasian barang (distribusi brang) atau pengiriman"
+					},
+					{
+						"code": "LG.350",
+						"name": "peminjaman pengeluaran",
+						"desc": "naskah dokumen yang berkaitan dengan peminjaman dan pengeluaran barang contoh: -penggunaan   pemijaman kendaraan dinas, -ijin perjalanan kendaraan, -bon pengeluaran barang"
+					},
+					{
+						"code": "LG.360",
+						"name": "pengembalian",
+						"desc": "naskah dokumen yang berkaitan dengan pengembalian barang perangkat"
+					}
+				]
+			},
+			{
+				"code": "LG.400",
+				"name": "PENGHAPUSAN BARANG",
+				"desc": "naskah dokumen yang berkaitan dengan kegiatan penghapusan barang",
+				"children": [
+					{
+						"code": "LG.410",
+						"name": "Usulan penghapusan",
+						"desc": "naskah dokumen yang berkaitan dengan usulan penghapusan barang, contoh: usulan penghapusan   pengajuan penghapusan"
+					},
+					{
+						"code": "LG.420",
+						"name": "penghibaan",
+						"desc": "naskah dokumen yang berkaitan dengan kegiatan penghibahan barang yang sudah tidak terpakai lagi"
+					},
+					{
+						"code": "LG.430",
+						"name": "penjualan   pelelangan",
+						"desc": "naskah dokumen yang berkaitan dengan penghapusan barang melalui penjualan pelelangan"
+					}
+				]
+			},
+			{
+				"code": "LG.500",
+				"name": "ADMINISTRASI LOGISTIK",
+				"desc": "naskah dokumen yang berkaitan dengan kegiatan pengadministrasian barang",
+				"children": [
+					{
+						"code": "LG.510",
+						"name": "Kodefikasi   indexing",
+						"desc": "naskah dokumen yang berkaitan dengan pemberian kode (kodefikasi) dana indexing barang, contoh: -kardex KBM, -ST33 dan ST44"
+					},
+					{
+						"code": "LG.520",
+						"name": "inventarisasi barang",
+						"desc": "naskah dokumen yang berkaitan dengan inventarisasi barnag. Contoh: inventarisasi peralatan kerja dan kantor -fixed asset tanah bangunan, -daftar barang"
+					},
+					{
+						"code": "LG.530",
+						"name": "rekanan barang rekanan jasa",
+						"desc": "naskah dokumen yang berkaitan dengan pendaftaran rekanan barang dan atau jasa. Contoh: -pembuatan daftar rekanan, -konsultan pembangunan gedung PT Telkom"
+					},
+					{
+						"code": "LG.540",
+						"name": "pengelolaan bukti kepemilikan",
+						"desc": "naskah dokumen yang berkaitan dengan pengelolaan bukti kepemilikan perusahaan. Contoh: -BPKB dan surat surat BPKB, STNK, --sertifikat tanah, -surat kir, -bukti kepemilikan lainnya"
+					},
+					{
+						"code": "LG.550",
+						"name": "persediaan dan inventory",
+						"desc": "naskah dokumen yang berkaitan dengan persedian barang dan kegiatan inventory"
+					},
+					{
+						"code": "LG.560",
+						"name": "mutasi barang",
+						"desc": "naskah dokumen yang berkaitan dengan mutasi barang perangkat di lingkungan perusahaan, -menara tower, -halaman, dll. Contoh: -perencanaan gedung OPMC dan STO Bintaro, -pemeliharaan gedung kantor pusat, -dan lain lain"
+					},
+					{
+						"code": "LG.570",
+						"name": "administrasi logistik lainnya",
+						"desc": "naskah dokumen yang berkaitan dengan administrasi logistik lainny"
+					}
+				]
+			}
+		]
+	},
+	{
+		"code": "LP.000",
+		"name": "PENGOLAHAN DATA DAN PELAPORAN",
+		"desc": "naskah dokumen yang berkaitan dengan pengolahan data  pelaporan seluruh kegiatan (fungsi kegiatan) yang ada di PT Telkom",
+		"children": [
+			{
+				"code": "LP.100",
+				"name": "PENGOLAHAN DATA PELAPORAN KEUANGAN DAN ANGGARAN",
+				"desc": "naskah dokumen yang berkaitan dengan pengolahan data pelaporan dibidang keuangan dan anggaran secara umum (rutin ataupun berkala) yang meliputi bidang perbankan, bidang anggaran keuangan, bidang perbendaharaan, pendapatan pembayaran, bidang akuntansi dan administrasi pendapatan",
+				"children": [
+					{
+						"code": "LP.110",
+						"name": "Pengolahan data pelaporan bank",
+						"desc": "naskah dokumen yang berkaitan dengan pengolahan data pelaporan perbankan (rutin berkala) yang berhubungan dengan PT yang meliputi: - bank, garansi bank, kurs valas, rekening, kredit hutang pinjaman, check giro bilyet kiriman uang bunga bank dll"
+					},
+					{
+						"code": "LP.120",
+						"name": "pengolahan data pelaporan BPK",
+						"desc": "naskah dokumen yang berkaitan dengan pengolahan data pelaporan PT kepada BPK dan sebaliknya"
+					},
+					{
+						"code": "LP.130",
+						"name": "pengolahan data pelaporan BPKP",
+						"desc": "naskah dokumen yang berkaitan dengan pengolahan data pelaporan kepada BPKP atau sebaliknya"
+					},
+					{
+						"code": "LP.140",
+						"name": "pengolahan data pelaporan keuangan",
+						"desc": "naskah dokumen yang berkaitan dengan pengolahan data pelaporan keuangan perusahaan"
+					},
+					{
+						"code": "LP.150",
+						"name": "pengolahan data pelaporan anggaran dan pertanggungan",
+						"desc": "naskah dokumen yang berkaitan dengan pengolahan data pelaporan perusahaan seperti realisasi dan pertanggungjawabannya"
+					},
+					{
+						"code": "LP.160",
+						"name": "pengolahan data pelaporan anggaran dan pertangungjawaban",
+						"desc": "naskah dokumen yang berkaitan dengan pengolahan data pelaporan anggaran perusahaan seperti realisasi dan pertanggungannya"
+					},
+					{
+						"code": "LP.170",
+						"name": "pengolahan data pelaporan lainnya",
+						"desc": "naskah dokumen yang berkaitan dengan pengolahan data pelaporan keuangan dan anggaran lainnya"
+					}
+				]
+			},
+			{
+				"code": "LP.200",
+				"name": "PENGOLAHAN DATA PELAPORAN TEKNIS",
+				"desc": "naskah dokumen yang berkaitan dengan pengolahan data pelaporan bidang teknis secara keseluruhan (network) rutin berkala",
+				"children": [
+					{
+						"code": "LP.210",
+						"name": "Pelaporan sentral",
+						"desc": "naskah dokumen yang berkaitan dengan pengolahan data pelaporan sistem transmisi (sistem transmisi kabel, sistem transmisi terestial, sistem transmisi satelit dan lainnya) secara rutin berkala"
+					},
+					{
+						"code": "LP.220",
+						"name": "pengolahan data pelaporan sistem transmisi",
+						"desc": "naskah dokumen yang berkaitan dengan pengolahan data pelaporan sistem transmisi (sistem transmisi kabel, sistem transmisi terestrial, sistem transmisi satelit dan lainnya secara rutin dan berkala"
+					},
+					{
+						"code": "LP.230",
+						"name": "pengolahan data pelaporan jaringan lokal (kabel)",
+						"desc": "naskah dokumen yang berkaitan dengan pengolahan data pelaporan untuk jaringan lokal atau kabel (jaringan lokal lokal atas tanah dan bawah\ntanah) secara rutin ataupun berkala"
+					},
+					{
+						"code": "LP.240",
+						"name": "pengolahan data pelaporan catu daya mechanical electrical",
+						"desc": "naskah dokumen yang berkaitan dengan pengolahan data pelaporan sarana perangkat catu daya mechanical electrical secara rutin ataupunberkala"
+					},
+					{
+						"code": "LP.250",
+						"name": "pengolahan data pelaporan bangunan konstruksi",
+						"desc": "naskah dokumen yang berkaitan dengan pengolahan data pelaporan sarana bangunan kontruksi secara rutin atau berkala"
+					},
+					{
+						"code": "LP.260",
+						"name": "pengolahan data pelaporan perangkat atau sarana lainnya",
+						"desc": "naskah dokumen yang berkaitan dengan pengolahan data pelaporan sarana bangunan kontruksi secara rutin atau berkala meliputi bangunan dan kontruksid an lainnya"
+					}
+				]
+			},
+			{
+				"code": "LP.300",
+				"name": "PENGOLAHAN DATA PELAPORAN PELAYANAN JASA FASILITAS TELEKOMUNIKASI PERORANGAN",
+				"desc": "naskah dokumen yang berkaitan dengan pengolahan data pelaporan dari perencanaan, pelayanan (service), pemasaran penjualan jasa telekomunikasi, instalasi (pemasangan), konstruksi (pembangunan), pengoperasian, pemeliharaan perbanikan perangkat untuk jasa telekomunikasi dengan pelanggan perorangan",
+				"children": [
+					{
+						"code": "LP.310",
+						"name": "Pengolahan data pelaporan telepon",
+						"desc": "naskah dokumen yang berkaitan dengan pengolahan data pelaporan tentang telepon yang meliputi telepon pelanggan, radio paging, trunking, telephone, telephone credit card dan lainnya, baik itu fastel dinas, berbayar ataupun temporer"
+					},
+					{
+						"code": "LP.320",
+						"name": "Pengolahan data pelaporan telex telegrap faksmil",
+						"desc": "naskah dokumen yang berkaitan dengan pengolahan data pelaporan telex telegraph faksimil"
+					},
+					{
+						"code": "LP.330",
+						"name": "Pengolahan data pelaporan sistem komunikasi",
+						"desc": "naskah dokumen yang berkaitan dengan pengolahan data pelaporan sistem komunikasi khusus yang terdiri dari: -sistem komunikasi data paket (SKDP), -sistem komunikasi stasiun bumi makro (SKSBM), -sistem informasi elektronik"
+					},
+					{
+						"code": "LP.340",
+						"name": "Pengolahan data pelaporan sirkit langganan",
+						"desc": "naskah dokumen yang berkaitan dengan masalah pengolahan data pelaporan pelayanan jasa sirkit langganan atau sirkit sewa (LC LDS)"
+					},
+					{
+						"code": "LP.350",
+						"name": "Pengolahan data pelaporan jasa transponder",
+						"desc": "naskah dokumen yang berkaitan dengan pengolahan data pelaporan jasa sewa transponder satelit"
+					},
+					{
+						"code": "LP.360",
+						"name": "Pengolahan data pelaporan mpbile telephone",
+						"desc": "naskah dokumen yang berkaitan dengan pengolahan data pelaporan jasa telepon bergerak (mobile telephone)"
+					},
+					{
+						"code": "LP.370",
+						"name": "Pengolahan data pelaporan jasa nilai tambah (jasnita)",
+						"desc": "naskah dokumen yang berkaitan dengan pengolahan data pelaporan jasa nilai tambah (JASNITA)"
+					},
+					{
+						"code": "LP.380",
+						"name": "Pengolahan data pelaporan jasa fasilitas telekomunikasi perorangan lainnya",
+						"desc": "naskah dokumen yang berkaitan dengan pengolahan data pelaporan jasa fasilitas telekomunikasi perseorangan lainnya"
+					}
+				]
+			},
+			{
+				"code": "LP.400",
+				"name": "PENGOLAHAN DATA PELAPORAN PELAYANAN JASA FASILITAS TELEKOMUNIKASI UMUM",
+				"desc": "naskah dokumen yang berkaitan dengan pengolahan data pelaporan dari perencanaan, pelayanan (service), pemasaran penjualan jasa telekomunikasi, instalasi (pemasangan), konstruksi (pembangunan), pengoperasian, pemeliharaan perbaikan perangkatnua untuk kepentingan masyrakat umum",
+				"children": [
+					{
+						"code": "LP.410",
+						"name": "Pengolahan data pelaporan telepon umum coin",
+						"desc": "naskah dokumen yang berkaitan dengan pengolahan data pelaporan telepon coin (TUC)"
+					},
+					{
+						"code": "LP.420",
+						"name": "pengolahan data pelaporan telepon umum kartu",
+						"desc": "naskah dokumen yang berkaitan dengan pengolahan data pelaporan telepon umum kartu (TUK)"
+					},
+					{
+						"code": "LP.430",
+						"name": "pengolahan data pelaporan kamar bisa umum (KBU) Wartel",
+						"desc": "naskah dokumen yang berkaitan dengan pengolahan data pelaporan warung telekomunikasi (Wartel), kamar bicara umum dan kios"
+					},
+					{
+						"code": "LP.440",
+						"name": "pengolahan data pelaporan telegram",
+						"desc": "naskah dokumen yang berkaitan dengan pengolahan data pelaporan penyelenggaraan jasa telegram (telegram indah dan biasa)"
+					},
+					{
+						"code": "LP.450",
+						"name": "pengolahan data pelaporan kartu telepon",
+						"desc": "naskah dokumen yang berkaitan dengan pengolahan data pelaporan kartu telepon"
+					},
+					{
+						"code": "LP.460",
+						"name": "pengolahan data pelaporan jasa fasilitas telekomunikasi umum lainnya",
+						"desc": "naskah dokumen yang berkaitan dengan pengolahan data pelaporan jasa fasilitas telekomunikasi perseorangan lainnya"
+					}
+				]
+			},
+			{
+				"code": "LP.500",
+				"name": "PENGOLAHAN DATA PELAPORAN FUNGSIONAL",
+				"desc": "pelaporan secara rutin ataupun berkala melipui logistik, personalia (public relation), pendidikan, pengawasan, hukum, penelitian pengembangan dan bidang bidang lainnya yang belum termasuk",
+				"children": [
+					{
+						"code": "LP.510",
+						"name": "pengolahan data pelaporan logistik",
+						"desc": "naskah dokumen yang berkaitan dengan pengolahan data pelaporan bidang logistik baik secara rutin ataupun berkala"
+					},
+					{
+						"code": "LP.520",
+						"name": "pengolahan data pelaporan personalia",
+						"desc": "naskah dokumen yang berkaitan dengan pengolahan data pelaporan bidang personalia baik secara rutin ataupun berkala"
+					},
+					{
+						"code": "LP.530",
+						"name": "pengolahan data pelaporan pendidikan",
+						"desc": "naskah dokumen yang berkaitan dengan pengolahan data pelaporan bidang pendidikan baik secara rutin ataupun berkala"
+					},
+					{
+						"code": "LP.540",
+						"name": "pengolahan data pelaporan pengawasan",
+						"desc": "naskah dokumen yang berkaitan dengan pengolahan data pelaporan bidang pengawasan baik secara rutin ataupun berkala"
+					},
+					{
+						"code": "LP.550",
+						"name": "pengolahan data pelaporan hukum",
+						"desc": "naskah dokumen yang berkaitan dengan pengolahan data pelaporan bidang hukum baik secara rutin atuapun secara berkala"
+					},
+					{
+						"code": "LP.560",
+						"name": "pengolahan data pelaporan penelitian dan pengembangan",
+						"desc": "naskah dokumen yang berkaitan dengan pengolahan data pelaporan bidang penelitian dan pengembangan baik secara rutin ataupun berkala"
+					},
+					{
+						"code": "LP.570",
+						"name": "pengolahan data pelaporan public relation",
+						"desc": "naskah dokumen yang berkaitan dengan pengolahan data pelaporan bidang public relation secara rutin atuapun berkala"
+					},
+					{
+						"code": "LP.580",
+						"name": "pengolahan data pelaporan fungsional lainnya",
+						"desc": "naskah dokumen yang berkaitan dengan pengolahan data pelaporan bidang kegiatan fungsional lainnya"
+					}
+				]
+			},
+			{
+				"code": "LP.600",
+				"name": "SISTEM INFORMASI MANAJEMEN",
+				"desc": "naskah dokumen yang berkaitan dengan sistem informasi manajemen (SIM) PT secara keseluruhan",
+				"children": [
+					{
+						"code": "LP.610",
+						"name": "Sistem informasi manajemen kepegawaian",
+						"desc": "naskah dokumen yang berkaitan dengan sistem informasi manajemen (SIM) di bidang kepegawaian (SIMKEP)"
+					},
+					{
+						"code": "LP.620",
+						"name": "Sistem informasi manajemen keuangan",
+						"desc": "naskah dokumen yang berkaitan dengan sistem informasi manajemen (SIM) di bidang keuaangan (SIMKUG)"
+					},
+					{
+						"code": "LP.630",
+						"name": "Sistem informasi manajemen akuntansi",
+						"desc": "naskah dokumen yang berkaitan dengan sistem informasi manajemen (SIM) akuntansi (SIMAK)"
+					},
+					{
+						"code": "LP.640",
+						"name": "Sistem informasi manajemen perlengkapan",
+						"desc": "naskah dokumen yang berkaitan dengan sistem informasi manajemen (SIM) di bidang logistik (SIMKAP)"
+					},
+					{
+						"code": "LP.650",
+						"name": "Sistem informasi manajemen pembangunan",
+						"desc": "naskah dokumen yang berkaitan dengan sistem informasi manajemen (SIM) di bidang pembangunan (SIMBANG)"
+					},
+					{
+						"code": "LP.660",
+						"name": "Sistem informasi manajemen operasi",
+						"desc": "naskah dokumen yang berkaitan dengan sistem informasi manajemen (SIM) di bidang operasi (SIMOP)"
+					},
+					{
+						"code": "LP.670",
+						"name": "Sistem informasi manajemen telkom",
+						"desc": "naskah dokumen yang berkaitan dengan sistem informasi manajemen Telkom (SIMTEL)"
+					},
+					{
+						"code": "LP.680",
+						"name": "Sistem informasi manajemen lainnya",
+						"desc": "naskah dokumen yang berkaitan dengan sistem informasi manajemen (SIM) fungsi kegiatan kegiatan bidang lainnya"
+					}
+				]
+			}
+		]
+	},
+	{
+		"code": "PD.000",
+		"name": "PENDIDIKAN DAN PELATIHAN",
+		"desc": "naskah dokumen yang berkaitan dengan pendidikan dan pelatihan sumberdaya manusia di lingkungan PT",
+		"children": [
+			{
+				"code": "PD.100",
+				"name": "ANALISA KEBUTUHAN DIKLAT",
+				"desc": "naskah dokumen yang berkaitan dengan perencanaan analisa kebutuhan di bidang pendidikan dan pelatihan",
+				"children": [
+					{
+						"code": "PD.110",
+						"name": "Perencanaan kebutuhan diklat",
+						"desc": "naskah dokumen yang berkaitan dengan perencanaan kebutuhan pendidikan dan pelatihan"
+					},
+					{
+						"code": "PD.120",
+						"name": "jadwal kursil diklat",
+						"desc": "naskah dokumen yang berkaitan dengan penyusunan jadwan kurikulum pendidikan dan pelatihan"
+					}
+				]
+			},
+			{
+				"code": "PD.200",
+				"name": "PENDIDIKAN DAN PELATIHAN TEKNIK",
+				"desc": "naskah dokumen yang berkaitan dengan pendidikan dan pelatihan di bidang tekhnik yang meliputi tekhnik telekomunikasi, komputer,informatika, tekhnik listrik dan elektro serta pendidikan teknik lainnya",
+				"children": [
+					{
+						"code": "PD.210",
+						"name": "Teknik Telekomunikasi",
+						"desc": "naskah dokumen yang berkaitan dengan pendidikan dan pelatihan di bidang tekhnik telekomunikasi"
+					},
+					{
+						"code": "PD.220",
+						"name": "Komputer dan informatika",
+						"desc": "naskah dokumen yang berkaitan dengan pendidikan dan pelatihan di bidang komputer dan informatika baik hardware maupun software"
+					},
+					{
+						"code": "PD.230",
+						"name": "tekhnik listrik dan elektro",
+						"desc": "naskah dokumen yang berkaitan dengan pendidikan pelatihan tekhnik listrik dan elektro"
+					},
+					{
+						"code": "PD.240",
+						"name": "pendidikan tekhnik lain",
+						"desc": "naskah dokumen yang berkaitan dengan pendidikan pelatihan tekhnik lainnya"
+					}
+				]
+			},
+			{
+				"code": "PD.300",
+				"name": "PENDIDIKAN DAN PELATIHAN UMUM",
+				"desc": "naskah dokumen yang berkaitan dengan pendidikan pelatihan non tekhnik",
+				"children": [
+					{
+						"code": "PD.310",
+						"name": "Pendidikan pelatihan keuangan",
+						"desc": "naskah dokumen yang berkaitan dengan pendidikan pelatihan di bidang keuangan"
+					},
+					{
+						"code": "PD.320",
+						"name": "Pendidikan pelatihan administrasi dan manajemen",
+						"desc": "naskah dokumen yang berkaitan dengan pendidikan pelatihan di bidang administrasi dan manajemen"
+					},
+					{
+						"code": "PD.330",
+						"name": "Pendidikan pelatihan hukum",
+						"desc": "naskah dokumen yang berkaitan dengan pendidikan pelatihan di bidang hukum"
+					},
+					{
+						"code": "PD.340",
+						"name": "Pendidikan pelatihan pelayanan",
+						"desc": "naskah dokumen yang berkaitan dengan pendidikan pelatihan di bidang pelayanan (service)"
+					},
+					{
+						"code": "PD.350",
+						"name": "Pendidikan pelatihan bidang SDM",
+						"desc": "naskah dokumen yang berkaitan dengan pendidikan pelatihan di bidang pengembangan sumber daya manusia"
+					},
+					{
+						"code": "PD.360",
+						"name": "Pendidikan pelatihan bahasa asing",
+						"desc": "naskah dokumen yang berkaitan dengan pendidikan pelatihan bahasa asing"
+					},
+					{
+						"code": "PD.370",
+						"name": "Pendidikan pelatihan pengamanan",
+						"desc": "naskah dokumen yang berkaitan dengan pendidikan pelatihan di bidang pengamanan"
+					},
+					{
+						"code": "PD.380",
+						"name": "Pendidikan pelatihan pengetahuan pendukung lainnya",
+						"desc": "naskah dokumen yang berkaitan dengan pendidikan pelatihan pendidikan pelatihan bidang non tekhnik atau pengetahuan pendukung lainnya"
+					}
+				]
+			},
+			{
+				"code": "PD.400",
+				"name": "PENDIDIKAN DAN PEATIHAN KHUSUS",
+				"desc": "naskah dokumen yang berkaitan dengan pendidikan khsusu yang ada di lingkungan PT Telkom",
+				"children": [
+					{
+						"code": "PD.410",
+						"name": "Lemhanas",
+						"desc": "naskah dokumen yang berkaitan dengan pendidikan lemhanas"
+					},
+					{
+						"code": "PD.420",
+						"name": "suspim suslia suslia",
+						"desc": "naskah dokumen yang berkaitan dengan suspim susila susnal"
+					},
+					{
+						"code": "PD.430",
+						"name": "vocational training",
+						"desc": "naskah dokumen yang berkaitan dengan pendidikan persiapan untuk karyawan yang akan menjalani pensiunan"
+					},
+					{
+						"code": "PD.440",
+						"name": "pendidikan dan pelatihan khusus lainnya",
+						"desc": "naskah dokumen yang berkaitan dengan pendidikan pelatihan khusus lainnya"
+					}
+				]
+			},
+			{
+				"code": "PD.500",
+				"name": "PELAYANAN PENDIDIKAN DAN PELATIHAN",
+				"desc": "naskah dokumen yang berkaitan dengan pelayanan untuk menunjang penyelenggaraan pendidikan dan pelatihan",
+				"children": [
+					{
+						"code": "PD.510",
+						"name": "kesejahteraan siswa",
+						"desc": "naskah dokumen yang berkaitan dengan pelayanan untuk menunjang kesejahteraan siswa yang mengikuti pendidikan dan pelatihan"
+					},
+					{
+						"code": "PD.520",
+						"name": "tugas akhir kerja praktek",
+						"desc": "naskah dokumen yang berkaitan dengan pelaksanaan kerja praktek ataupun tugas akhir"
+					},
+					{
+						"code": "PD.530",
+						"name": "program latihan kerja",
+						"desc": "naskah dokumen yang berkaitan dengan program latihan kerja"
+					},
+					{
+						"code": "PD.540",
+						"name": "seminar workshop penataran",
+						"desc": "naskah dokumen yang berkaitan dengan seminar workshop penataran"
+					},
+					{
+						"code": "PD.550",
+						"name": "sarana pendidikan",
+						"desc": "naskah dokumen yang berkaitan dengan sarana pendidikan dan pelatihan"
+					},
+					{
+						"code": "PD.560",
+						"name": "sistem pengajaran khusus",
+						"desc": "naskah dokumen yang berkaitan dengan sistem pengajaran khusus"
+					},
+					{
+						"code": "PD.570",
+						"name": "tenaga pengajar",
+						"desc": "naskah dokumen yang berkaitan dengan tenaga pengajar dosen"
+					},
+					{
+						"code": "PD.580",
+						"name": "buku pedoman pelatihan diklat",
+						"desc": "naskah dokumen yang berkaitan dengan buku pedoman pelatihan diklat"
+					},
+					{
+						"code": "PD.590",
+						"name": "pelayanan pendidikan pelatihan lainnya",
+						"desc": "naskah dokumen yang berkaitan dengan pelayanan di bidang pendidikan dan pelatihan lainnya"
+					}
+				]
+			},
+			{
+				"code": "PD.600",
+				"name": "ADMINISTRASI EVALUASI PENDIDIKAN DAN PELATIHAN",
+				"desc": "naskah dokumen yang berkaitan dengan administrasi pendidikan dan pelatihan serta pelaksanaan evaluasi (penilaian) siswa yang mengikuti pendidikan dan pelatihan",
+				"children": [
+					{
+						"code": "PD.610",
+						"name": "Ujian test",
+						"desc": "naskah dokumen yang berkaitan dengan ujian test terhadap siswa yang mengikuti pendidikan dan pelatihan"
+					},
+					{
+						"code": "PD.620",
+						"name": "ijazah sertifikat",
+						"desc": "naskah dokumen yang berkaitan dengan ijazah sertifikat yang diberikan kepada siswa atas keluluhan atau prestasi yang telah dicapai"
+					},
+					{
+						"code": "PD.630",
+						"name": "administrasi pendidikan dan pelatihan lainnya",
+						"desc": "naskah dokumen yang berkaitan dengan administrasi pendidikan dan pelatihan lainnya"
+					}
+				]
+			}
+		]
+	},
+	{
+		"code": "PR.000",
+		"name": "PUBLIC RELATION",
+		"desc": "naskah dokumen yang berkaitan dengan fungsi public relations perusahaan yang meliputi bidang opini, budaya perusahaan, keprotokolan dokumentasi dan museum",
+		"children": [
+			{
+				"code": "PR.100",
+				"name": "KEPURELAN",
+				"desc": "naskah dokumen yang berkaitan dengan kepurelan secara umum",
+				"children": [
+					{
+						"code": "PR.110",
+						"name": "pers",
+						"desc": "naskah dokumen yang berkaitan dengan kegiatan pers"
+					},
+					{
+						"code": "PR.120",
+						"name": "promosi",
+						"desc": "naskah dokumen yang berkaitan dengan promosi"
+					},
+					{
+						"code": "PR.130",
+						"name": "costumer educations",
+						"desc": "naskah dokumen yang berkaitan dengan pengerangan kepada pelanggan"
+					},
+					{
+						"code": "PR.140",
+						"name": "ucapan terima kasih",
+						"desc": "naskah dokumen yang berkaitan dengan penghargaan kepada pihak luar, ucapan terima kasih dan selamat kepada karyawan dan pihak luar"
+					},
+					{
+						"code": "PR.150",
+						"name": "media internal",
+						"desc": "naskah dokumen yang berkaitan dengan materi majalah"
+					},
+					{
+						"code": "PR.160",
+						"name": "pidato sambutan",
+						"desc": "naskah dokumen yang berkaitan dengan pidato sambutan pembacaan laporan pimpinan perusahaan"
+					},
+					{
+						"code": "PR.170",
+						"name": "perlombaan",
+						"desc": "naskah dokumen yang berkaitan dengan perlombaan"
+					},
+					{
+						"code": "PR.180",
+						"name": "budaya perusahaan",
+						"desc": "naskah dokumen yang berkaitan dengan pembinaan budaya perusahaan dan saran karyawan"
+					},
+					{
+						"code": "PR.190",
+						"name": "penghargaan kepada pihak luar",
+						"desc": "naskah dokumen yang berkaitan dengan pembinaan budaya perusahaan dan saran karyawan kepada pihak luar"
+					}
+				]
+			},
+			{
+				"code": "PR.200",
+				"name": "KEPROTOKOLAN",
+				"desc": "naskah dokumen yang berkaitan dengan keprotokolan secara umum",
+				"children": [
+					{
+						"code": "PR.210",
+						"name": "Kunjungan",
+						"desc": "naskah dokumen yang berkaitan dengan kunjungan pihak luar tamu ke PT atau kunjungan PT ke pihak luar"
+					},
+					{
+						"code": "PR.220",
+						"name": "Upacara peresmian",
+						"desc": "naskah dokumen yang berkaitan dengan upacara peresmian"
+					},
+					{
+						"code": "PR.230",
+						"name": "Rapat",
+						"desc": "naskah dokumen yang berkaitan dengan rapat"
+					},
+					{
+						"code": "PR.240",
+						"name": "pengumuman",
+						"desc": "naskah dokumen yang berkaitan dengan pengumuman ke dalam dan ke luar perusahaan"
+					},
+					{
+						"code": "PR.250",
+						"name": "peliputan",
+						"desc": "naskah dokumen yang berkaitan dengan peliputan suatu kegiatan"
+					}
+				]
+			},
+			{
+				"code": "PR.300",
+				"name": "DOKUMENTASI",
+				"desc": "naskah dokumen yang berkaitan dengan penyelenggaraan dokumentasi, -pelayanan informasi, -pelayanan museum",
+				"children": [
+					{
+						"code": "PR.310",
+						"name": "Bahan pustaka",
+						"desc": "naskah dokumen yang berkaitan dengan bahan pustaka"
+					},
+					{
+						"code": "PR.320",
+						"name": "pelayanan perpustakaan",
+						"desc": "naskah dokumen yang berkaitan dengan perpusatakaan"
+					},
+					{
+						"code": "PR.330",
+						"name": "pengolahan dokumentasi",
+						"desc": "naskah dokumen yang berkaitan dengan pekerjaan dokumentasi, -abstraksi resensi, -pembuatan resume"
+					},
+					{
+						"code": "PR.340",
+						"name": "pelayanan informasi",
+						"desc": "naskah dokumen yang berkaitan dengan pelayanan informasi produk dokumentalis"
+					},
+					{
+						"code": "PR.350",
+						"name": "materi museum",
+						"desc": "naskah dokumen yang berkaitan dengan materi atau alat peraga museum"
+					},
+					{
+						"code": "PR.360",
+						"name": "pelayanan museum",
+						"desc": "naskah dokumen yang berkaitan dengan pelayanan museum"
+					}
+				]
+			}
+		]
+	},
+	{
+		"code": "PS.000",
+		"name": "PERSONALIA",
+		"desc": "naskah dokumen yang berkaitan dengan fungsi ataupun kegiatan di bidang personalia",
+		"children": [
+			{
+				"code": "PS.100",
+				"name": "ORGANISASI DAN PERENCANAAN KEBUTUHAN",
+				"desc": "naskah dokumen yang berkaitan dengan organisasi perusahaan dan perencanaan kebutuhan karyawan",
+				"children": [
+					{
+						"code": "PS.110",
+						"name": "Survey Kebutuhan",
+						"desc": "naskah dokumen yang berkaitan dengan kegiatan surbey kebutuhan karyawan"
+					},
+					{
+						"code": "PS.120",
+						"name": "formasi karyawan",
+						"desc": "naskah dokumen yang berkaitan dengan formasi karyawan"
+					},
+					{
+						"code": "PS.130",
+						"name": "analisa jabatan",
+						"desc": "naskah dokumen yang berkaitan dengan analisa jabatan"
+					},
+					{
+						"code": "PS.140",
+						"name": "penyusunan jabatan",
+						"desc": "naskah dokumen yang berkaitan dengan penyusunan jabatan"
+					},
+					{
+						"code": "PS.150",
+						"name": "struktur organisasi",
+						"desc": "naskah dokumen yang berkaitan dengan struktur organisasi perusahaan"
+					},
+					{
+						"code": "PS.160",
+						"name": "uraian kerja",
+						"desc": "naskah dokumen yang berkaitan dengan uraian kerja job        description dari organisasi perusahaan"
+					},
+					{
+						"code": "PS.170",
+						"name": "pembentukan tim kerja",
+						"desc": "naskah dokumen yang berkaitan dengan pembentukan tim kerja"
+					},
+					{
+						"code": "PS.180",
+						"name": "jalur karir",
+						"desc": "naskah dokumen yang berkaitan dengan perancangan sistem, penyusunan dan penyempurnaan pola jalur karir"
+					}
+				]
+			},
+			{
+				"code": "PS.200",
+				"name": "REKRUTMEN",
+				"desc": "naskah dokumen yang berkaitan dengan rekrutasi pengadaan karyawan",
+				"children": [
+					{
+						"code": "PS.210",
+						"name": "lamaran",
+						"desc": "naskah dokumen yang berkaitan dengan lamaran untuk menjadi karyawan perusahaan"
+					},
+					{
+						"code": "PS.220",
+						"name": "panggilan",
+						"desc": "naskah dokumen yang berkaitan dengan panggilan kepada pelamar"
+					},
+					{
+						"code": "PS.230",
+						"name": "test seleksi",
+						"desc": "naskah dokumen yang berkaitan dengan test seleksi yang dilaksanakan bagi pelamar"
+					},
+					{
+						"code": "PS.240",
+						"name": "evaluasi",
+						"desc": "naskah dokumen yang berkaitan dengan evaluasi hasil test pelamar"
+					}
+				]
+			},
+			{
+				"code": "PS.300",
+				"name": "ADMINISTRASI PERSONALIA",
+				"desc": "naskah dokumen yang berkaitan dengan administrasi personalia secara umum",
+				"children": [
+					{
+						"code": "PS.310",
+						"name": "identitas karyawan personal data",
+						"desc": "naskah dokumen yang berkaitan dengan identitas data karyawan"
+					},
+					{
+						"code": "PS.320",
+						"name": "pengangkatan",
+						"desc": "naskah dokumen yang berkaitan dengan pengangkatan karyawan"
+					},
+					{
+						"code": "PS.330",
+						"name": "penugasan",
+						"desc": "naskah dokumen yang berkaitan dengan penugasan karyawan"
+					},
+					{
+						"code": "PS.340",
+						"name": "permintaan karyawan",
+						"desc": "naskah dokumen yang berkaitan dengan permintaan karyawan"
+					},
+					{
+						"code": "PS.350",
+						"name": "perjalanan dinas",
+						"desc": "naskah dokumen yang berkaitan dengan perjalanan dinas karyawan"
+					},
+					{
+						"code": "PS.360",
+						"name": "cuti",
+						"desc": "naskah dokumen yang berkaitan dengan cuti"
+					},
+					{
+						"code": "PS.370",
+						"name": "ijin",
+						"desc": "naskah dokumen yang berkaitan dengan ijin yang diberikan untuk karyawan"
+					},
+					{
+						"code": "PS.380",
+						"name": "sumpah janji karyawan",
+						"desc": "naskah dokumen yang berkaitan dengan sumpah janji karyawan"
+					},
+					{
+						"code": "PS.390",
+						"name": "absensi daftar hadir",
+						"desc": "naskah dokumen yang berkaitan dengan absensi dan daftar hadir"
+					}
+				]
+			},
+			{
+				"code": "PS.400",
+				"name": "KEPANGKATAN",
+				"desc": "naskah dokumen yang berkaitan dengan kepangkatan secara umum",
+				"children": [
+					{
+						"code": "PS.410",
+						"name": "Kenaikan pangkat",
+						"desc": "naskah dokumen yang berkaitan dengan kenaikan pangkat"
+					},
+					{
+						"code": "PS.420",
+						"name": "penyesuaian pendidikan",
+						"desc": "naskah dokumen yang berkaitan dengan penyesuaian pendidikan karyawan"
+					},
+					{
+						"code": "PS.430",
+						"name": "penundaan kenaikan pangkat",
+						"desc": "naskah dokumen yang berkaitan dengan penundaan kenaikan pangkat"
+					},
+					{
+						"code": "PS.440",
+						"name": "penurunan pangkat",
+						"desc": "naskah dokumen yang berkaitan dengan penurunan pangkat"
+					},
+					{
+						"code": "PS.450",
+						"name": "kenaikan pangkat penghargaan",
+						"desc": "naskah dokumen yang berkaitan dengan kenaikan pangkat penghargaan"
+					}
+				]
+			},
+			{
+				"code": "PS.500",
+				"name": "PENGGAJIAN",
+				"desc": "naskah dokumen yang berkaitan dengan penggajian",
+				"children": [
+					{
+						"code": "PS.510",
+						"name": "kenaikan gaji",
+						"desc": "naskah dokumen yang berkaitan dengan kenaikan gaji"
+					},
+					{
+						"code": "PS.520",
+						"name": "penurunan gaji",
+						"desc": "naskah dokumen yang berkaitan dengan penurunan gaji"
+					},
+					{
+						"code": "PS.530",
+						"name": "daftar gaji jenjang gaji",
+						"desc": "naskah dokumen yang berkaitan dengan daftar gaji jenjang gaji"
+					},
+					{
+						"code": "PS.540",
+						"name": "penyesuaian gaji",
+						"desc": "naskah dokumen yang berkaitan dengan penyesuaian gaji"
+					},
+					{
+						"code": "PS.550",
+						"name": "penundaan kenaikan gaji",
+						"desc": "naskah dokumen yang berkaitan dengan penundaan kenaikan gaji"
+					},
+					{
+						"code": "PS.560",
+						"name": "sistem penggajian (kompensasi)",
+						"desc": "naskah dokumen yang berkaitan dengan sistem penggajian (kompensasi)"
+					}
+				]
+			},
+			{
+				"code": "PS.600",
+				"name": "KESEJAHTERAAN",
+				"desc": "naskah dokumen yang berkaitan dengan kesejahteraan kesehatan karyawan",
+				"children": [
+					{
+						"code": "PS.610",
+						"name": "kesehatan",
+						"desc": "naskah dokumen yang berkaitan dengan kesehatan karyawan dan keluarganya"
+					},
+					{
+						"code": "PS.620",
+						"name": "bantuan dana karyawan",
+						"desc": "naskah dokumen yang berkaitan dengan bantuan dana karyawan"
+					},
+					{
+						"code": "PS.630",
+						"name": "pembinaan rokhani dan jasmani",
+						"desc": "naskah dokumen yang berkaitan dengan pembinaan rokhani dan jasmani"
+					},
+					{
+						"code": "PS.640",
+						"name": "transportasi",
+						"desc": "naskah dokumen yang berkaitan dengan penyediaan fasilitas transportasi karyawan"
+					},
+					{
+						"code": "PS.650",
+						"name": "akomodasi",
+						"desc": "naskah dokumen yang berkaitan dengan penyediaan fasilitas akomodasi karyawan"
+					},
+					{
+						"code": "PS.660",
+						"name": "bea siswa",
+						"desc": "naskah dokumen yang berkaitan dengan beasiswa kepada karyawan"
+					},
+					{
+						"code": "PS.670",
+						"name": "lembur",
+						"desc": "naskah dokumen yang berkaitan dengan lenbur karyawan"
+					},
+					{
+						"code": "PS.680",
+						"name": "bantuan sosial",
+						"desc": "naskah dokumen yang berkaitan dengan bantuan sosial perusahaan kepada pihak lain"
+					}
+				]
+			},
+			{
+				"code": "PS.700",
+				"name": "PEMBINAAN PENILAIAN",
+				"desc": "naskah dokumen yang berkaitan dengan pembinaan dan penilaian karyawan",
+				"children": [
+					{
+						"code": "PS.710",
+						"name": "ujian dinas penjenjangan",
+						"desc": "naskah dokumen yang berkaitan dengan ujian dinas dan penjenjangan karyawan"
+					},
+					{
+						"code": "PS.720",
+						"name": "pemindahan (mutasi)",
+						"desc": "naskah dokumen yang berkaitan dengan pemindahan mutasi karyawan atau keluarga"
+					},
+					{
+						"code": "PS.730",
+						"name": "pembinaan penilaian",
+						"desc": "naskah dokumen yang berkaitan dengan pembinaan penilaian karyawan"
+					},
+					{
+						"code": "PS.740",
+						"name": "promosi jabatan",
+						"desc": "naskah dokumen yang berkaitan dengan promosi jabatan"
+					},
+					{
+						"code": "PS.750",
+						"name": "kelulusan",
+						"desc": "naskah dokumen yang berkaitan dengan kelulusan"
+					},
+					{
+						"code": "PS.760",
+						"name": "skrining",
+						"desc": "naskah dokumen yang berkaitan dengan skrining"
+					},
+					{
+						"code": "PS.770",
+						"name": "penghargaan karyawan",
+						"desc": "naskah dokumen yang berkaitan dengan penghargaan karyawan"
+					}
+				]
+			},
+			{
+				"code": "PS.800",
+				"name": "PENERTIBAN",
+				"desc": "naskah dokumen yang berkaitan dengan penertiba karyawan",
+				"children": [
+					{
+						"code": "PS.810",
+						"name": "pelanggaran disiplin",
+						"desc": "naskah dokumen yang berkaitan dengan temuan kasus pelanggaran"
+					},
+					{
+						"code": "PS.820",
+						"name": "pemeriksanaan",
+						"desc": "naskah dokumen yang berkaitan dengan pemeriksanaan terhadap kasus pelanggaran"
+					},
+					{
+						"code": "PS.830",
+						"name": "peringatan",
+						"desc": "naskah dokumen yang berkaitan dengan peringatan kepada karyawan atas pelanggaran yang dilakukan"
+					},
+					{
+						"code": "PS.840",
+						"name": "tindak administrasi hukuman disiplin (hukdis)",
+						"desc": "naskah dokumen yang berkaitan dengan tindak administrasi (HUKDIS)"
+					},
+					{
+						"code": "PS.850",
+						"name": "rehabilitasi",
+						"desc": "naskah dokumen yang berkaitan dengan rehabilitasi karyawan"
+					}
+				]
+			},
+			{
+				"code": "PS.900",
+				"name": "PENSIUN DAN PEMBERHENTIAN",
+				"desc": "naskah dokumen yang berkaitan dengan pensiun dan pemberhentian karyawan",
+				"children": [
+					{
+						"code": "PS.910",
+						"name": "pemberhentian dengan hormat",
+						"desc": "naskah dokumen yang berkaitan dengan pemberhentian dengan hormat"
+					},
+					{
+						"code": "PS.920",
+						"name": "pemberhentian dengan tidak hormat",
+						"desc": "naskah dokumen yang berkaitan dengan pemberhentian dengan tidak hormat"
+					},
+					{
+						"code": "PS.930",
+						"name": "masa pensiapan pensiun (MPP)",
+						"desc": "naskah dokumen yang berkaitan dengan MPP"
+					},
+					{
+						"code": "PS.940",
+						"name": "pensiun",
+						"desc": "naskah dokumen yang berkaitan dengan pensiun"
+					},
+					{
+						"code": "PS.950",
+						"name": "nominatif pensiun",
+						"desc": "naskah dokumen yang berkaitan dengan nominatif pensiun"
+					}
+				]
+			}
+		]
+	},
+	{
+		"code": "PW.000",
+		"name": "PENGAWASAN",
+		"desc": "naskah dokumen yang berkaitan dengan pengasawan penyelenggaraan telekomunikas",
+		"children": [
+			{
+				"code": "PW.100",
+				"name": "PENGAWASAN TEKNIS",
+				"desc": "naskah dokumen yang berkaitan dengan pengawasan teknis, instalasi konstruksi (pembangunan) pengoperasian dari seluruh saran produksi sarana penunjang dalam network sistem telekomunikasi",
+				"children": [
+					{
+						"code": "PW.110",
+						"name": "Pengawasan Teknis sentral",
+						"desc": "naskah dokumen yang berkaitan dengan pengawasan perencanaan teknis instalasi konstruksi (pembangunan), pengoperasian dan pemeliharaan sentral telekomunikasi"
+					},
+					{
+						"code": "PW.120",
+						"name": "Pengawasan Teknis sistem transmisi",
+						"desc": "naskah dokumen yang berkaitan dengan pengawasan perencanaan teknis instalasi konstruksi (pembangunan), pengoperasian dan pemeliharaan sistem transmisi"
+					},
+					{
+						"code": "PW.130",
+						"name": "Pengawasan Teknis jaringan lokal kabel",
+						"desc": "naskah dokumen yang berkaitan dengan pengawasan perencanaan tekhnis kontruksi (pembangunan), pengoperasian  dan pemeliharaan jaringan lokal kabel"
+					},
+					{
+						"code": "PW.140",
+						"name": "Pengawasan Teknis catu daya mechanical electrical",
+						"desc": "naskah dokumen yang berkaitan dengan pengawasan perencanaan teknis instalasi konstruksi (pembangunan) pengoperasian dan pemeliharaan perangkat catu daya mechanical electrical"
+					},
+					{
+						"code": "PW.150",
+						"name": "Pengawasan Teknis bangunan konstruksi",
+						"desc": "naskah dokumen yang berkaitan dengan pengawasan perencanaan teknis instalasi konstruksi (pembangunan) pengoperasian dan pemeliharaan sarana bangunan kontruksi"
+					},
+					{
+						"code": "PW.160",
+						"name": "Pengawasan Teknis sarana perangkat lain",
+						"desc": "naskah dokumen yang berkaitan dengan pengawasan perencanaan teknis instalasi konstruksi (pembangunan) pengoperasian dan pemeliharaan sarana atau perangkat teknik lainnya"
+					}
+				]
+			},
+			{
+				"code": "PW.200",
+				"name": "PENGAWASAN PELAYANAN JASA FASILITAS TELEKOMUNIKASI",
+				"desc": "naskah dokumen yang berkaitan dengan pengawasan dari perencanaan, pelayanan (service), pemasaran penjualan jasa telekomunikasi, instalasi (pemasangan), kontruksi (pembangunan), pengoperasian, pemeliharaan perbaikan perangkat untuk jasa telekomunikasi pelanggan perseorangan",
+				"children": [
+					{
+						"code": "PW.210",
+						"name": "Pengawasan Telepon",
+						"desc": "naskah dokumen yang berkaitan dengan pengawasan telepon pelanggan, paging, tele credit card, baik itu yang merupakan fasilitas dinas, fastel berbayar dan temporer"
+					},
+					{
+						"code": "PW.220",
+						"name": "Pengawasan Telex Telegraph Faksimil",
+						"desc": "naskah dokumen yang berkaitan dengan pengawasan telex telegram faksimil"
+					},
+					{
+						"code": "PW.230",
+						"name": "Pengawasan sistem komunikasi data",
+						"desc": "naskah dokumen yang berkaitan dengan pengawasan sistem komunikasi data"
+					},
+					{
+						"code": "PW.240",
+						"name": "Pengawasan sirkit langganan",
+						"desc": "naskah dokumen yang berkaitan dengan masalah pengawasan pelayanan jasa sirkit langganan atau sirkit sewa (LC LDS)"
+					},
+					{
+						"code": "PW.250",
+						"name": "Pengawasan jasa transponder",
+						"desc": "naskah dokumen yang berkaitan dengan masalah pengawasan pelayanan jasa transponder (sewa transponder("
+					},
+					{
+						"code": "PW.260",
+						"name": "Pengawasan mobile telephone",
+						"desc": "naskah dokumen yang berkaitan dengan pengawasan jasa mobile telephone (telpon bergerak)"
+					},
+					{
+						"code": "PW.270",
+						"name": "pengawasan jasa nilai tambah (jasnita)",
+						"desc": "naskah dokumen yang berkaitan dengan pengawasan pelayanan jasa nilai tambah (jasnita)"
+					},
+					{
+						"code": "PW.280",
+						"name": "Pengawasan jasa fasilitas telekomunikasi perorangan",
+						"desc": "naskah dokumen yang berkaitan dengan pengawasan pelayanan jasa fasilitas telekomuikasi perorangan lainnya"
+					}
+				]
+			},
+			{
+				"code": "PW.300",
+				"name": "PENGAWASAN PELAYANAN JASA FASILITAS TELEKOMUNIKASI UMUM",
+				"desc": "naskah dokumen yang berkaitan dengan pengawasan dari perencanaan pelayanan (service), pemasaran penjualan jasa telekomunikasi serta instalasi (pemasangan) konstruksi (pembangunan), pengoperasian pemeliharaan perabikan perangkat dari jasa telekomunikasi untuk kepentingan umum",
+				"children": [
+					{
+						"code": "PW.310",
+						"name": "Pengawasan telepon umum coin",
+						"desc": "naskah dokumen yang berkaitan dengan pengawasan telepon umum coin (TUC)"
+					},
+					{
+						"code": "PW.320",
+						"name": "pengawasan telepon umum kartu",
+						"desc": "naskah dokumen yang berkaitan dengan pengawasan telepon umum kartu"
+					},
+					{
+						"code": "PW.330",
+						"name": "pengawasan kamar bicara umum (KBU) WARTEL",
+						"desc": "naskah dokumen yang berkaitan dengan pengawasan warung telekomunikasi kamar bicara umum dan kios"
+					},
+					{
+						"code": "PW.340",
+						"name": "pengawasan telegram",
+						"desc": "naskah dokumen yang berkaitan dengan pengawasan penyelenggaran jasa telegram (telegram indah dan biasa)"
+					},
+					{
+						"code": "PW.350",
+						"name": "pengawasan kartu telepon",
+						"desc": "naskah dokumen yang berkaitan dengan pengawasan karu telepon"
+					},
+					{
+						"code": "PW.360",
+						"name": "pengawasan jasa fasilitas telekomunikasi umum lainnya",
+						"desc": "naskah dokumen yang berkaitan dengan pengawasan jasa fasilitas telekomunikasi umum lainnya"
+					}
+				]
+			},
+			{
+				"code": "PW.400",
+				"name": "PENGAWASAN FUNGSIONAL",
+				"desc": "naskah dokumen yang berkaitan dengan pengawasan fungsional bidang yang terdiri dari : -pengawasan personalia, -pengawasan logistik, -pengawasan keuangan dan anggaran, -pengawasan hukum, -pengawasan public relation, -pengawasan diklat, -pengawasan penelitian dan pengembangan",
+				"children": [
+					{
+						"code": "PW.410",
+						"name": "Pengawasan personalia",
+						"desc": "naskah dokumen yang berkaitan dengan pengawasan dibidang personalia"
+					},
+					{
+						"code": "PW.420",
+						"name": "pengawasan logistik",
+						"desc": "naskah dokumen yang berkaitan dengan pengawasan dibidang logistik"
+					},
+					{
+						"code": "PW.430",
+						"name": "pengawasan keuangan dan anggaran",
+						"desc": "naskah dokumen yang berkaitan dengan pengawasan dibidang keuangan dan anggaran"
+					},
+					{
+						"code": "PW.440",
+						"name": "pengawasan hukum",
+						"desc": "naskah dokumen yang berkaitan dengan pengawasan dibidang hukum"
+					},
+					{
+						"code": "PW.450",
+						"name": "pengawasan public relation",
+						"desc": "naskah dokumen yang berkaitan dengan pengawasan dibidang public relation"
+					},
+					{
+						"code": "PW.460",
+						"name": "pengawasan pendidikan dan pelatihan",
+						"desc": "naskah dokumen yang berkaitan dengan pengawasan dibidang pendidikan dan pelatihan"
+					},
+					{
+						"code": "PW.470",
+						"name": "pengawasan penelitian dan pengembangan",
+						"desc": "naskah dokumen yang berkaitan dengan pengawasan dibidang penelitian dan pengembangan"
+					},
+					{
+						"code": "PW.480",
+						"name": "pengawasan bidang fungsional lainnya",
+						"desc": "naskah dokumen yang berkaitan dengan pengawasan bidang fungsional lainnya"
+					}
+				]
+			}
+		]
+	},
+	{
+		"code": "TK.000",
+		"name": "TEKHNIK TELEKOMUNIKASI",
+		"desc": "naskah dokumen yang berkaitan dengan perencanan tekhnis, konstruksi (pembangunan) instalasi (pemasangan) pengoperasian, pemeliharaan (pengukuran perbaikan) seluruh saran produksi network komunikasi",
+		"children": [
+			{
+				"code": "TK.100",
+				"name": "SENTRAL TELEKOMUNIKASI",
+				"desc": "naskah dokumen yang berkaitan dengan perencanaan teknis, kontruksi (pembangunan) instalasi (pemasangan) pengoperasian, pemeliharaan (pengukuran perbaikan) seluruh perangkat sentral telekomunikasi",
+				"children": [
+					{
+						"code": "TK.110",
+						"name": "sentral telepon",
+						"desc": "naskah dokumen yang berkaitan dengan perencanaan teknis, kontruksi (pembangunan) instalasi (pemasangan) pengoperasian, pemeliharaan (pengukuran perbaikan) seluruh perangkat sentral telpon"
+					},
+					{
+						"code": "TK.120",
+						"name": "sentral telex",
+						"desc": "naskah dokumen yang berkaitan dengan perencanaan teknis, kontruksi (pembangunan) instalasi (pemasangan) pengoperasian, pemeliharaan (pengukuran perbaikan) seluruh perangkat sentral telex"
+					},
+					{
+						"code": "TK.130",
+						"name": "sentral data",
+						"desc": "naskah dokumen yang berkaitan dengan perencanaan teknis, kontruksi (pembangunan) instalasi (pemasangan) pengoperasian, pemeliharaan (pengukuran perbaikan) seluruh perangkat sentral data"
+					},
+					{
+						"code": "TK.140",
+						"name": "sentral telekomunikasi lainnya",
+						"desc": "naskah dokumen yang berkaitan dengan perencanaan teknis, kontruksi (pembangunan) instalasi (pemasangan) pengoperasian, pemeliharaan (pengukuran perbaikan) seluruh perangkat sentral telekomunikasi lainnya"
+					}
+				]
+			},
+			{
+				"code": "TK.200",
+				"name": "SISTEM TRANSMISI",
+				"desc": "naskah dokumen yang berkaitan dengan perencanaan teknis, kontruksi (pembangunan) instalasi (pemasangan) pengoperasian, pemeliharaan(pengukuran perbaikan) seluruh perangkat sistem transmisi",
+				"children": [
+					{
+						"code": "TK.210",
+						"name": "sistem transmisi kabel",
+						"desc": "naskah dokumen yang berkaitan dengan perencanaan teknis, kontruksi (pembangunan) instalasi (pemasangan) pengoperasian, pemeliharaan (pengukuran perbaikan) seluruh sistem transmisi kabel"
+					},
+					{
+						"code": "TK.220",
+						"name": "sistem transmisi terrestrial",
+						"desc": "naskah dokumen yang berkaitan dengan perencanaan teknis, kontruksi (pembangunan) instalasi (pemasangan) pengoperasian, pemeliharaan (pengukuran perbaikan) seluruh perangkat sistem transmisi terrestrial"
+					},
+					{
+						"code": "TK.230",
+						"name": "sistem transmisi satelit",
+						"desc": "naskah dokumen yang berkaitan dengan perencanaan teknis, kontruksi (pembangunan) instalasi (pemasangan) pengoperasian, pemeliharaan (pengukuran perbaikan) seluruh perangkat sistem transmisi satelit"
+					},
+					{
+						"code": "TK.240",
+						"name": "sistem transmisi lainnya",
+						"desc": "naskah dokumen yang berkaitan dengan perencanaan teknis, kontruksi (pembangunan) instalasi (pemasangan) pengoperasian, pemeliharaan (pengukuran perbaikan) seluruh perangkat sistem transmisi lainnya"
+					}
+				]
+			},
+			{
+				"code": "TK.300",
+				"name": "JARINGAN LOKAL",
+				"desc": "naskah dokumen yang berkaitan dengan perencanaan teknis, kontruksi (pembangunan) instalasi (pemasangan) pengoperasian, pemeliharaan (pengukuran perbaikan) seluruh perangkat jaringan lokal kabel",
+				"children": [
+					{
+						"code": "TK.310",
+						"name": "jaringan lokal kabel bawah tanah",
+						"desc": "naskah dokumen yang berkaitan dengan perencanaan teknis, kontruksi (pembangunan) instalasi (pemasangan) pengoperasian, pemeliharaan (pengukuran perbaikan) seluruh perangkat jaringan lokal kabel bawah tanah"
+					},
+					{
+						"code": "TK.320",
+						"name": "jaringan lokal kabel atas tanah",
+						"desc": "naskah dokumen yang berkaitan dengan perencanaan teknis, kontruksi (pembangunan) instalasi (pemasangan) pengoperasian, pemeliharaan (pengukuran perbaikan) seluruh perangkat jaringan lokal kabel atas tanah"
+					},
+					{
+						"code": "TK.330",
+						"name": "aksesoris",
+						"desc": "naskah dokumen yang berkaitan dengan perencanaan teknis, kontruksi (pembangunan) instalasi (pemasangan) pengoperasian, pemeliharaan (pengukuran perbaikan) seluruh perangkat aksesoris jaringan lokal kabel"
+					}
+				]
+			},
+			{
+				"code": "TK.400",
+				"name": "SARANA PENUNJANG",
+				"desc": "naskah dokumen yang berkaitan dengan perencanaan teknis, kontruksi (pembangunan) instalasi (pemasangan) pengoperasian, pemeliharaan (pengukuran perbaikan) seluruh perangkat sarana penunjang",
+				"children": [
+					{
+						"code": "TK.410",
+						"name": "Catu daya mechanical electrical",
+						"desc": "naskah dokumen yang berkaitan dengan perencanaan teknis, kontruksi (pembangunan) instalasi (pemasangan) pengoperasian, pemeliharaan (pengukuran perbaikan) seluruh perangkat catu daya mechanical electrical (ME)"
+					},
+					{
+						"code": "TK.420",
+						"name": "bangunan kontruksi",
+						"desc": "naskah dokumen yang berkaitan dengan perencanaan teknis, kontruksi (pembangunan) instalasi (pemasangan) pengoperasian, pemeliharaan (pengukuran perbaikan) seluruh bangunan konstruksi"
+					},
+					{
+						"code": "TK.430",
+						"name": "sarana penunjang lainnya",
+						"desc": "naskah dokumen yang berkaitan dengan perencanaan teknis, kontruksi (pembangunan) instalasi (pemasangan) pengoperasian, pemeliharaan (pengukuran perbaikan) dan sarana penunjang lainnya"
+					}
+				]
+			}
+		]
+	},
+	{
+		"code": "UM.000",
+		"name": "UMUM",
+		"desc": "naskah dokumen yang berkaitan dengan fungsi bidang kegiatan lain di PT yang belum termasuk atau tercantum dalam klasifikasi masalah yang ada",
+		"children": [
+			{
+				"code": "UM.100",
+				"name": "ADMINISTRASI PERKANTORAN",
+				"desc": "naskah dokumen yang berkaitan dengan administrasi perkantoran",
+				"children": [
+					{
+						"code": "UM.110",
+						"name": "sistem kearsipan",
+						"desc": "naskah dokumen yang berkaitan dengan sistem atau tata kearsipan tata naskah"
+					},
+					{
+						"code": "UM.120",
+						"name": "building management",
+						"desc": "naskah dokumen yang berkaitan dengan pengelolaan (manajemen) gedung perkantoran"
+					},
+					{
+						"code": "UM.130",
+						"name": "form model administrasi",
+						"desc": "naskah dokumen yang berkaitan dengan form atau model model administrasi perkantoran"
+					},
+					{
+						"code": "UM.140",
+						"name": "alat tulis menulis (ATM ATK)",
+						"desc": "naskah dokumen yang berkaitan dengan alat tulis menulis (ATK ATM)"
+					}
+				]
+			},
+			{
+				"code": "UM.200",
+				"name": "BARANG INVENTARIS PERUSAHAAN",
+				"desc": "naskah dokumen yang berkaitan dengan barang inventaris perusahaan",
+				"children": [
+					{
+						"code": "UM.210",
+						"name": "Meubelair",
+						"desc": "naskah dokumen yang berkaitan dengan peralatan rumah tangga meubelair"
+					},
+					{
+						"code": "UM.220",
+						"name": "mesin kantor",
+						"desc": "naskah dokumen yang berkaitan dengan sarana perangkat mesin mesin perkantor"
+					},
+					{
+						"code": "UM.230",
+						"name": "peralatan kantor",
+						"desc": "naskah dokumen yang berkaitan dengan sarana peralatan perkantoran"
+					},
+					{
+						"code": "UM.240",
+						"name": "kendaraan bermotor",
+						"desc": "naskah dokumen yang berkaitan dengan kendaraan bermotor"
+					},
+					{
+						"code": "UM.250",
+						"name": "barang inventaris perusahaan lainnya",
+						"desc": "naskah dokumen yang berkaitan dengan barang inventaris perusahaan lainnya"
+					}
+				]
+			},
+			{
+				"code": "UM.300",
+				"name": "KEBERSIHAN",
+				"desc": "naskah dokumen yang berkaitan dengan pengelolaan kebersihan",
+				"children": [
+					{
+						"code": "UM.310",
+						"name": "cleaning service",
+						"desc": "naskah dokumen yang berkaitan dengan cleaning service"
+					},
+					{
+						"code": "UM.320",
+						"name": "kebersihan lingkungan",
+						"desc": "naskah dokumen yang berkaitan dengan pengelolaan kebersihan lingkungan"
+					},
+					{
+						"code": "UM.330",
+						"name": "peralatan perangkat pembersih",
+						"desc": "naskah dokumen yang berkaitan dengan peralatan perangkat kebersihan"
+					}
+				]
+			},
+			{
+				"code": "UM.400",
+				"name": "PENGAMANAN",
+				"desc": "naskah dokumen yang berkaitan dengan fungsi pengamanan, baik itu pengamanan SDM, perangkat (aset) ataupun sistem telekomunikasi",
+				"children": [
+					{
+						"code": "UM.410",
+						"name": "Keselamatan kerja",
+						"desc": "naskah dokumen yang berkaitan dengan keselamatan kerja karyawan"
+					},
+					{
+						"code": "UM.420",
+						"name": "keamanan lingkungan",
+						"desc": "naskah dokumen yang berkaitan dengan keamanan lingkungan kerja, peralatan dan sistem telekomunikasi"
+					},
+					{
+						"code": "UM.430",
+						"name": "pengamanan perangkat sarana",
+						"desc": "naskah dokumen yang berkaitan dengan pengamanan perangkat sarana"
+					},
+					{
+						"code": "UM.440",
+						"name": "peralatan perangkat pengamanan",
+						"desc": "naskah dokumen yang berkaitan dengan peralatan perangkat sarana"
+					}
+				]
+			},
+			{
+				"code": "UM.500",
+				"name": "YAYASAN PERKUMPULAN",
+				"desc": "naskah dokumen yang berkaitan dengan yayasan perkumpulan yang berhubungan dengan PT Telkom",
+				"children": [
+					{
+						"code": "UM.510",
+						"name": "Koperasi",
+						"desc": "naskah dokumen yang berkaitan dengan KOPERASI"
+					},
+					{
+						"code": "UM.520",
+						"name": "KORPRI",
+						"desc": "naskah dokumen yang berkaitan dengan KORPRI"
+					},
+					{
+						"code": "UM.530",
+						"name": "dharma wanita",
+						"desc": "naskah dokumen yang berkaitan dengan Dharma wanita"
+					},
+					{
+						"code": "UM.540",
+						"name": "yayasan dana pensiun",
+						"desc": "naskah dokumen yang berkaitan dengan yayasan dana pensiun"
+					},
+					{
+						"code": "UM.550",
+						"name": "industri kecil",
+						"desc": "naskah dokumen yang berkaitan dengan industri kecil"
+					},
+					{
+						"code": "UM.560",
+						"name": "anak perusahaan",
+						"desc": "naskah dokumen yang berkaitan dengan anak perusahaan"
+					},
+					{
+						"code": "UM.570",
+						"name": "yayasan perkumpulan lembaga lainnya",
+						"desc": "naskah dokumen yang berkaitan dengan yayasan perkumpulan lembaga lainnya seperti PMI, pramuka, yayasan sandikara putra"
+					}
+				]
+			}
+		]
+	},
+	{
+		"code": "YN.000",
+		"name": "PELAYANAN JASA FASILITAS TELEKOMUNIKASI",
+		"desc": "naskah dokumen yang berkaitan dengan pelayanan jasa fasilitas telekomunikasi yang terdiri dari jasa fasilitas telekomunikasi perorangan dan jasa fasilitas telekomunikasi umum",
+		"children": [
+			{
+				"code": "YN.100",
+				"name": "JASA FASILITAS TELEKOMUNIKASI PERORANGAN",
+				"desc": "naskah dokumen yang berkaitan dengan perencanaan teknis, kontruksi (pembangunan) instalasi (pemasangan) pengoperasian, pemeliharaan (pengukuran perbaikan) pelayanan jasa fasilitas telekomunikasi perorangan",
+				"children": [
+					{
+						"code": "YN.110",
+						"name": "telepon",
+						"desc": "naskah dokumen yang berkaitan dengan telepon perorangan"
+					},
+					{
+						"code": "YN.120",
+						"name": "telex telegraph faksmil",
+						"desc": "naskah dokumen yang berkaitan dengan telex telegraph faksmil dan birofax"
+					},
+					{
+						"code": "YN.130",
+						"name": "sistem komunikasi data",
+						"desc": "naskah dokumen yang berkaitan dengan jasa sistem komunikasi data"
+					},
+					{
+						"code": "YN.140",
+						"name": "sirkit langganan",
+						"desc": "naskah dokumen yang berkaitan dengan jasa penyewaan saluran (sirkit langganan)"
+					},
+					{
+						"code": "YN.150",
+						"name": "jasa transponder",
+						"desc": "naskah dokumen yang berkaitan dengan jasa sewa transponder"
+					},
+					{
+						"code": "YN.160",
+						"name": "mobile telephone",
+						"desc": "naskah dokumen yang berkaitan dengan mobile telephone (sistem telepon bergerak)"
+					},
+					{
+						"code": "YN.170",
+						"name": "jasa nilai tambah",
+						"desc": "naskah dokumen yang berkaitan dengan pelayanan atas jasa nilai tambah (JASNITA)"
+					},
+					{
+						"code": "YN.180",
+						"name": "jasa fasilitas telekomunikasi perorangan lainnya",
+						"desc": "naskah dokumen yang berkaitan dengan jasa fasilitas telekomunikasi perorangan lainnya"
+					}
+				]
+			},
+			{
+				"code": "YN.200",
+				"name": "JASA FASILITAS TELEKOMUNIKASI UMUM",
+				"desc": "naskah dokumen yang berkaitan dengan perencanaan teknis, konstruksi (pembangunan), instalasi (pemasangan), pemasaran penjualan, pengoperasian, pelayanan service, pemeliharaan (pengukuran perbaikan) seluruh perangkat pelayanan jasa telekomunikasi untuk kepentingan masyarakat umum",
+				"children": [
+					{
+						"code": "YN.210",
+						"name": "telepon umum coin",
+						"desc": "naskah dokumen yang berkaitan dengan telepon coin"
+					},
+					{
+						"code": "YN.220",
+						"name": "telepon umum kartu",
+						"desc": "naskah dokumen yang berkaitan dengan telepon umum kartu"
+					},
+					{
+						"code": "YN.230",
+						"name": "kamar bicara umum (KBU)   wartel",
+						"desc": "naskah dokumen yang berkaitan dengan kamar bicara umum (KBU) warung telekomunikasi (wartel) dan kios telekomunikasi"
+					},
+					{
+						"code": "YN.240",
+						"name": "telegram",
+						"desc": "naskah dokumen yang berkaitan dengan penyelenggaraan jasa telegram (telegram indah dan biasa)"
+					},
+					{
+						"code": "YN.250",
+						"name": "kartu telepon",
+						"desc": "naskah dokumen yang berkaitan dengan kartu telepon"
+					},
+					{
+						"code": "YN.260",
+						"name": "jasa fasilitas telekomunikasi umum lainnya",
+						"desc": "naskah dokumen yang berkaitan dengan jasa fasilitas telekomunikasi umum"
+					}
+				]
+			}
+		]
+	}
+]

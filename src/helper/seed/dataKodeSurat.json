@@ -1,0 +1,6 @@
+[
+	{ "code": "TEL.", "value": "Surat Eksternal", "desc": "Surat Eksternal" },
+	{ "code": "C.TEL.", "value": "Surat Internal", "desc": "Surat Internal" },
+	{ "code": "K.TEL.", "value": "Kontrak", "desc": "Kontrak" },
+	{ "code": "SK.", "value": "Surat Keputusan", "desc": "Surat Keputusan" }
+]

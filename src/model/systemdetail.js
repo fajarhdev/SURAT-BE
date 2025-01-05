@@ -23,6 +23,10 @@ const SystemDetail = sequelize.define(
 		value: {
 			type: DataTypes.STRING,
 		},
+		isTake: {
+			type: DataTypes.BOOLEAN,
+			defaultValue: false,
+		},
 	},
 	{
 		tableName: "DETAIL_SYSTEM",

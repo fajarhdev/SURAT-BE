@@ -2,7 +2,7 @@ const { DataTypes } = require("sequelize");
 const sequelize = require("../../config/database");
 
 const MailCode = sequelize.define(
-	"MASTER_MAIL_CODe",
+	"MASTER_MAIL_CODE",
 	{
 		id: {
 			type: DataTypes.UUID,
@@ -10,6 +10,9 @@ const MailCode = sequelize.define(
 			primaryKey: true,
 		},
 		code: {
+			type: DataTypes.STRING,
+		},
+		value: {
 			type: DataTypes.STRING,
 		},
 		desc: {

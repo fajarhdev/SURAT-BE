@@ -61,7 +61,7 @@ const OutMail = sequelize.define(
 			type: DataTypes.TIME,
 			field: "out_time",
 		},
-		isSaturday: {
+		isFriday: {
 			type: DataTypes.BOOLEAN,
 			field: "is_saturday",
 		},

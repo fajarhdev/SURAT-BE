@@ -4,11 +4,12 @@ const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 
 const indexRouter = require("./routes/index");
-const usersRouter = require("./routes/users");
+const mailRouter = require("./routes/mail");
+const sysRouter = require("./routes/sys");
 const sequelize = require("./config/database");
 const models = require("./src/model/index");
 const createSuperAdminRole = require("./src/service/role");
-const createSuperAdminUnit = require("./src/service/unit");
+const { createSuperAdminUnit } = require("./src/service/unit");
 const { createSuperAdmin } = require("./src/service/user");
 
 const app = express();
@@ -36,6 +37,7 @@ sequelize
 	});
 
 app.use("/api/auth", indexRouter);
-app.use("/api/user", usersRouter);
+app.use("/api/mail", mailRouter);
+app.use("/api/sys", sysRouter);
 
 module.exports = app;
