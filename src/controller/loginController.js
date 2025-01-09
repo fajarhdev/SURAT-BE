@@ -1,5 +1,6 @@
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
+const response = require("./util/response");
 const {
 	checkUserDB,
 	userFindById,
@@ -35,37 +36,50 @@ const generateRefreshToken = async (user) => {
 const loginController = async (req, res) => {
 	const { username, password } = req.body;
 
-	// validasi database
-	const db = await checkUserDB();
-
-	// Validasi pengguna
-	const user = await userFindById(username);
-
-	if (db !== null) {
-		if (user !== null) {
-			if (!user || !bcrypt.compareSync(password, user.password)) {
-				return res.status(401).json({
-					message: "Invalid username or password",
-				});
+	try {
+		// validasi database
+		const db = await checkUserDB();
+	
+		// Validasi pengguna
+		const user = await userFindById(username);
+	
+		if (db !== null) {
+			if (user !== null) {
+				if (!user || !bcrypt.compareSync(password, user.password)) {
+					return res.status(401).json({
+						message: "Invalid username or password",
+					});
+				}
 			}
+		} else {
+			await createSuperAdmin();
 		}
-	} else {
-		await createSuperAdmin();
+	
+		// Buat JWT dan Refresh Token
+		const accessToken = await generateAccessToken(user);
+		const refreshToken = await generateRefreshToken(user);
+	
+		// Simpan refresh token ke server-side storage
+		refreshTokens.push(refreshToken);
+	
+		// Kirim token ke response
+		res.cookie("refreshToken", refreshToken, {
+			httpOnly: true,
+			secure: process.env.NODE_ENV === "production", // Aktifkan secure di production
+			sameSite: "strict",
+		}).json({ accessToken });
+	} catch (e) {
+		const error = await response(
+			500,
+			"Error when login",
+			null,
+			e,
+			req,
+			res
+		);
+
+		return error;
 	}
-
-	// Buat JWT dan Refresh Token
-	const accessToken = await generateAccessToken(user);
-	const refreshToken = await generateRefreshToken(user);
-
-	// Simpan refresh token ke server-side storage
-	refreshTokens.push(refreshToken);
-
-	// Kirim token ke response
-	res.cookie("refreshToken", refreshToken, {
-		httpOnly: true,
-		secure: process.env.NODE_ENV === "production", // Aktifkan secure di production
-		sameSite: "strict",
-	}).json({ accessToken });
 };
 
 module.exports = { loginController };
