@@ -22,4 +22,51 @@ const getAllUnitService = async () => {
 	}
 };
 
-module.exports = { createSuperAdminUnit, getAllUnitService };
+const createUnit = async (unit) => {
+	try {
+		const unit = await Unit.create({
+			name: unit.name,
+			address: unit.address
+		});
+
+		return unit;
+	} catch (e) {
+		throw new Error("Error database", e);
+		
+	}
+};
+
+const deleteUnit = async (id) => {
+	try {
+		const unit = await Unit.destroy({
+			where: {
+				id: id
+			}
+		});
+
+		return unit;
+	} catch (e) {
+		throw new Error("Error database", e);
+		
+	}
+}
+
+const modifyUnit = async (unit) => {
+	try {
+		const unit = await Unit.update({
+			name: unit.name,
+			address: unit.address
+		}, {
+			where: {
+				id: unit.id
+			}
+		});
+
+		return unit;
+	} catch (e) {
+		throw new Error("Error database", e);
+		
+	}
+}
+
+module.exports = { createSuperAdminUnit, getAllUnitService, createUnit, deleteUnit, modifyUnit };

@@ -13,7 +13,21 @@ const checkUserDB = async () => {
 	}
 };
 
-const userFindById = async (username) => {
+const userFindById = async (id) => {
+	try {
+		const user = await User.findOne({
+			where: {
+				username: id,
+			},
+		});
+
+		return user;
+	} catch (e) {
+		throw Error("Error Database", e);
+	}
+};
+
+const userFindByUsernameService = async (username) => {
 	try {
 		const user = await User.findOne({
 			where: {
@@ -25,9 +39,9 @@ const userFindById = async (username) => {
 	} catch (e) {
 		throw Error("Error Database", e);
 	}
-};
+}
 
-const createSuperAdmin = async (user) => {
+const createSuperAdmin = async () => {
 	try {
 		// Fetch the Role ID for superadmin (assumes a role exists)
 		const superadminRole = await Role.findOne({
@@ -75,4 +89,59 @@ const createSuperAdmin = async (user) => {
 	}
 };
 
-module.exports = { checkUserDB, userFindById, createSuperAdmin };
+const createUserService = async (user) => {
+	try {
+		
+		const hashedPassword = await bcrypt.hash(user.password, 10);
+		
+		const userData = await User.create({
+			npp: user.npp,
+			name: user.name,
+			unit: user.unit,
+			numPhone: user.numPhone,
+			role: user.role,
+			username: user.username,
+			password: hashedPassword
+		});
+
+		return userData;
+	} catch (e) {
+		throw Error("Error Database", e);
+	}
+} 
+
+const deleteUserService = async (id) => {
+	try {
+		const user = await User.destroy({
+			where: {
+				id: id
+			}
+		});
+
+		return user;
+	} catch (e) {
+		throw Error("Error Database", e);
+	}
+}
+
+const modifyUserService = async (user) => {
+	try {
+		const userData = await User.update({
+			npp: user.npp,
+			name: user.name,
+			unit: user.unit,
+			numPhone: user.numPhone,
+			role: user.role,
+		}, {
+			where: {
+				id: user.id
+			}
+		});
+
+		return userData;
+	} catch (e) {
+		throw Error("Error Database", e);
+	}
+}
+
+module.exports = { checkUserDB, userFindById, createSuperAdmin, createUserService, userFindByUsernameService, deleteUserService, modifyUserService };
