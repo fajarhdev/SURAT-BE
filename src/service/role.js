@@ -8,4 +8,10 @@ const createSuperAdminRole = async () => {
 	});
 };
 
-module.exports = createSuperAdminRole;
+const roleFindById = async (id) => {
+	const role = await Role.findByPk(id);
+
+	return role;
+}
+
+module.exports = {createSuperAdminRole, roleFindById};

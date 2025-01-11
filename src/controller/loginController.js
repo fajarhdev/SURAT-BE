@@ -6,6 +6,7 @@ const {
 	userFindById,
 	createSuperAdmin,
 } = require("../service/user");
+const {roleFindById} = require("../service/role");
 require("dotenv").config();
 
 // Secret keys
@@ -16,8 +17,8 @@ const REFRESH_SECRET = process.env.REFRESH_TOKEN_KEY;
 let refreshTokens = [];
 
 // Helper untuk membuat JWT
-const generateAccessToken = async (user) => {
-	return jwt.sign({ id: user.id, username: user.username }, JWT_SECRET, {
+const generateAccessToken = async (user, role) => {
+	return jwt.sign({ id: user.id, username: user.username, role: role.name }, JWT_SECRET, {
 		expiresIn: "15m",
 	});
 };
@@ -42,7 +43,11 @@ const loginController = async (req, res) => {
 	
 		// Validasi pengguna
 		const user = await userFindById(username);
-	
+		let role = null;
+		if(user !== null) {
+			role = await roleFindById(user.role);
+		}
+
 		if (db !== null) {
 			if (user !== null) {
 				if (!user || !bcrypt.compareSync(password, user.password)) {
@@ -50,14 +55,18 @@ const loginController = async (req, res) => {
 						message: "Invalid username or password",
 					});
 				}
+			}else {
+				return res.status(401).json({
+					message: "Invalid username or password",
+				});
 			}
 		} else {
 			await createSuperAdmin();
 		}
 	
 		// Buat JWT dan Refresh Token
-		const accessToken = await generateAccessToken(user);
-		const refreshToken = await generateRefreshToken(user);
+		const accessToken = await generateAccessToken(user, role);
+		const refreshToken = await generateRefreshToken(user, role);
 	
 		// Simpan refresh token ke server-side storage
 		refreshTokens.push(refreshToken);
