@@ -13,6 +13,16 @@ const checkUserDB = async () => {
 	}
 };
 
+const getUserService = async () => {
+	try {
+		const user = await User.findAll();
+
+		return user;
+	} catch (e) {
+		throw Error("Error Database", e);
+	}
+}
+
 const userFindById = async (id) => {
 	try {
 		const user = await User.findOne({
@@ -146,4 +156,4 @@ const modifyUserService = async (user, id) => {
 	}
 }
 
-module.exports = { checkUserDB, userFindById, createSuperAdmin, createUserService, userFindByUsernameService, deleteUserService, modifyUserService };
+module.exports = { checkUserDB, userFindById, createSuperAdmin, createUserService, userFindByUsernameService, deleteUserService, modifyUserService, getUserService };
