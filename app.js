@@ -2,17 +2,20 @@ const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
+const cors = require('cors');
 
 const indexRouter = require("./routes/index");
 const mailRouter = require("./routes/mail");
 const sysRouter = require("./routes/sys");
 const sequelize = require("./config/database");
 const models = require("./src/model/index");
-const createSuperAdminRole = require("./src/service/role");
+const {createSuperAdminRole} = require("./src/service/role");
 const { createSuperAdminUnit } = require("./src/service/unit");
 const { createSuperAdmin } = require("./src/service/user");
 
 const app = express();
+
+app.use(cors());
 
 app.use(logger("dev"));
 app.use(express.json());
