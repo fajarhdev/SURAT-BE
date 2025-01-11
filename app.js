@@ -2,6 +2,7 @@ const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
+const cors = require('cors');
 
 const indexRouter = require("./routes/index");
 const mailRouter = require("./routes/mail");
@@ -13,6 +14,8 @@ const { createSuperAdminUnit } = require("./src/service/unit");
 const { createSuperAdmin } = require("./src/service/user");
 
 const app = express();
+
+app.use(cors());
 
 app.use(logger("dev"));
 app.use(express.json());
