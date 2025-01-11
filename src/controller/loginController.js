@@ -5,7 +5,7 @@ const {
 	checkUserDB,
 	userFindById,
 	createSuperAdmin,
-	userFindByUsername,
+	userFindByUsernameService,
 } = require("../service/user");
 const {roleFindById} = require("../service/role");
 require("dotenv").config();

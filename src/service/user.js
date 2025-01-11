@@ -124,7 +124,7 @@ const deleteUserService = async (id) => {
 	}
 }
 
-const modifyUserService = async (user) => {
+const modifyUserService = async (user, id) => {
 	try {
 		const userData = await User.update({
 			npp: user.npp,
@@ -134,7 +134,7 @@ const modifyUserService = async (user) => {
 			role: user.role,
 		}, {
 			where: {
-				id: user.id
+				id: id
 			}
 		});
 

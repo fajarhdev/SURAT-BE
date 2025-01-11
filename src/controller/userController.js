@@ -1,4 +1,5 @@
 const { createUserService, modifyUserService, deleteUserService } = require('../service/user');
+const response = require("./util/response");
 
 const createUserController = async (req, res) => {
     const data = req.body;
@@ -31,9 +32,10 @@ const createUserController = async (req, res) => {
 
 const updateUserController = async (req, res) => {
     const data = req.body;
+	const id = req.params.id;
 
     try {
-        const user = await modifyUserService(data);
+        const user = await modifyUserService(data, id);
 
         const result = await response(
 			200,

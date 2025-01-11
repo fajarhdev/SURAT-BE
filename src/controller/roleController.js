@@ -1,54 +1,24 @@
-const {createUnit, modifyUnit, deleteUnit} = require("../service/unit");
+const {createRole, modifyRole} = require("../service/role");
 const response = require("./util/response");
-
-const createUnitController = async (req, res) => {
+const createRoleController = async (req, res) => {
     const data = req.body;
-    try {
-        const unit = await createUnit(data);
+    try{
+        const role = await createRole(data);
 
         const result = await response(
             200,
-            "Succes create Unit data",
-            unit,
+            "Succes create role data",
+            role,
             null,
             req,
             res
         );
 
         return result;
-    } catch (e) {
+    }catch(e){
         const error = await response(
             500,
-            "Error create Unit data",
-            null,
-            e,
-            req,
-            res
-        );
-
-        return error;
-    }
-};
-
-const modifyUnitController = async (req, res) => {
-    const data = req.body;
-    try {
-        const unit = await modifyUnit(data);
-
-        const result = await response(
-            200,
-            "Succes update Unit data",
-            unit,
-            null,
-            req,
-            res
-        );
-
-        return result;
-    } catch (e) {
-        const error = await response(
-            500,
-            "Error update Unit data",
+            "Error create role data",
             null,
             e,
             req,
@@ -59,25 +29,55 @@ const modifyUnitController = async (req, res) => {
     }
 }
 
-const deleteUnitController = async (req, res) => {
+const modifyRoleController = async (req, res) => {
+    const data = req.body;
+
+    try{
+        const role = await modifyRole(data);
+
+        const result = await response(
+            200,
+            "Succes modify role data",
+            role,
+            null,
+            req,
+            res
+        );
+
+        return result;
+    }catch(e){
+        const error = await response(
+            500,
+            "Error modify role data",
+            null,
+            e,
+            req,
+            res
+        );
+
+        return error;
+    }
+}
+
+const deleteRoleController = async (req, res) => {
     const data = req.params.id;
-    try {
-        const unit = await deleteUnit(data);
+    try{
+        const role = await deleteRole(data);
 
         const result = await response(
             200,
-            "Succes delete Unit data",
-            unit,
+            "Succes delete role data",
+            role,
             null,
             req,
             res
         );
 
         return result;
-    } catch (e) {
+    }catch (e) {
         const error = await response(
             500,
-            "Error delete Unit data",
+            "Error delete role data",
             null,
             e,
             req,
@@ -88,4 +88,4 @@ const deleteUnitController = async (req, res) => {
     }
 }
 
-module.exports = {createUnitController, modifyUnitController, deleteUnitController};
+module.exports = {createRoleController, modifyRoleController, deleteRoleController};
