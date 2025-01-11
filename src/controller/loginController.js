@@ -75,7 +75,7 @@ const loginController = async (req, res) => {
 		// Kirim token ke response
 		res.cookie("refreshToken", refreshToken, {
 			httpOnly: true,
-			secure: process.env.NODE_ENV === "production", // Aktifkan secure di production
+			secure: false, // Aktifkan secure di production
 			sameSite: "None",
 		}).json({ accessToken });
 	} catch (e) {
