@@ -91,4 +91,34 @@ const deleteUserController = async (req, res) => {
     }
 }
 
+const getUserController = async (req, res) => {
+	const data = req.params;
+
+	try {
+		const user = await deleteUserService(data);
+
+		const result = await response(
+			200,
+			"Succes delete user",
+			user,
+			null,
+			req,
+			res
+		);
+
+		return result;
+	} catch (e) {
+		const error = await response(
+			500,
+			"Error delete user",
+			null,
+			e,
+			req,
+			res
+		);
+
+		return error;
+	}
+}
+
 module.exports = {createUserController, updateUserController, deleteUserController};
