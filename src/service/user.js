@@ -27,6 +27,20 @@ const userFindById = async (username) => {
 	}
 };
 
+const userFindByUsername = async (username) => {
+	try {
+		const user = await User.findOne({
+			where: {
+				username: username,
+			},
+		});
+
+		return user;
+	} catch (e) {
+		throw new Error("Error database", e);
+	}
+};
+
 const createSuperAdmin = async (user) => {
 	try {
 		// Fetch the Role ID for superadmin (assumes a role exists)
@@ -75,4 +89,24 @@ const createSuperAdmin = async (user) => {
 	}
 };
 
-module.exports = { checkUserDB, userFindById, createSuperAdmin };
+const createUser = async (user) => {
+	try {
+		const userData = await User.create({
+			npp: user.npp,
+			name: user.name,
+			unit: user.unit,
+			numPhone: user.numPhone,
+			role: user.role,
+			username: user.username,
+			password: user.password,
+		});
+	} catch (e) {}
+};
+
+module.exports = {
+	checkUserDB,
+	userFindById,
+	createSuperAdmin,
+	userFindByUsername,
+	createUser,
+};

@@ -4,6 +4,7 @@ const {
 	checkUserDB,
 	userFindById,
 	createSuperAdmin,
+	userFindByUsername,
 } = require("../service/user");
 require("dotenv").config();
 
@@ -39,7 +40,7 @@ const loginController = async (req, res) => {
 	const db = await checkUserDB();
 
 	// Validasi pengguna
-	const user = await userFindById(username);
+	const user = await userFindByUsername(username);
 
 	if (db !== null) {
 		if (user !== null) {
