@@ -1,4 +1,4 @@
-const { createUserService, modifyUserService, deleteUserService } = require('../service/user');
+const { createUserService, modifyUserService, deleteUserService, getUserService} = require('../service/user');
 const response = require("./util/response");
 
 const createUserController = async (req, res) => {
@@ -95,11 +95,11 @@ const getUserController = async (req, res) => {
 	const data = req.params;
 
 	try {
-		const user = await deleteUserService(data);
+		const user = await getUserService();
 
 		const result = await response(
 			200,
-			"Succes delete user",
+			"Succes fetch user",
 			user,
 			null,
 			req,
@@ -110,7 +110,7 @@ const getUserController = async (req, res) => {
 	} catch (e) {
 		const error = await response(
 			500,
-			"Error delete user",
+			"Error fetch user",
 			null,
 			e,
 			req,
@@ -121,4 +121,4 @@ const getUserController = async (req, res) => {
 	}
 }
 
-module.exports = {createUserController, updateUserController, deleteUserController};
+module.exports = {createUserController, updateUserController, deleteUserController, getUserController};

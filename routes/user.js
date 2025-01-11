@@ -7,6 +7,6 @@ const router = express.Router();
 router.post("/create", verifyToken, createUserController);
 router.patch("/update/:id", verifyToken, updateUserController);
 router.delete("/delete/:id", verifyToken, deleteUserController);
-router.get("/get", verifyToken, getUserService)
+router.get("/get", verifyToken, getUserC)
 
 module.exports = router;
