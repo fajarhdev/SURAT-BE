@@ -24,12 +24,12 @@ const getAllUnitService = async () => {
 
 const createUnit = async (unit) => {
 	try {
-		const unit = await Unit.create({
+		const unitData = await Unit.create({
 			name: unit.name,
 			address: unit.address
 		});
 
-		return unit;
+		return unitData;
 	} catch (e) {
 		throw new Error("Error database", e);
 		
@@ -53,7 +53,7 @@ const deleteUnit = async (id) => {
 
 const modifyUnit = async (unit) => {
 	try {
-		const unit = await Unit.update({
+		const unitData = await Unit.update({
 			name: unit.name,
 			address: unit.address
 		}, {
@@ -62,7 +62,7 @@ const modifyUnit = async (unit) => {
 			}
 		});
 
-		return unit;
+		return unitData;
 	} catch (e) {
 		throw new Error("Error database", e);
 		

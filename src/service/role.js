@@ -21,14 +21,16 @@ const roleFindById = async (id) => {
 
 const createRole = async (role) => {
 	try {
-		const role = await Role.create({
+		const roleData = await Role.create({
 			name: role.name,
 			level: role.level
 		});
+
+		return roleData;
 	} catch (e) {
 		throw new Error("Error database", e);
 	}
-}
+};
 
 const deleteRole = async (id) => {
 	try {
@@ -42,5 +44,19 @@ const deleteRole = async (id) => {
 	} catch (e) {
 		throw new Error("Error database", e);
 	}
-}
-module.exports = {createSuperAdminRole, roleFindById, createRole, deleteRole};
+};
+
+const modifyRole = async (role) => {
+	try {
+		const roleData = await Role.update({
+			name: role.name,
+			level: role.level
+		});
+
+		return roleData;
+	} catch (e) {
+		throw new Error("Error database", e);
+	}
+};
+
+module.exports = {createSuperAdminRole, roleFindById, createRole, deleteRole, modifyRole};
