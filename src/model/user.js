@@ -27,6 +27,9 @@ const User = sequelize.define(
 		numPhone: {
 			type: DataTypes.STRING,
 		},
+		email: {
+			type: DataTypes.STRING,
+		},
 		role: {
 			type: DataTypes.UUID,
 			references: {

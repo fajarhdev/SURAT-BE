@@ -99,6 +99,7 @@ const createUserService = async (user) => {
 			name: user.name,
 			unit: user.unit,
 			numPhone: user.numPhone,
+			email:user.email,
 			role: user.role,
 			username: user.username,
 			password: hashedPassword
@@ -131,6 +132,7 @@ const modifyUserService = async (user, id) => {
 			name: user.name,
 			unit: user.unit,
 			numPhone: user.numPhone,
+			email:user.email,
 			role: user.role,
 		}, {
 			where: {
