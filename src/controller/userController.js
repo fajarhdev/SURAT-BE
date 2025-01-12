@@ -62,7 +62,7 @@ const updateUserController = async (req, res) => {
 }
 
 const deleteUserController = async (req, res) => {
-    const data = req.params;
+    const data = req.params.id;
 
     try {
         const user = await deleteUserService(data);

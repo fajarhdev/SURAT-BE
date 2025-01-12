@@ -1,4 +1,4 @@
-const { getIncomingMailService } = require("../service/mail");
+const { getIncomingMailService, createIncomingMailService } = require("../service/mail");
 const response = require("./util/response");
 
 const getIncomingMailController = async (req, res) => {
@@ -32,11 +32,11 @@ const getIncomingMailController = async (req, res) => {
 
 const createIncomingMailController = async (req, res) => {
 	const user = req.user;
-	const data = req.data;
+	const data = req.body;
 	const file = req.file;
 
 	try {
-		const createIncomingMailData = await createIncomingMailController(
+		const createIncomingMailData = await createIncomingMailService(
 			data,
 			file
 		);

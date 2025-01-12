@@ -9,7 +9,7 @@ if (!fs.existsSync(path)) {
 // Configure multer storage
 const storage = multer.diskStorage({
 	destination: (req, file, cb) => {
-		cb(null, "../../public"); // Specify upload directory
+		cb(null, "public/upload/"); // Specify upload directory
 	},
 	filename: (req, file, cb) => {
 		const uniqueSuffix =

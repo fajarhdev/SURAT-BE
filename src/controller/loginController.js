@@ -41,7 +41,7 @@ const loginController = async (req, res) => {
 	try {
 		// validasi database
 		const db = await checkUserDB();
-
+		
 		// Validasi pengguna
 		const user = await userFindByUsernameService(username);
 		let role = null;
@@ -50,13 +50,10 @@ const loginController = async (req, res) => {
 		}
 
 		if (db !== null) {
-			if (user !== null) {
-				if (!user || !bcrypt.compareSync(password, user.password)) {
-					return res.status(401).json({
-						message: "Invalid username or password",
-					});
-				}
-			}else {
+			if (user === null) {
+				// if (!user || !bcrypt.compareSync(password, user.password)) {
+					
+				// }
 				return res.status(401).json({
 					message: "Invalid username or password",
 				});
@@ -75,8 +72,8 @@ const loginController = async (req, res) => {
 		// Kirim token ke response
 		res.cookie("refreshToken", refreshToken, {
 			httpOnly: true,
-			secure: process.env.NODE_ENV === "production", // Aktifkan secure di production
-			sameSite: "None",
+			secure: false, // Aktifkan secure di production
+			sameSite: "lax",
 		}).json({ accessToken });
 	} catch (e) {
 		const error = await response(

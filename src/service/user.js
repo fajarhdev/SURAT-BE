@@ -67,7 +67,7 @@ const createSuperAdmin = async () => {
 		}
 
 		// Prepare hashed password
-		const hashedPassword = await bcrypt.hash("superadmin123", 10);
+		// const hashedPassword = await bcrypt.hash("superadmin123", 10);
 
 		// Insert superadmin user
 		const superadminUser = await User.create({
@@ -77,7 +77,7 @@ const createSuperAdmin = async () => {
 			numPhone: "1234567890",
 			role: superadminRole.id,
 			username: "superadmin",
-			password: hashedPassword,
+			password: "superadmin123",
 		});
 
 		console.log(
@@ -92,7 +92,7 @@ const createSuperAdmin = async () => {
 const createUserService = async (user) => {
 	try {
 		
-		const hashedPassword = await bcrypt.hash(user.password, 10);
+		// const hashedPassword = await bcrypt.hash(user.password, 10);
 		
 		const userData = await User.create({
 			npp: user.npp,
@@ -102,7 +102,7 @@ const createUserService = async (user) => {
 			email:user.email,
 			role: user.role,
 			username: user.username,
-			password: hashedPassword
+			password: user.password
 		});
 
 		return userData;
