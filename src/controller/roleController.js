@@ -1,4 +1,4 @@
-const {createRole, modifyRole} = require("../service/role");
+const {createRole, modifyRole, getRoleService} = require("../service/role");
 const response = require("./util/response");
 const createRoleController = async (req, res) => {
     const data = req.body;
@@ -88,4 +88,32 @@ const deleteRoleController = async (req, res) => {
     }
 }
 
-module.exports = {createRoleController, modifyRoleController, deleteRoleController};
+const getRoleController = async (req, res) => {
+    try{
+        const role = await getRoleService();
+
+        const result = await response(
+            200,
+            "Succes fetch role data",
+            role,
+            null,
+            req,
+            res
+        );
+
+        return result;
+    }catch (e) {
+        const error = await response(
+            500,
+            "Error fetch role data",
+            null,
+            e,
+            req,
+            res
+        );
+
+        return error;
+    }
+}
+
+module.exports = {createRoleController, modifyRoleController, deleteRoleController, getRoleController};

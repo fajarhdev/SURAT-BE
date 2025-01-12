@@ -1,4 +1,4 @@
-const {createUnit, modifyUnit, deleteUnit} = require("../service/unit");
+const {createUnit, modifyUnit, deleteUnit, getAllUnitService} = require("../service/unit");
 const response = require("./util/response");
 
 const createUnitController = async (req, res) => {
@@ -88,4 +88,32 @@ const deleteUnitController = async (req, res) => {
     }
 }
 
-module.exports = {createUnitController, modifyUnitController, deleteUnitController};
+const getUnitController = async (req, res) => {
+    try{
+        const role = await getAllUnitService();
+
+        const result = await response(
+            200,
+            "Succes fetch unit data",
+            role,
+            null,
+            req,
+            res
+        );
+
+        return result;
+    }catch (e) {
+        const error = await response(
+            500,
+            "Error fetch unit data",
+            null,
+            e,
+            req,
+            res
+        );
+
+        return error;
+    }
+}
+
+module.exports = {createUnitController, modifyUnitController, deleteUnitController, getUnitController};

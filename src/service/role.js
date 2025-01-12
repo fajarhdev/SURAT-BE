@@ -21,6 +21,16 @@ const roleFindById = async (id) => {
 	}
 }
 
+const getRoleService = async () => {
+	try {
+		const role = await Role.findAll();
+
+		return role;
+	} catch (e) {
+		throw new Error("Error database", e);
+	}
+}
+
 const createRole = async (role) => {
 	try {
 		const roleData = await Role.create({
@@ -61,4 +71,4 @@ const modifyRole = async (role) => {
 	}
 };
 
-module.exports = {createSuperAdminRole, roleFindById, createRole, deleteRole, modifyRole};
+module.exports = {createSuperAdminRole, roleFindById, createRole, deleteRole, modifyRole, getRoleService};
