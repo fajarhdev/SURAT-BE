@@ -100,7 +100,6 @@ const createSuperAdmin = async () => {
 		const superadminUser = await User.findOrCreate({
 			where: { username: "superadmin" }, // Cari pengguna berdasarkan username
 			defaults: {
-			  npp: "000001",
 			  name: "Super Admin",
 			  unit: superadminUnit.id,
 			  numPhone: "1234567890",
@@ -129,7 +128,6 @@ const createUserService = async (user) => {
 		validateUser(user);
 
 		const userData = await User.create({
-			npp: user.npp,
 			name: user.name,
 			unit: user.unit,
 			numPhone: user.numPhone,
@@ -165,7 +163,6 @@ const modifyUserService = async (user, id) => {
 		validateUser(user);
 
 		const userData = await User.update({
-			npp: user.npp,
 			name: user.name,
 			unit: user.unit,
 			numPhone: user.numPhone,
@@ -185,7 +182,6 @@ const modifyUserService = async (user, id) => {
 
 const validateUser = (user) => {
 	const requiredFields = [
-	  { field: 'npp', value: user.npp },
 	  { field: 'name', value: user.name },
 	  { field: 'unit', value: user.unit },
 	  { field: 'numPhone', value: user.numPhone },

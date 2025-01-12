@@ -21,7 +21,7 @@ router.post(
 	createIncomingMailController
 );
 router.patch(
-	"/updateincomingmail",
+	"/updateincomingmail/:id",
 	verifyToken,
 	upload.single("file"),
 	updateIncomingMailController
