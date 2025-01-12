@@ -92,9 +92,11 @@ const deleteUserController = async (req, res) => {
 }
 
 const getUserController = async (req, res) => {
+	const page = parseInt(req.query.page, 10) || 1; // Halaman default 1
+    const pageSize = parseInt(req.query.pageSize, 10) || 10; // Jumlah data default 10 per halaman
 
 	try {
-		const user = await getUserService();
+		const user = await getUserService(page, pageSize);
 
 		const result = await response(
 			200,

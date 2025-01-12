@@ -15,26 +15,37 @@ const checkUserDB = async () => {
 	}
 };
 
-const getUserService = async () => {
+const getUserService = async (page = 1, pageSize = 10) => {
 	try {
+		// Hitung offset berdasarkan halaman dan ukuran halaman
+		const offset = (page - 1) * pageSize;
+
 		const query = `
- 			SELECT 
-    			mu.id,
-    			mu.name,
-    			mu2."name" AS unit,
-    			mu."numPhone",
-    			mu.email,
-    			mr."name" as role,
-    			mu.username,
-    			mu."password"
-  			FROM "MASTER_USER" mu
-  			JOIN "MASTER_ROLE" mr ON mu."role" = mr.id
-  			JOIN "MASTER_UNIT" mu2 ON mu.unit = mu2.id;
+			SELECT 
+				mu.id,
+				mu.name,
+				mu2."name" AS unit,
+				mu."numPhone",
+				mu.email,
+				mr."name" AS role,
+				mu.username,
+				mu."password"
+			FROM "MASTER_USER" mu
+			JOIN "MASTER_ROLE" mr ON mu."role" = mr.id
+			JOIN "MASTER_UNIT" mu2 ON mu.unit = mu2.id
+			LIMIT :pageSize OFFSET :offset;
 		`;
-
-		const user = sequelize.query(query, {type: QueryTypes.SELECT})
-
-		return user;
+	
+		// Jalankan query dengan parameter
+		const users = await sequelize.query(query, {
+			type: QueryTypes.SELECT,
+			replacements: {
+				pageSize: pageSize,
+				offset: offset
+			}
+		});
+	
+		return users;
 	} catch (e) {
 		throw Error("Error Database", e);
 	}
