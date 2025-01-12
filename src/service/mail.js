@@ -134,33 +134,15 @@ const saveNumCadangan = async (cadanganAwal, cadanganAkhir) => {
 
 const createIncomingMailService = async (mail, file) => {
 	try {
-		// find sender
-		// const userData = await User.findOne({
-		// 	where: {
-		// 		id: user,
-		// 	},
-		// });
 
-		// // find receiver user
-		// const userRec = await User.findOne({
-		// 	where: {
-		// 		id: mail.rec_name,
-		// 	},
-		// });
-
-		// // find receiver unit
-		// const unitRec = await Unit.findOne({
-		// 	where: {
-		// 		id: mail.rec_unit,
-		// 	},
-		// });
+		validateMailInc(mail, file);
 
 		const createMail = await IncMail.create({
 			sender: mail.sender,
 			destMail: mail.dest_mail,
 			subject: mail.subject,
 			dispotition: mail.dispotition,
-			dispottitionNote: mail.dispottition_note,
+			dispotitionNote: mail.dispotition_note,
 			recName: mail.rec_name,
 			recUnit: mail.rec_unit,
 			incDate: mail.inc_date,
@@ -174,10 +156,55 @@ const createIncomingMailService = async (mail, file) => {
 	}
 };
 
+const updateIncomingMailService = async (mail, id,file) => {
+	try {
+
+		validateMailInc(mail, file);
+
+		const createMail = await IncMail.update({
+			sender: mail.sender,
+			destMail: mail.dest_mail,
+			subject: mail.subject,
+			dispotition: mail.dispotition,
+			dispotitionNote: mail.dispotition_note,
+			recName: mail.rec_name,
+			recUnit: mail.rec_unit,
+			incDate: mail.inc_date,
+			incTime: mail.inc_time,
+			image: file.path,
+		},{
+			where:{
+				id: id
+			}
+		});
+
+		return createMail;
+	} catch (e) {
+		throw new Error("Error database", e.message);
+	}
+}
+
+const deleteIncomingMailService = async (id) => {
+	try {
+		const mail = await IncMail.destroy({
+			where: {
+				id: id
+			}
+		});
+
+		return mail;
+	} catch (e) {
+		throw new Error("Error database", e.message);
+		
+	}
+}
+
 const createOutMailService = async (mail, user) => {
 	let isFriday = false;
 	const isCadangan = mail.isCadangan;
 	try {
+		validateMailOtg(mail);
+
 		// find code mail
 		const codeMail = await MailCode.findOne({
 			where: {
@@ -277,9 +304,133 @@ const createOutMailService = async (mail, user) => {
 	}
 };
 
+const updateOutMailService = async (mail, user) => {
+	let isFriday = false;
+	const isCadangan = mail.isCadangan;
+	try {
+		validateMailOtg(mail);
+
+		// find code mail
+		const codeMail = await MailCode.findOne({
+			where: {
+				code: mail.mailCode,
+			},
+		});
+
+		// find problem
+		const problem = await Topic.findOne({
+			where: {
+				id: mail.problem,
+			},
+			include: TopicDetail,
+		});
+
+		// find executive
+		const executive = await Executive.findOne({
+			where: {
+				id: mail.chief,
+			},
+			include: ExecutiveDetail,
+		});
+
+		// find mail maker (user yang terlogin)
+		const userData = await User.findOne({
+			where: {
+				id: user,
+			},
+		});
+
+		// find unit
+		const unit = await Unit.findOne({
+			where: {
+				id: mail.unit,
+			},
+		});
+
+		const createMail = await OutMail.create({
+			numMail: numMail,
+			numCodeMail: codeMail.id,
+			codeMail: codeMail.id,
+			subject: mail.subject,
+			problem: problem.TopicDetail.id,
+			desUnit: unit.id,
+			chiefSign: executive.ExecutiveDetail.id,
+			chiefDesc: executive.ExecutiveDetail.id,
+			mailMaker: userData.id,
+			outDate: mail.outDate,
+			outTime: mail.outTime,
+			isFriday: isFriday,
+			isCadangan: isCadangan,
+		});
+
+		return createMail;
+	} catch (e) {
+		throw new Error("Error database", e);
+	}
+};
+
+const deleteOutMailService = async (id) => {
+	
+	try {
+		const mail = await OutMail.destroy({
+			where: {
+				id: id
+			}
+		});
+
+		return mail;
+	} catch (e) {
+		throw new Error("Error database", e.message);
+	}
+};
+
+const validateMailInc = (mail, file) => {
+	const requiredFields = [
+	  { field: 'sender', value: mail.sender },
+	  { field: 'destMail', value: mail.dest_mail },
+	  { field: 'subject', value: mail.subject },
+	  { field: 'dispotition', value: mail.dispotition },
+	  { field: 'dispottitionNote', value: mail.dispotition_note },
+	  { field: 'recName', value: mail.rec_name },
+	  { field: 'recUnit', value: mail.rec_unit },
+	  { field: 'incDate', value: mail.inc_date },
+	  { field: 'incTime', value: mail.inc_time },
+	  { field: 'image', value: file.path },
+	];
+  
+	for (const { field, value } of requiredFields) {
+	  if (!value || value === '') {
+		throw new Error(`The field "${field}" cannot be empty.`);
+	  }
+	}
+  }
+
+  const validateMailOtg = (mail) => {
+	const requiredFields = [
+	  { field: 'numMail', value: mail.numMail },
+	  { field: 'numCodeMail', value: mail.numCodeMail },
+	  { field: 'codeMail', value: mail.codeMail },
+	  { field: 'subject', value: mail.subject },
+	  { field: 'problem', value: mail.problem },
+	  { field: 'desUnit', value: mail.desUnit },
+	  { field: 'chiefSign', value: mail.chiefSign },
+	  { field: 'chiefDesc', value: mail.chiefDesc },
+	  { field: 'mailMaker', value: mail.mailMaker },
+	  { field: 'outDate', value: mail.outDate },
+	  { field: 'outTime', value: mail.outTime },
+	];
+  
+	for (const { field, value } of requiredFields) {
+	  if (value === null || value === undefined || value === '') {
+		throw new Error(`The field "${field}" cannot be empty.`);
+	  }
+	}
+  }
 module.exports = {
 	getIncomingMailService,
 	getOutgoingMailService,
 	createIncomingMailService,
 	createOutMailService,
+	updateIncomingMailService,
+	deleteIncomingMailService
 };

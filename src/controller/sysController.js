@@ -1,5 +1,5 @@
 const getExecutiveService = require("../service/executive");
-const getNomorCadanganService = require("../service/sys");
+const {getNomorCadanganService} = require("../service/sys");
 const getTopicService = require("../service/topic");
 const { getAllUnitService } = require("../service/unit");
 const response = require("./util/response");
@@ -116,9 +116,38 @@ const getUnitController = async (req, res) => {
 	}
 };
 
+const getCodeSurat = async (req, res) => {
+	try {
+		const getUnit = await getCodeSurat();
+
+		const result = await response(
+			200,
+			"Succes fetch code surat data",
+			getUnit,
+			null,
+			req,
+			res
+		);
+
+		return result;
+	} catch (e) {
+		const error = await response(
+			500,
+			"Error fetch code surat data",
+			null,
+			e,
+			req,
+			res
+		);
+
+		return error;
+	}
+}
+
 module.exports = {
 	getTopicController,
 	getExecutiveController,
 	getNomorCadanganController,
 	getUnitController,
+	getCodeSurat
 };

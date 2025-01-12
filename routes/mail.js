@@ -3,6 +3,8 @@ const verifyToken = require("../src/middleware/verifytoken");
 const {
 	getIncomingMailController,
 	createIncomingMailController,
+	updateIncomingMailController,
+	deleteIncomingMailController,
 } = require("../src/controller/incomingController");
 const upload = require("../src/middleware/multer");
 const {
@@ -17,6 +19,17 @@ router.post(
 	verifyToken,
 	upload.single("file"),
 	createIncomingMailController
+);
+router.patch(
+	"/updateincomingmail",
+	verifyToken,
+	upload.single("file"),
+	updateIncomingMailController
+);
+router.delete(
+	"/deleteincomingmail/:id",
+	verifyToken,
+	deleteIncomingMailController
 );
 
 router.get("/getoutgoingmail", verifyToken, getOutgoingMailController);

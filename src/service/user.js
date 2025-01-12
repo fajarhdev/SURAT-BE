@@ -2,6 +2,8 @@ const User = require("../model/user");
 const Unit = require("../model/unit");
 const Role = require("../model/role");
 const bcrypt = require("bcryptjs");
+const sequelize = require("../../config/database");
+const { QueryTypes } = require("sequelize");
 
 const checkUserDB = async () => {
 	try {
@@ -15,18 +17,23 @@ const checkUserDB = async () => {
 
 const getUserService = async () => {
 	try {
-		const user = await User.findAll({
-			include: [
-				{
-					model: Role,
-					as: 'id'
-				},
-				{
-					model: Unit,
-					as: 'id'
-				}
-			]
-		});
+		const query = `
+ 			SELECT 
+    			mu.id,
+    			mu.npp,
+    			mu.name,
+    			mu2."name" AS unit,
+    			mu."numPhone",
+    			mu.email,
+    			mr."name" as role,
+    			mu.username,
+    			mu."password"
+  			FROM "MASTER_USER" mu
+  			JOIN "MASTER_ROLE" mr ON mu."role" = mr.id
+  			JOIN "MASTER_UNIT" mu2 ON mu.unit = mu2.id;
+		`;
+
+		const user = sequelize.query(query, {type: QueryTypes.SELECT})
 
 		return user;
 	} catch (e) {
@@ -119,6 +126,8 @@ const createUserService = async (user) => {
 		
 		// const hashedPassword = await bcrypt.hash(user.password, 10);
 		
+		validateUser(user);
+
 		const userData = await User.create({
 			npp: user.npp,
 			name: user.name,
@@ -132,7 +141,7 @@ const createUserService = async (user) => {
 
 		return userData;
 	} catch (e) {
-		throw Error("Error Database", e);
+		throw Error("Error Database ", e.message);
 	}
 } 
 
@@ -152,6 +161,9 @@ const deleteUserService = async (id) => {
 
 const modifyUserService = async (user, id) => {
 	try {
+
+		validateUser(user);
+
 		const userData = await User.update({
 			npp: user.npp,
 			name: user.name,
@@ -170,5 +182,24 @@ const modifyUserService = async (user, id) => {
 		throw Error("Error Database", e);
 	}
 }
+
+const validateUser = (user) => {
+	const requiredFields = [
+	  { field: 'npp', value: user.npp },
+	  { field: 'name', value: user.name },
+	  { field: 'unit', value: user.unit },
+	  { field: 'numPhone', value: user.numPhone },
+	  { field: 'email', value: user.email },
+	  { field: 'role', value: user.role },
+	  { field: 'username', value: user.username },
+	  { field: 'password', value: user.password },
+	];
+  
+	for (const { field, value } of requiredFields) {
+	  if (!value || value === '') {
+		throw new Error(`The field "${field}" cannot be empty.`);
+	  }
+	}
+  }
 
 module.exports = { checkUserDB, userFindById, createSuperAdmin, createUserService, userFindByUsernameService, deleteUserService, modifyUserService, getUserService };
