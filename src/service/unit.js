@@ -2,11 +2,12 @@ const Unit = require("../model/unit");
 
 const createSuperAdminUnit = async () => {
 	try {
-		// create superadmin unit
-		const createUnit = await Unit.create({
-			name: "superadmin",
-			address: "telkom",
-		});
+		const unit = await Unit.findOrCreate({
+			where: { name: "superadmin" }, // Kriteria pencarian
+			defaults: { address: "telkom" }, // Nilai default jika tidak ditemukan
+		  });
+
+		return unit;
 	} catch (e) {
 		throw new Error("Error database");
 	}

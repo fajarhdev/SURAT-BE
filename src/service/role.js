@@ -1,11 +1,13 @@
 const Role = require("../model/role");
 
 const createSuperAdminRole = async () => {
-	// create superadmin role
-	const createRole = await Role.create({
-		name: "superadmin",
-		level: 0,
-	});
+	// Cari atau buat role superadmin
+    const role = await Role.findOrCreate({
+		where: { name: "superadmin" },
+		defaults: { level: 0 },
+	  });
+
+	  return role;
 };
 
 const roleFindById = async (id) => {

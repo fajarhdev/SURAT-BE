@@ -15,7 +15,18 @@ const checkUserDB = async () => {
 
 const getUserService = async () => {
 	try {
-		const user = await User.findAll();
+		const user = await User.findAll({
+			include: [
+				{
+					model: Role,
+					as: 'id'
+				},
+				{
+					model: Unit,
+					as: 'id'
+				}
+			]
+		});
 
 		return user;
 	} catch (e) {
@@ -79,21 +90,25 @@ const createSuperAdmin = async () => {
 		// Prepare hashed password
 		// const hashedPassword = await bcrypt.hash("superadmin123", 10);
 
-		// Insert superadmin user
-		const superadminUser = await User.create({
-			npp: "000001",
-			name: "Super Admin",
-			unit: superadminUnit.id,
-			numPhone: "1234567890",
-			role: superadminRole.id,
-			username: "superadmin",
-			password: "superadmin123",
-		});
+		const superadminUser = await User.findOrCreate({
+			where: { username: "superadmin" }, // Cari pengguna berdasarkan username
+			defaults: {
+			  npp: "000001",
+			  name: "Super Admin",
+			  unit: superadminUnit.id,
+			  numPhone: "1234567890",
+			  role: superadminRole.id,
+			  username: "superadmin",
+			  password: "superadmin123", // Sebaiknya hash password ini
+			},
+		  });
 
 		console.log(
 			"Superadmin user inserted successfully:",
 			superadminUser
 		);
+
+		return superadminUser;
 	} catch (error) {
 		console.error("Error inserting superadmin user:", error);
 	}
