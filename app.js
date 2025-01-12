@@ -29,7 +29,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 sequelize
-	.sync({ force: true }) // Use `force: true` to drop and recreate tables
+	.sync({ alter: true }) // Use `force: true` to drop and recreate tables
 	.then(() => {
 		console.log("All models were synchronized successfully.");
 		createSuperAdminRole().then(() => {
