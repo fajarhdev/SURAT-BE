@@ -73,7 +73,7 @@ const loginController = async (req, res) => {
 		res.cookie("refreshToken", refreshToken, {
 			httpOnly: true,
 			secure: false, // Aktifkan secure di production
-			sameSite: "lax",
+			sameSite: 'lax',
 		}).json({ accessToken });
 	} catch (e) {
 		const error = await response(

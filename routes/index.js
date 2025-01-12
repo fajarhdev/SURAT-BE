@@ -6,6 +6,6 @@ const router = express.Router();
 
 /* GET home page. */
 router.post("/login", loginController);
-router.post("/refreshtoken", RefreshTokenController);
+router.post("/getaccesstoken", RefreshTokenController);
 
 module.exports = router;
