@@ -20,7 +20,6 @@ const getUserService = async () => {
 		const query = `
  			SELECT 
     			mu.id,
-    			mu.npp,
     			mu.name,
     			mu2."name" AS unit,
     			mu."numPhone",
