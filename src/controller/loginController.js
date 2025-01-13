@@ -19,14 +19,14 @@ let refreshTokens = [];
 
 // Helper untuk membuat JWT
 const generateAccessToken = async (user, role) => {
-	return jwt.sign({ id: user.id, username: user.username, role: role.name }, JWT_SECRET, {
+	return jwt.sign({ id: user.id, username: user.username, role: role.name, name: user.name }, JWT_SECRET, {
 		expiresIn: "15m",
 	});
 };
 
 const generateRefreshToken = async (user) => {
 	return jwt.sign(
-		{ id: user.id, username: user.username },
+		{ id: user.id, username: user.username, role: role.name, name: user.name },
 		REFRESH_SECRET,
 		{
 			expiresIn: "7d",

@@ -389,8 +389,6 @@ const validateMailInc = (mail, file) => {
 	  { field: 'sender', value: mail.sender },
 	  { field: 'destMail', value: mail.dest_mail },
 	  { field: 'subject', value: mail.subject },
-	  { field: 'dispotition', value: mail.dispotition },
-	  { field: 'dispottitionNote', value: mail.dispotition_note },
 	  { field: 'recName', value: mail.rec_name },
 	  { field: 'recUnit', value: mail.rec_unit },
 	  { field: 'incDate', value: mail.inc_date },
