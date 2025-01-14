@@ -147,7 +147,7 @@ const createIncomingMailService = async (mail, file) => {
 			recUnit: mail.recUnit,
 			incDate: mail.incDate,
 			incTime: mail.incTime,
-			image: file.path,
+			image: file.filename,
 		});
 
 		return createMail;
@@ -171,7 +171,7 @@ const updateIncomingMailService = async (mail, id,file) => {
 			recUnit: mail.recUnit,
 			incDate: mail.incDate,
 			incTime: mail.incTime,
-			image: file.path,
+			image: file.filename,
 		},{
 			where:{
 				id: id
@@ -393,7 +393,7 @@ const validateMailInc = (mail, file) => {
 	  { field: 'recUnit', value: mail.recUnit },
 	  { field: 'incDate', value: mail.incDate },
 	  { field: 'incTime', value: mail.incTime },
-	  { field: 'image', value: file.path },
+	  { field: 'image', value: file.filename },
 	];
   
 	for (const { field, value } of requiredFields) {
