@@ -139,14 +139,14 @@ const createIncomingMailService = async (mail, file) => {
 
 		const createMail = await IncMail.create({
 			sender: mail.sender,
-			destMail: mail.dest_mail,
+			destMail: mail.destMail,
 			subject: mail.subject,
 			dispotition: mail.dispotition,
-			dispotitionNote: mail.dispotition_note,
-			recName: mail.rec_name,
-			recUnit: mail.rec_unit,
-			incDate: mail.inc_date,
-			incTime: mail.inc_time,
+			dispotitionNote: mail.dispotitionNote,
+			recName: mail.recName,
+			recUnit: mail.recUnit,
+			incDate: mail.incDate,
+			incTime: mail.incTime,
 			image: file.path,
 		});
 
@@ -163,14 +163,14 @@ const updateIncomingMailService = async (mail, id,file) => {
 
 		const createMail = await IncMail.update({
 			sender: mail.sender,
-			destMail: mail.dest_mail,
+			destMail: mail.destMail,
 			subject: mail.subject,
 			dispotition: mail.dispotition,
-			dispotitionNote: mail.dispotition_note,
-			recName: mail.rec_name,
-			recUnit: mail.rec_unit,
-			incDate: mail.inc_date,
-			incTime: mail.inc_time,
+			dispotitionNote: mail.dispotitionNote,
+			recName: mail.recName,
+			recUnit: mail.recUnit,
+			incDate: mail.incDate,
+			incTime: mail.incTime,
 			image: file.path,
 		},{
 			where:{
@@ -387,12 +387,12 @@ const deleteOutMailService = async (id) => {
 const validateMailInc = (mail, file) => {
 	const requiredFields = [
 	  { field: 'sender', value: mail.sender },
-	  { field: 'destMail', value: mail.dest_mail },
+	  { field: 'destMail', value: mail.destMail },
 	  { field: 'subject', value: mail.subject },
-	  { field: 'recName', value: mail.rec_name },
-	  { field: 'recUnit', value: mail.rec_unit },
-	  { field: 'incDate', value: mail.inc_date },
-	  { field: 'incTime', value: mail.inc_time },
+	  { field: 'recName', value: mail.recName },
+	  { field: 'recUnit', value: mail.recUnit },
+	  { field: 'incDate', value: mail.incDate },
+	  { field: 'incTime', value: mail.incTime },
 	  { field: 'image', value: file.path },
 	];
   

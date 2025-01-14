@@ -24,7 +24,7 @@ const generateAccessToken = async (user, role) => {
 	});
 };
 
-const generateRefreshToken = async (user) => {
+const generateRefreshToken = async (user, role) => {
 	return jwt.sign(
 		{ id: user.id, username: user.username, role: role.name, name: user.name },
 		REFRESH_SECRET,
