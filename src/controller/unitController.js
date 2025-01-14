@@ -18,7 +18,7 @@ const createUnitController = async (req, res) => {
         return result;
     } catch (e) {
         const error = await response(
-            500,
+            400,
             "Error create Unit data",
             null,
             e,
@@ -47,7 +47,7 @@ const modifyUnitController = async (req, res) => {
         return result;
     } catch (e) {
         const error = await response(
-            500,
+            400,
             "Error update Unit data",
             null,
             e,
@@ -76,7 +76,7 @@ const deleteUnitController = async (req, res) => {
         return result;
     } catch (e) {
         const error = await response(
-            500,
+            400,
             "Error delete Unit data",
             null,
             e,
@@ -104,7 +104,7 @@ const getUnitController = async (req, res) => {
         return result;
     }catch (e) {
         const error = await response(
-            500,
+            400,
             "Error fetch unit data",
             null,
             e,

@@ -18,8 +18,8 @@ const createUserController = async (req, res) => {
 		return result;
 	} catch (e) {
 		const error = await response(
-			500,
-			"Error create user",
+			400,
+			e.message,
 			null,
 			e,
 			req,
@@ -49,8 +49,8 @@ const updateUserController = async (req, res) => {
         return result;
     } catch (e) {
         const error = await response(
-			500,
-			"Error update user",
+			400,
+			e.message,
 			null,
 			e,
 			req,
@@ -79,7 +79,7 @@ const deleteUserController = async (req, res) => {
         return result;
     } catch (e) {
         const error = await response(
-			500,
+			400,
 			"Error delete user",
 			null,
 			e,
@@ -110,7 +110,7 @@ const getUserController = async (req, res) => {
 		return result;
 	} catch (e) {
 		const error = await response(
-			500,
+			400,
 			"Error fetch user",
 			null,
 			e,

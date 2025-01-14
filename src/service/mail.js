@@ -16,7 +16,7 @@ const getIncomingMailService = async () => {
 
 		return incMail;
 	} catch (e) {
-		throw new Error("Error database", e);
+		throw new Error(e.message);
 	}
 };
 
@@ -26,7 +26,7 @@ const getOutgoingMailService = async () => {
 
 		return outMail;
 	} catch (e) {
-		throw new Error("Error database", e);
+		throw new Error(e.message);
 	}
 };
 
@@ -41,7 +41,7 @@ const getLatestOutMail = async () => {
 
 		return sys;
 	} catch (e) {
-		throw new Error("Error database", e);
+		throw new Error(e.message);
 	}
 };
 
@@ -152,7 +152,7 @@ const createIncomingMailService = async (mail, file) => {
 
 		return createMail;
 	} catch (e) {
-		throw new Error("Error database", e);
+		throw new Error(e.message);
 	}
 };
 
@@ -180,7 +180,7 @@ const updateIncomingMailService = async (mail, id,file) => {
 
 		return createMail;
 	} catch (e) {
-		throw new Error("Error database", e.message);
+		throw new Error(e.message);
 	}
 }
 
@@ -194,7 +194,7 @@ const deleteIncomingMailService = async (id) => {
 
 		return mail;
 	} catch (e) {
-		throw new Error("Error database", e.message);
+		throw new Error(e.message);
 		
 	}
 }
@@ -300,7 +300,7 @@ const createOutMailService = async (mail, user) => {
 
 		return createMail;
 	} catch (e) {
-		throw new Error("Error database", e);
+		throw new Error(e.message);
 	}
 };
 
@@ -365,7 +365,7 @@ const updateOutMailService = async (mail, user) => {
 
 		return createMail;
 	} catch (e) {
-		throw new Error("Error database", e);
+		throw new Error(e.message);
 	}
 };
 
@@ -380,7 +380,7 @@ const deleteOutMailService = async (id) => {
 
 		return mail;
 	} catch (e) {
-		throw new Error("Error database", e.message);
+		throw new Error(e.message);
 	}
 };
 
@@ -398,7 +398,7 @@ const validateMailInc = (mail, file) => {
   
 	for (const { field, value } of requiredFields) {
 	  if (!value || value === '') {
-		throw new Error(`The field "${field}" cannot be empty.`);
+		throw new Error(`The field ${field} cannot be empty.`);
 	  }
 	}
   }
@@ -420,7 +420,7 @@ const validateMailInc = (mail, file) => {
   
 	for (const { field, value } of requiredFields) {
 	  if (value === null || value === undefined || value === '') {
-		throw new Error(`The field "${field}" cannot be empty.`);
+		throw new Error(`The field ${field} cannot be empty.`);
 	  }
 	}
   }

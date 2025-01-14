@@ -77,7 +77,7 @@ const loginController = async (req, res) => {
 		}).json({ accessToken });
 	} catch (e) {
 		const error = await response(
-			500,
+			400,
 			"Error when login",
 			null,
 			e,

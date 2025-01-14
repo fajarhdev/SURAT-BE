@@ -18,7 +18,7 @@ const getIncomingMailController = async (req, res) => {
 		return result;
 	} catch (e) {
 		const error = await response(
-			500,
+			400,
 			"Error fetch incoming mail",
 			null,
 			e,
@@ -53,8 +53,8 @@ const createIncomingMailController = async (req, res) => {
 		return result;
 	} catch (e) {
 		const error = await response(
-			500,
-			"Error creating incoming mail",
+			400,
+			e.message,
 			null,
 			e,
 			req,
@@ -90,8 +90,8 @@ const updateIncomingMailController = async (req, res) => {
 		return result;
 	} catch (e) {
 		const error = await response(
-			500,
-			"Error update incoming mail",
+			400,
+			e.message,
 			null,
 			e,
 			req,
@@ -120,7 +120,7 @@ const deleteIncomingMailController = async (req, res) => {
 		return result;
 	} catch (e) {
 		const error = await response(
-			500,
+			400,
 			"Error delete incoming mail",
 			null,
 			e,

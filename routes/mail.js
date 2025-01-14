@@ -10,6 +10,8 @@ const upload = require("../src/middleware/multer");
 const {
 	getOutgoingMailController,
 	createOutgoingMailController,
+	updateOutgoingMailController,
+	deleteOutgoingMailController,
 } = require("../src/controller/outgoingController");
 const router = express.Router();
 
@@ -34,5 +36,7 @@ router.delete(
 
 router.get("/getoutgoingmail", verifyToken, getOutgoingMailController);
 router.post("/createoutgoingmail", verifyToken, createOutgoingMailController);
+router.post("/updateoutgoingmail", verifyToken, updateOutgoingMailController);
+router.post("/deleteoutgoingmail", verifyToken, deleteOutgoingMailController);
 
 module.exports = router;

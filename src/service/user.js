@@ -47,7 +47,7 @@ const getUserService = async (page = 1, pageSize = 10) => {
 	
 		return users;
 	} catch (e) {
-		throw Error("Error Database", e);
+		throw Error(e.message);
 	}
 }
 
@@ -61,7 +61,7 @@ const userFindById = async (id) => {
 
 		return user;
 	} catch (e) {
-		throw Error("Error Database", e);
+		throw Error(e.message);
 	}
 };
 
@@ -75,7 +75,7 @@ const userFindByUsernameService = async (username) => {
 
 		return user;
 	} catch (e) {
-		throw Error("Error Database", e);
+		throw Error(e.message);
 	}
 }
 
@@ -149,7 +149,7 @@ const createUserService = async (user) => {
 
 		return userData;
 	} catch (e) {
-		throw Error("Error Database ", e.message);
+		throw Error(e.message);
 	}
 } 
 
@@ -163,7 +163,7 @@ const deleteUserService = async (id) => {
 
 		return user;
 	} catch (e) {
-		throw Error("Error Database", e);
+		throw Error(e.message);
 	}
 }
 
@@ -186,7 +186,7 @@ const modifyUserService = async (user, id) => {
 
 		return userData;
 	} catch (e) {
-		throw Error("Error Database", e);
+		throw Error(e.message);
 	}
 }
 
@@ -203,7 +203,7 @@ const validateUser = (user) => {
   
 	for (const { field, value } of requiredFields) {
 	  if (!value || value === '') {
-		throw new Error(`The field "${field}" cannot be empty.`);
+		throw new Error(`The field ${field} cannot be empty.`);
 	  }
 	}
   }

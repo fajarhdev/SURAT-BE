@@ -20,7 +20,7 @@ const getTopicController = async (req, res) => {
 		return result;
 	} catch (e) {
 		const error = await response(
-			500,
+			400,
 			"Error fetch topic data",
 			null,
 			e,
@@ -48,7 +48,7 @@ const getExecutiveController = async (req, res) => {
 		return result;
 	} catch (e) {
 		const error = await response(
-			500,
+			400,
 			"Error fetch executive data",
 			null,
 			e,
@@ -76,7 +76,7 @@ const getNomorCadanganController = async (req, res) => {
 		return result;
 	} catch (e) {
 		const error = await response(
-			500,
+			400,
 			"Error fetch nomor cadangan data",
 			null,
 			e,
@@ -104,7 +104,7 @@ const getUnitController = async (req, res) => {
 		return result;
 	} catch (e) {
 		const error = await response(
-			500,
+			400,
 			"Error fetch Unit data",
 			null,
 			e,
@@ -132,7 +132,7 @@ const getCodeSurat = async (req, res) => {
 		return result;
 	} catch (e) {
 		const error = await response(
-			500,
+			400,
 			"Error fetch code surat data",
 			null,
 			e,

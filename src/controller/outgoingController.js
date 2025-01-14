@@ -1,7 +1,8 @@
 const {
 	getOutgoingMailService,
-	createIncomingMailService,
 	createOutMailService,
+	updateOutMailService,
+	deleteOutMailService,
 } = require("../service/mail");
 
 const response = require("../controller/util/response");
@@ -24,7 +25,7 @@ const getOutgoingMailController = async (req, res) => {
 		return result;
 	} catch (e) {
 		const error = await response(
-			500,
+			400,
 			"Error fetch outgoing mail",
 			null,
 			e,
@@ -45,10 +46,21 @@ const createOutgoingMailController = async (req, res) => {
 			data,
 			user
 		);
+
+		const result = await response(
+			200,
+			"Succes create outgoing mail data",
+			createOutgoingMailData,
+			null,
+			req,
+			res
+		);
+
+		return result;
 	} catch (e) {
 		const error = await response(
-			500,
-			"Error create outgoing mail",
+			400,
+			e.message,
 			null,
 			e,
 			req,
@@ -59,4 +71,67 @@ const createOutgoingMailController = async (req, res) => {
 	}
 };
 
-module.exports = { getOutgoingMailController, createOutgoingMailController };
+const updateOutgoingMailController = async (req, res) => {
+	const user = req.user;
+	const data = req.data;
+
+	try {
+		const update = await updateOutMailService(data, user);
+
+		const result = await response(
+			200,
+			"Succes update outgoing mail data",
+			update,
+			null,
+			req,
+			res
+		);
+
+		return result;
+	} catch (e) {
+		const error = await response(
+			400,
+			e.message,
+			null,
+			e,
+			req,
+			res
+		);
+
+		return error;
+	}
+}
+
+const deleteOutgoingMailController = async (req, res) => {
+	const data = req.params.id;
+
+	try {
+		const update = await deleteOutMailService(data);
+
+		const result = await response(
+			200,
+			"Succes delete outgoing mail data",
+			update,
+			null,
+			req,
+			res
+		);
+
+		return result;
+	} catch (e) {
+		const error = await response(
+			400,
+			e.message,
+			null,
+			e,
+			req,
+			res
+		);
+
+		return error;
+	}
+}
+
+
+
+module.exports = { getOutgoingMailController, createOutgoingMailController, updateOutgoingMailController, deleteOutgoingMailController};

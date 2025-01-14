@@ -17,7 +17,7 @@ const createRoleController = async (req, res) => {
         return result;
     }catch(e){
         const error = await response(
-            500,
+            400,
             "Error create role data",
             null,
             e,
@@ -47,7 +47,7 @@ const modifyRoleController = async (req, res) => {
         return result;
     }catch(e){
         const error = await response(
-            500,
+            400,
             "Error modify role data",
             null,
             e,
@@ -76,7 +76,7 @@ const deleteRoleController = async (req, res) => {
         return result;
     }catch (e) {
         const error = await response(
-            500,
+            400,
             "Error delete role data",
             null,
             e,
@@ -104,7 +104,7 @@ const getRoleController = async (req, res) => {
         return result;
     }catch (e) {
         const error = await response(
-            500,
+            400,
             "Error fetch role data",
             null,
             e,
