@@ -429,6 +429,8 @@ module.exports = {
 	getOutgoingMailService,
 	createIncomingMailService,
 	createOutMailService,
+	updateOutMailService,
+	deleteOutMailService,
 	updateIncomingMailService,
 	deleteIncomingMailService
 };
