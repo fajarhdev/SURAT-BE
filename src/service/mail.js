@@ -134,7 +134,6 @@ const saveNumCadangan = async (cadanganAwal, cadanganAkhir) => {
 
 const createIncomingMailService = async (mail, file) => {
 	try {
-
 		validateMailInc(mail, file);
 
 		const createMail = await IncMail.create({
@@ -156,48 +155,50 @@ const createIncomingMailService = async (mail, file) => {
 	}
 };
 
-const updateIncomingMailService = async (mail, id,file) => {
+const updateIncomingMailService = async (mail, id, file) => {
 	try {
+		const isUpdate = true;
+		validateMailInc(mail, file, isUpdate);
 
-		validateMailInc(mail, file);
-
-		const createMail = await IncMail.update({
-			sender: mail.sender,
-			destMail: mail.destMail,
-			subject: mail.subject,
-			dispotition: mail.dispotition,
-			dispotitionNote: mail.dispotitionNote,
-			recName: mail.recName,
-			recUnit: mail.recUnit,
-			incDate: mail.incDate,
-			incTime: mail.incTime,
-			image: file.filename,
-		},{
-			where:{
-				id: id
+		const createMail = await IncMail.update(
+			{
+				sender: mail.sender,
+				destMail: mail.destMail,
+				subject: mail.subject,
+				dispotition: mail.dispotition,
+				dispotitionNote: mail.dispotitionNote,
+				recName: mail.recName,
+				recUnit: mail.recUnit,
+				incDate: mail.incDate,
+				incTime: mail.incTime,
+				image: file.filename,
+			},
+			{
+				where: {
+					id: id,
+				},
 			}
-		});
+		);
 
 		return createMail;
 	} catch (e) {
 		throw new Error(e.message);
 	}
-}
+};
 
 const deleteIncomingMailService = async (id) => {
 	try {
 		const mail = await IncMail.destroy({
 			where: {
-				id: id
-			}
+				id: id,
+			},
 		});
 
 		return mail;
 	} catch (e) {
 		throw new Error(e.message);
-		
 	}
-}
+};
 
 const createOutMailService = async (mail, user) => {
 	let isFriday = false;
@@ -370,12 +371,11 @@ const updateOutMailService = async (mail, user) => {
 };
 
 const deleteOutMailService = async (id) => {
-	
 	try {
 		const mail = await OutMail.destroy({
 			where: {
-				id: id
-			}
+				id: id,
+			},
 		});
 
 		return mail;
@@ -384,46 +384,51 @@ const deleteOutMailService = async (id) => {
 	}
 };
 
-const validateMailInc = (mail, file) => {
+const validateMailInc = (mail, file, isUpdate = false) => {
 	const requiredFields = [
-	  { field: 'sender', value: mail.sender },
-	  { field: 'destMail', value: mail.destMail },
-	  { field: 'subject', value: mail.subject },
-	  { field: 'recName', value: mail.recName },
-	  { field: 'recUnit', value: mail.recUnit },
-	  { field: 'incDate', value: mail.incDate },
-	  { field: 'incTime', value: mail.incTime },
-	  { field: 'image', value: file.filename },
+		{ field: "sender", value: mail.sender },
+		{ field: "destMail", value: mail.destMail },
+		{ field: "subject", value: mail.subject },
+		{ field: "recName", value: mail.recName },
+		{ field: "recUnit", value: mail.recUnit },
+		{ field: "incDate", value: mail.incDate },
+		{ field: "incTime", value: mail.incTime },
 	];
-  
-	for (const { field, value } of requiredFields) {
-	  if (!value || value === '') {
-		throw new Error(`The field ${field} cannot be empty.`);
-	  }
-	}
-  }
 
-  const validateMailOtg = (mail) => {
-	const requiredFields = [
-	  { field: 'numMail', value: mail.numMail },
-	  { field: 'numCodeMail', value: mail.numCodeMail },
-	  { field: 'codeMail', value: mail.codeMail },
-	  { field: 'subject', value: mail.subject },
-	  { field: 'problem', value: mail.problem },
-	  { field: 'desUnit', value: mail.desUnit },
-	  { field: 'chiefSign', value: mail.chiefSign },
-	  { field: 'chiefDesc', value: mail.chiefDesc },
-	  { field: 'mailMaker', value: mail.mailMaker },
-	  { field: 'outDate', value: mail.outDate },
-	  { field: 'outTime', value: mail.outTime },
-	];
-  
-	for (const { field, value } of requiredFields) {
-	  if (value === null || value === undefined || value === '') {
-		throw new Error(`The field ${field} cannot be empty.`);
-	  }
+	// Tambahkan kondisi untuk file jika isUpdate adalah true
+	if (isUpdate) {
+		requiredFields.push({ field: "image", value: file?.filename });
 	}
-  }
+
+	// Validasi semua field
+	for (const { field, value } of requiredFields) {
+		if (!value || value === "") {
+			throw new Error(`The field ${field} cannot be empty.`);
+		}
+	}
+};
+
+const validateMailOtg = (mail) => {
+	const requiredFields = [
+		{ field: "numMail", value: mail.numMail },
+		{ field: "numCodeMail", value: mail.numCodeMail },
+		{ field: "codeMail", value: mail.codeMail },
+		{ field: "subject", value: mail.subject },
+		{ field: "problem", value: mail.problem },
+		{ field: "desUnit", value: mail.desUnit },
+		{ field: "chiefSign", value: mail.chiefSign },
+		{ field: "chiefDesc", value: mail.chiefDesc },
+		{ field: "mailMaker", value: mail.mailMaker },
+		{ field: "outDate", value: mail.outDate },
+		{ field: "outTime", value: mail.outTime },
+	];
+
+	for (const { field, value } of requiredFields) {
+		if (value === null || value === undefined || value === "") {
+			throw new Error(`The field ${field} cannot be empty.`);
+		}
+	}
+};
 module.exports = {
 	getIncomingMailService,
 	getOutgoingMailService,
@@ -432,5 +437,5 @@ module.exports = {
 	updateOutMailService,
 	deleteOutMailService,
 	updateIncomingMailService,
-	deleteIncomingMailService
+	deleteIncomingMailService,
 };
