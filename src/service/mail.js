@@ -160,25 +160,28 @@ const updateIncomingMailService = async (mail, id, file) => {
 		const isUpdate = true;
 		validateMailInc(mail, file, isUpdate);
 
-		const createMail = await IncMail.update(
-			{
-				sender: mail.sender,
-				destMail: mail.destMail,
-				subject: mail.subject,
-				dispotition: mail.dispotition,
-				dispotitionNote: mail.dispotitionNote,
-				recName: mail.recName,
-				recUnit: mail.recUnit,
-				incDate: mail.incDate,
-				incTime: mail.incTime,
-				image: file.filename,
+		const updateData = {
+			sender: mail.sender,
+			destMail: mail.destMail,
+			subject: mail.subject,
+			dispotition: mail.dispotition,
+			dispotitionNote: mail.dispotitionNote,
+			recName: mail.recName,
+			recUnit: mail.recUnit,
+			incDate: mail.incDate,
+			incTime: mail.incTime,
+		};
+
+		// Only include the `image` field if a file is provided
+		if (file && file.filename) {
+			updateData.image = file.filename;
+		}
+
+		const createMail = await IncMail.update(updateData, {
+			where: {
+				id: id,
 			},
-			{
-				where: {
-					id: id,
-				},
-			}
-		);
+		});
 
 		return createMail;
 	} catch (e) {
@@ -397,7 +400,7 @@ const validateMailInc = (mail, file, isUpdate = false) => {
 
 	// Tambahkan kondisi untuk file jika isUpdate adalah true
 	if (isUpdate) {
-		if (file === null) {
+		if (file === undefined) {
 			requiredFields.push({ field: "image", value: mail.file });
 		} else {
 			requiredFields.push({
