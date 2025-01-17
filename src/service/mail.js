@@ -206,7 +206,7 @@ const updateIncomingMailService = async (mail, id, file) => {
 			fs.unlink(filePath, (err) => {
 				if (err) {
 					console.error(err);
-					throw new Error("Failed to delete the file.");
+					// throw new Error("Failed to delete the file.");
 				}
 				console.log("File delete success");
 			});
