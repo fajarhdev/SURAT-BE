@@ -9,10 +9,26 @@ const Topic = require("../model/topic");
 const TopicDetail = require("../model/topicdetail");
 const Unit = require("../model/unit");
 const User = require("../model/user");
+const fs = require("fs");
+const path = require("path");
 
 const getIncomingMailService = async () => {
 	try {
 		const incMail = await IncMail.findAll();
+
+		return incMail;
+	} catch (e) {
+		throw new Error(e.message);
+	}
+};
+
+const getOneIncomingMailService = async (id) => {
+	try {
+		const incMail = await IncMail.findOne({
+			where: {
+				id: id,
+			},
+		});
 
 		return incMail;
 	} catch (e) {
@@ -175,6 +191,25 @@ const updateIncomingMailService = async (mail, id, file) => {
 		// Only include the `image` field if a file is provided
 		if (file && file.filename) {
 			updateData.image = file.filename;
+
+			const mailData = await getOneIncomingMailService(id);
+
+			const filename = mailData.image;
+			const filePath = path.join(
+				__dirname,
+				"../..",
+				"public",
+				"upload",
+				filename
+			);
+
+			fs.unlink(filePath, (err) => {
+				if (err) {
+					console.error(err);
+					throw new Error("Failed to delete the file.");
+				}
+				console.log("File delete success");
+			});
 		}
 
 		const createMail = await IncMail.update(updateData, {
@@ -206,6 +241,7 @@ const deleteIncomingMailService = async (id) => {
 const createOutMailService = async (mail, user) => {
 	let isFriday = false;
 	const isCadangan = mail.isCadangan;
+
 	try {
 		validateMailOtg(mail);
 

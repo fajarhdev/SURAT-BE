@@ -22,34 +22,34 @@ const getUserService = async (page = 1, pageSize = 10) => {
 
 		const query = `
 			SELECT 
-				mu.id,
-				mu.name,
-				mu2."name" AS unit,
-				mu."numPhone",
-				mu.email,
-				mr."name" AS role,
-				mu.username,
-				mu."password"
+    			mu.id,
+    			mu.name,
+    			mu."numPhone",
+    			mu.email,
+    			mu.username,
+    			mu."password",
+    			jsonb_build_object('id', mr.id, 'name', mr."name") AS role,
+    			jsonb_build_object('id', mu2.id, 'name', mu2."name") AS unit
 			FROM "MASTER_USER" mu
 			JOIN "MASTER_ROLE" mr ON mu."role" = mr.id
 			JOIN "MASTER_UNIT" mu2 ON mu.unit = mu2.id
 			LIMIT :pageSize OFFSET :offset;
 		`;
-	
+
 		// Jalankan query dengan parameter
 		const users = await sequelize.query(query, {
 			type: QueryTypes.SELECT,
 			replacements: {
 				pageSize: pageSize,
-				offset: offset
-			}
+				offset: offset,
+			},
 		});
-	
+
 		return users;
 	} catch (e) {
 		throw Error(e.message);
 	}
-}
+};
 
 const userFindById = async (id) => {
 	try {
@@ -77,7 +77,7 @@ const userFindByUsernameService = async (username) => {
 	} catch (e) {
 		throw Error(e.message);
 	}
-}
+};
 
 const createSuperAdmin = async () => {
 	try {
@@ -110,14 +110,14 @@ const createSuperAdmin = async () => {
 		const superadminUser = await User.findOrCreate({
 			where: { username: "superadmin" }, // Cari pengguna berdasarkan username
 			defaults: {
-			  name: "Super Admin",
-			  unit: superadminUnit.id,
-			  numPhone: "1234567890",
-			  role: superadminRole.id,
-			  username: "superadmin",
-			  password: "superadmin123", // Sebaiknya hash password ini
+				name: "Super Admin",
+				unit: superadminUnit.id,
+				numPhone: "1234567890",
+				role: superadminRole.id,
+				username: "superadmin",
+				password: "superadmin123", // Sebaiknya hash password ini
 			},
-		  });
+		});
 
 		console.log(
 			"Superadmin user inserted successfully:",
@@ -132,80 +132,90 @@ const createSuperAdmin = async () => {
 
 const createUserService = async (user) => {
 	try {
-		
 		// const hashedPassword = await bcrypt.hash(user.password, 10);
-		
+
 		validateUser(user);
 
 		const userData = await User.create({
 			name: user.name,
 			unit: user.unit,
 			numPhone: user.numPhone,
-			email:user.email,
+			email: user.email,
 			role: user.role,
 			username: user.username,
-			password: user.password
+			password: user.password,
 		});
 
 		return userData;
 	} catch (e) {
 		throw Error(e.message);
 	}
-} 
+};
 
 const deleteUserService = async (id) => {
 	try {
 		const user = await User.destroy({
 			where: {
-				id: id
-			}
+				id: id,
+			},
 		});
 
 		return user;
 	} catch (e) {
 		throw Error(e.message);
 	}
-}
+};
 
 const modifyUserService = async (user, id) => {
 	try {
-
 		validateUser(user);
 
-		const userData = await User.update({
-			name: user.name,
-			unit: user.unit,
-			numPhone: user.numPhone,
-			email:user.email,
-			role: user.role,
-		}, {
-			where: {
-				id: id
+		const userData = await User.update(
+			{
+				name: user.name,
+				unit: user.unit,
+				numPhone: user.numPhone,
+				email: user.email,
+				role: user.role,
+			},
+			{
+				where: {
+					id: id,
+				},
 			}
-		});
+		);
 
 		return userData;
 	} catch (e) {
 		throw Error(e.message);
 	}
-}
+};
 
 const validateUser = (user) => {
 	const requiredFields = [
-	  { field: 'name', value: user.name },
-	  { field: 'unit', value: user.unit },
-	  { field: 'numPhone', value: user.numPhone },
-	  { field: 'email', value: user.email },
-	  { field: 'role', value: user.role },
-	  { field: 'username', value: user.username },
-	  { field: 'password', value: user.password },
+		{ field: "name", value: user.name },
+		{ field: "unit", value: user.unit },
+		{ field: "numPhone", value: user.numPhone },
+		{ field: "email", value: user.email },
+		{ field: "role", value: user.role },
+		{ field: "username", value: user.username },
+		{ field: "password", value: user.password },
 	];
-  
-	for (const { field, value } of requiredFields) {
-	  if (!value || value === '') {
-		throw new Error(`The field ${field} cannot be empty.`);
-	  }
-	}
-  }
 
-module.exports = { checkUserDB, userFindById, createSuperAdmin, createUserService, userFindByUsernameService, deleteUserService, modifyUserService, getUserService };
+	for (const { field, value } of requiredFields) {
+		if (!value || value === "") {
+			throw new Error(`The field ${field} cannot be empty.`);
+		}
+	}
+};
+
+module.exports = {
+	checkUserDB,
+	userFindById,
+	createSuperAdmin,
+	createUserService,
+	userFindByUsernameService,
+	deleteUserService,
+	modifyUserService,
+	getUserService,
+};
