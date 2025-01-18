@@ -63,7 +63,7 @@ const OutMail = sequelize.define(
 		},
 		isFriday: {
 			type: DataTypes.BOOLEAN,
-			field: "is_saturday",
+			field: "is_friday",
 		},
 	},
 	{

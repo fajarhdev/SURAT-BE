@@ -248,37 +248,37 @@ const createOutMailService = async (mail, user) => {
 		// find code mail
 		const codeMail = await MailCode.findOne({
 			where: {
-				code: mail.mailCode,
+				id: mail.codeMail,
 			},
 		});
 
 		// find problem
-		const problem = await Topic.findOne({
-			where: {
-				id: mail.problem,
-			},
-			include: TopicDetail,
-		});
+		// const problem = await Topic.findOne({
+		// 	where: {
+		// 		id: mail.problem,
+		// 	},
+		// 	include: TopicDetail,
+		// });
 
 		// find executive
-		const executive = await Executive.findOne({
-			where: {
-				id: mail.chief,
-			},
-			include: ExecutiveDetail,
-		});
+		// const executive = await Executive.findOne({
+		// 	where: {
+		// 		id: mail.chiefSign,
+		// 	},
+		// 	include: ExecutiveDetail,
+		// });
 
 		// find mail maker (user yang terlogin)
 		const userData = await User.findOne({
 			where: {
-				id: user,
+				id: user.id,
 			},
 		});
 
 		// find unit
 		const unit = await Unit.findOne({
 			where: {
-				id: mail.unit,
+				id: mail.desUnit,
 			},
 		});
 
@@ -322,15 +322,18 @@ const createOutMailService = async (mail, user) => {
 
 		const saveNum = await saveNumMail(numMail);
 
+		//kode surat/nomor surat/masalah utama/pejabat ttd/unit/tahun
+		// const numCodeMail = `${codeMail.name}/${numMail}/${}`;
+
 		const createMail = await OutMail.create({
 			numMail: numMail,
 			numCodeMail: codeMail.id,
 			codeMail: codeMail.id,
 			subject: mail.subject,
-			problem: problem.TopicDetail.id,
+			problem: mail.problem,
 			desUnit: unit.id,
-			chiefSign: executive.ExecutiveDetail.id,
-			chiefDesc: executive.ExecutiveDetail.id,
+			chiefSign: mail.chiefSign,
+			chiefDesc: mail.chiefDesc,
 			mailMaker: userData.id,
 			outDate: mail.outDate,
 			outTime: mail.outTime,
@@ -344,9 +347,7 @@ const createOutMailService = async (mail, user) => {
 	}
 };
 
-const updateOutMailService = async (mail, user) => {
-	let isFriday = false;
-	const isCadangan = mail.isCadangan;
+const updateOutMailService = async (mail, user, id) => {
 	try {
 		validateMailOtg(mail);
 
@@ -387,21 +388,28 @@ const updateOutMailService = async (mail, user) => {
 			},
 		});
 
-		const createMail = await OutMail.create({
-			numMail: numMail,
-			numCodeMail: codeMail.id,
-			codeMail: codeMail.id,
-			subject: mail.subject,
-			problem: problem.TopicDetail.id,
-			desUnit: unit.id,
-			chiefSign: executive.ExecutiveDetail.id,
-			chiefDesc: executive.ExecutiveDetail.id,
-			mailMaker: userData.id,
-			outDate: mail.outDate,
-			outTime: mail.outTime,
-			isFriday: isFriday,
-			isCadangan: isCadangan,
-		});
+		const createMail = await OutMail.update(
+			{
+				numMail: numMail,
+				numCodeMail: codeMail.id,
+				codeMail: codeMail.id,
+				subject: mail.subject,
+				problem: problem.TopicDetail.id,
+				desUnit: unit.id,
+				chiefSign: executive.ExecutiveDetail.id,
+				chiefDesc: executive.ExecutiveDetail.id,
+				mailMaker: userData.id,
+				outDate: mail.outDate,
+				outTime: mail.outTime,
+				isFriday: isFriday,
+				isCadangan: isCadangan,
+			},
+			{
+				where: {
+					id: id,
+				},
+			}
+		);
 
 		return createMail;
 	} catch (e) {
@@ -458,15 +466,13 @@ const validateMailInc = (mail, file, isUpdate = false) => {
 
 const validateMailOtg = (mail) => {
 	const requiredFields = [
-		{ field: "numMail", value: mail.numMail },
-		{ field: "numCodeMail", value: mail.numCodeMail },
+		// { field: "numCodeMail", value: mail.numCodeMail },
 		{ field: "codeMail", value: mail.codeMail },
 		{ field: "subject", value: mail.subject },
 		{ field: "problem", value: mail.problem },
 		{ field: "desUnit", value: mail.desUnit },
 		{ field: "chiefSign", value: mail.chiefSign },
 		{ field: "chiefDesc", value: mail.chiefDesc },
-		{ field: "mailMaker", value: mail.mailMaker },
 		{ field: "outDate", value: mail.outDate },
 		{ field: "outTime", value: mail.outTime },
 	];

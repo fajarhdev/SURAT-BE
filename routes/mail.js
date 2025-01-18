@@ -36,7 +36,15 @@ router.delete(
 
 router.get("/getoutgoingmail", verifyToken, getOutgoingMailController);
 router.post("/createoutgoingmail", verifyToken, createOutgoingMailController);
-router.post("/updateoutgoingmail", verifyToken, updateOutgoingMailController);
-router.post("/deleteoutgoingmail", verifyToken, deleteOutgoingMailController);
+router.post(
+	"/updateoutgoingmail/:id",
+	verifyToken,
+	updateOutgoingMailController
+);
+router.post(
+	"/deleteoutgoingmail/:id",
+	verifyToken,
+	deleteOutgoingMailController
+);
 
 module.exports = router;

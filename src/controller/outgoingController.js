@@ -39,7 +39,7 @@ const getOutgoingMailController = async (req, res) => {
 
 const createOutgoingMailController = async (req, res) => {
 	const user = req.user;
-	const data = req.data;
+	const data = req.body;
 
 	try {
 		const createOutgoingMailData = await createOutMailService(
@@ -58,14 +58,7 @@ const createOutgoingMailController = async (req, res) => {
 
 		return result;
 	} catch (e) {
-		const error = await response(
-			400,
-			e.message,
-			null,
-			e,
-			req,
-			res
-		);
+		const error = await response(400, e.message, null, e, req, res);
 
 		return error;
 	}
@@ -73,10 +66,11 @@ const createOutgoingMailController = async (req, res) => {
 
 const updateOutgoingMailController = async (req, res) => {
 	const user = req.user;
-	const data = req.data;
+	const data = req.body;
+	const id = req.params.id;
 
 	try {
-		const update = await updateOutMailService(data, user);
+		const update = await updateOutMailService(data, user, id);
 
 		const result = await response(
 			200,
@@ -89,18 +83,11 @@ const updateOutgoingMailController = async (req, res) => {
 
 		return result;
 	} catch (e) {
-		const error = await response(
-			400,
-			e.message,
-			null,
-			e,
-			req,
-			res
-		);
+		const error = await response(400, e.message, null, e, req, res);
 
 		return error;
 	}
-}
+};
 
 const deleteOutgoingMailController = async (req, res) => {
 	const data = req.params.id;
@@ -119,19 +106,15 @@ const deleteOutgoingMailController = async (req, res) => {
 
 		return result;
 	} catch (e) {
-		const error = await response(
-			400,
-			e.message,
-			null,
-			e,
-			req,
-			res
-		);
+		const error = await response(400, e.message, null, e, req, res);
 
 		return error;
 	}
-}
+};
 
-
-
-module.exports = { getOutgoingMailController, createOutgoingMailController, updateOutgoingMailController, deleteOutgoingMailController};
+module.exports = {
+	getOutgoingMailController,
+	createOutgoingMailController,
+	updateOutgoingMailController,
+	deleteOutgoingMailController,
+};

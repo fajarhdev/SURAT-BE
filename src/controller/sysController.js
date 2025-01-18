@@ -1,5 +1,5 @@
 const getExecutiveService = require("../service/executive");
-const {getNomorCadanganService} = require("../service/sys");
+const { getNomorCadanganService, getCodeSurat } = require("../service/sys");
 const getTopicService = require("../service/topic");
 const { getAllUnitService } = require("../service/unit");
 const response = require("./util/response");
@@ -116,7 +116,7 @@ const getUnitController = async (req, res) => {
 	}
 };
 
-const getCodeSurat = async (req, res) => {
+const getCodeSuratController = async (req, res) => {
 	try {
 		const getUnit = await getCodeSurat();
 
@@ -142,12 +142,12 @@ const getCodeSurat = async (req, res) => {
 
 		return error;
 	}
-}
+};
 
 module.exports = {
 	getTopicController,
 	getExecutiveController,
 	getNomorCadanganController,
 	getUnitController,
-	getCodeSurat
+	getCodeSuratController,
 };
