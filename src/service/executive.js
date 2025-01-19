@@ -29,7 +29,7 @@ const buildHierarchy = async (master) => {
 			return await Promise.all(
 				children.map(async (child) => ({
 					code: child.code,
-					desc: child.desc,
+					name: child.desc,
 					children: await buildChildren(child.id), // Recursive call for the next level
 				}))
 			);
@@ -39,7 +39,7 @@ const buildHierarchy = async (master) => {
 		const detailsWithChildren = await Promise.all(
 			rootDetails.map(async (detail) => ({
 				code: detail.code,
-				desc: detail.desc,
+				name: detail.desc,
 				children: await buildChildren(detail.id), // Build children for the root-level detail
 			}))
 		);
@@ -47,7 +47,7 @@ const buildHierarchy = async (master) => {
 		// Push the result for this master
 		result.push({
 			code: executive.code,
-			desc: executive.desc,
+			name: executive.desc,
 			children: detailsWithChildren, // Attach all root-level details with their children
 		});
 	}
