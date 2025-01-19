@@ -9,13 +9,7 @@ const Executive = sequelize.define(
 			defaultValue: DataTypes.UUIDV4,
 			primaryKey: true,
 		},
-		nik: {
-			type: DataTypes.STRING,
-		},
 		code: {
-			type: DataTypes.STRING,
-		},
-		name: {
 			type: DataTypes.STRING,
 		},
 		desc: {

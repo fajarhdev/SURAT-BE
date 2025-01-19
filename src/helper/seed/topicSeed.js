@@ -10,7 +10,7 @@ const insertTopic = async (topic) => {
         desc: topic.desc,
     });
 
-    if (topic.children) {
+    if (topic.children && topic.children.length > 0) {
         await insertTopicDetails(topic.children, master.id, null);
     }
 };
@@ -23,11 +23,12 @@ const insertTopicDetails = async (details, masterId, parentId) => {
             code: detail.code,
             name: detail.name,
             desc: detail.desc,
-            parentId: parentId,
+            parentId: parentId, // Correctly passing parentId
         });
 
-        if (detail.children) {
-            await insertTopicDetails(detail.children, masterId, newDetail.id);
+        // Check if the current detail has children
+        if (detail.children && detail.children.length > 0) {
+            await insertTopicDetails(detail.children, masterId, newDetail.id); // Pass the correct new parentId
         }
     }
 };
@@ -44,4 +45,5 @@ const insertData = async () => {
     }
 };
 
+// Run the insertion process
 insertData();

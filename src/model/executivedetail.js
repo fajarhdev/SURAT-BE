@@ -29,9 +29,6 @@ const ExecutiveDetail = sequelize.define(
 		code: {
 			type: DataTypes.STRING,
 		},
-		name: {
-			type: DataTypes.STRING,
-		},
 		desc: {
 			type: DataTypes.STRING,
 		},
