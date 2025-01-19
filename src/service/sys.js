@@ -17,7 +17,7 @@ const getNomorCadanganService = async () => {
 			}
 		});
 
-		return nomorCadangann;
+		return nomorCadangan;
 	} catch (e) {
 		throw new Error("Error database", e);
 	}
