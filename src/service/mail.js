@@ -46,13 +46,12 @@ const getOutgoingMailService = async () => {
 	}
 };
 
-const getLatestOutMail = async () => {
+const getLatestOutMailNum = async () => {
 	try {
 		const sys = System.findOne({
 			where: {
 				key: "NUMMAIL",
 			},
-			include: SystemDetail,
 		});
 
 		return sys;
@@ -61,7 +60,7 @@ const getLatestOutMail = async () => {
 	}
 };
 
-const saveNumMail = async (value) => {
+const saveNumMail = async () => {
 	try {
 		// Check if the master record exists
 		const sys = await System.findOne({
@@ -70,11 +69,11 @@ const saveNumMail = async (value) => {
 			},
 		});
 
-		if (sys === null) {
+		if (sys === null || sys === undefined) {
 			// Insert new master and detail records if master doesn't exist
 			const result = await sequelize.transaction(async (t) => {
 				const master = await System.create(
-					{ key: "NUMMAIL", desc: "AUTO NUMBERING EMAIL" },
+					{ key: "NUMMAIL", desc: "Penomoran Surat Otomastis" },
 					{ transaction: t }
 				);
 
@@ -104,7 +103,7 @@ const saveNumMail = async (value) => {
 				if (detail) {
 					// Update existing detail record
 					await detail.update(
-						{ value: value },
+						{ value: detail.value },
 						{ transaction: t }
 					);
 				} else {
@@ -285,29 +284,27 @@ const createOutMailService = async (mail, user) => {
 		const today = new Date(); // Get the current date
 		const dayIndex = today.getDay(); // Get the day index (0 = Sunday, 1 = Monday, etc.)
 
-		const latestNumMail = await getLatestOutMail();
-		let numMail = 1;
+		let numMail = 0;
+
+		const saveNum = await saveNumMail();
+
+		// const latestNumMail = await getLatestOutMailNum();
 
 		if (dayIndex === 5) {
-			numMail = Number(latestNumMail.numMail) + 20;
+			numMail = Number(saveNum.detail.value) + 20;
 			isFriday = true;
 			// const saveNum = await saveNumMail(numMail);
 			const nomorCadangan = await saveNumCadangan(
-				latestNumMail,
+				saveNum.detail.value,
 				numMail
 			);
 			console.log(
 				"NOMOR CADANGAN YANG TERSIMPAN => " + nomorCadangan
 			);
-		} else {
-			if (latestNumMail !== null) {
-				numMail += 1;
-			}
-			// const saveNum = await saveNumMail(numMail);
 		}
 
 		if (isCadangan) {
-			const sys = await SystemDetail.findByPk(mail.nomorcadangan);
+			const sys = await SystemDetail.findByPk(mail.numMail);
 			const updateSys = await SystemDetail.update(
 				{ isTake: true },
 				{
@@ -318,9 +315,8 @@ const createOutMailService = async (mail, user) => {
 				}
 			);
 			numMail = sys.value;
-		}
 
-		const saveNum = await saveNumMail(numMail);
+		}
 
 		//kode surat/nomor surat/masalah utama/pejabat ttd/unit/tahun
 		// const numCodeMail = `${codeMail.name}/${numMail}/${}`;
