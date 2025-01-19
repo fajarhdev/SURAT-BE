@@ -6,7 +6,7 @@ const Topic = sequelize.define(
 	{
 		id: {
 			type: DataTypes.UUID,
-			defaultValue: DataTypes.UUID,
+			defaultValue: DataTypes.UUIDV4,
 			primaryKey: true,
 		},
 		code: {
@@ -16,7 +16,7 @@ const Topic = sequelize.define(
 			type: DataTypes.STRING,
 		},
 		desc: {
-			type: DataTypes.STRING,
+			type: DataTypes.TEXT,
 		},
 	},
 	{

@@ -33,7 +33,7 @@ const TopicDetail = sequelize.define(
 			type: DataTypes.STRING,
 		},
 		desc: {
-			type: DataTypes.STRING,
+			type: DataTypes.TEXT,
 		},
 	},
 	{
