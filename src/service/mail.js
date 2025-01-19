@@ -57,6 +57,11 @@ const getOutgoingMailService = async () => {
 		const outMail = await OutMail.findAll();
 
 		for (const mail of outMail) {
+			const codeMail = await MailCode.findOne({
+				where: {
+					id: mail.codeMail
+				}
+			});
 
 			let problem = await Topic.findOne({
 				where: {
@@ -92,17 +97,24 @@ const getOutgoingMailService = async () => {
 
 			result.push({
 				id: mail.id,
+				codeMail: {
+					id: codeMail.id,
+					desc: codeMail.desc,
+					code: codeMail.code
+				},
 				numMail: mail.numMail,
 				numCodeMail: mail.numCodeMail,
 				subject: mail.subject,
 				problem: {
 					id: problem.id,
-					problem: problem.name
+					code: problem.code,
+					name: problem.name
 				},
 				desUnit: mail.destUnit,
 				chiefSign: {
 					id: pejabat.id,
-					chiefSign: pejabat.desc
+					name: pejabat.desc,
+					code: pejabat.code
 				},
 				mailMaker: {
 					id: user.id,
