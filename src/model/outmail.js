@@ -30,12 +30,8 @@ const OutMail = sequelize.define(
 			type: DataTypes.STRING,
 		},
 		destUnit: {
-			type: DataTypes.UUID,
+			type: DataTypes.STRING,
 			field: "dest_unit",
-			references: {
-				model: Unit,
-				key: "id",
-			},
 		},
 		chiefSign: {
 			type: DataTypes.UUID,

@@ -305,12 +305,12 @@ const createOutMailService = async (mail, user) => {
 		});
 
 
-		// find unit
-		const unit = await Unit.findOne({
-			where: {
-				id: mail.desUnit,
-			},
-		});
+		// // find unit
+		// const unit = await Unit.findOne({
+		// 	where: {
+		// 		id: mail.desUnit,
+		// 	},
+		// });
 
 		const today = new Date(); // Get the current date
 		const dayIndex = today.getDay(); // Get the day index (0 = Sunday, 1 = Monday, etc.)
@@ -360,7 +360,7 @@ const createOutMailService = async (mail, user) => {
 			codeMail: codeMail.id,
 			subject: mail.subject,
 			problem: problem.id,
-			desUnit: unit.id,
+			desUnit: mail.desUnit,
 			chiefSign: executive.id,
 			chiefDesc: executive.desc,
 			mailMaker: userData.id,
@@ -422,12 +422,12 @@ const updateOutMailService = async (mail, user, id) => {
 			},
 		});
 
-		// find unit
-		const unit = await Unit.findOne({
-			where: {
-				id: mail.desUnit,
-			},
-		});
+		// // find unit
+		// const unit = await Unit.findOne({
+		// 	where: {
+		// 		id: mail.desUnit,
+		// 	},
+		// });
 
 		const getCurrentMail = await getOneOutgoingMailService(id);
 
@@ -441,7 +441,7 @@ const updateOutMailService = async (mail, user, id) => {
 				codeMail: codeMail.id,
 				subject: mail.subject,
 				problem: problem.id,
-				desUnit: unit.id,
+				desUnit: mail.desUnit,
 				chiefSign: executive.id,
 				chiefDesc: executive.desc,
 				mailMaker: userData.id,
