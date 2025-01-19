@@ -12,31 +12,31 @@ const Unit = require("../src/model/unit");
 const User = require("../src/model/user");
 
 Executive.hasMany(ExecutiveDetail, {
-	foreignKey: "masterId",
-	as: "details", // Alias for the related executive details
+	foreignKey: "master_id",
+	as: "details",
 });
 
 ExecutiveDetail.belongsTo(Executive, {
-	foreignKey: "masterId",
-	as: "executive", // Alias for the parent executive
+	foreignKey: "master_id",
+	as: "executive",
 });
 
 ExecutiveDetail.hasMany(ExecutiveDetail, {
-	foreignKey: "parentId",
-	as: "children", // Alias for child executive details
+	foreignKey: "parent_id",
+	as: "children",
 });
 
 ExecutiveDetail.belongsTo(ExecutiveDetail, {
-	foreignKey: "parentId",
-	as: "parent", // Alias for parent executive detail
+	foreignKey: "parent_id",
+	as: "parent",
 });
 
 System.hasMany(SystemDetail, {
-	foreignKey: "masterId",
+	foreignKey: "master_id",
 });
 
 SystemDetail.belongsTo(System, {
-	foreignKey: "masterId",
+	foreignKey: "master_id",
 });
 
 Topic.hasMany(TopicDetail, {

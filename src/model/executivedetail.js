@@ -12,19 +12,19 @@ const ExecutiveDetail = sequelize.define(
 		},
 		parentId: {
 			type: DataTypes.UUID,
+			field: "parent_id",
 			references: {
 				model: "DETAIL_EXECUTIVE", // Sesuaikan dengan nama tabel eksplisit
 				key: "id",
 			},
-			field: "parent_id",
 		},
 		masterId: {
 			type: DataTypes.UUID,
+			field: "master_id",
 			references: {
-				model: "MASTER_EXECUTIVE", // Sesuaikan dengan nama tabel eksplisit
+				model: Executive, // Sesuaikan dengan nama tabel eksplisit
 				key: "id",
 			},
-			field: "master_id",
 		},
 		code: {
 			type: DataTypes.STRING,

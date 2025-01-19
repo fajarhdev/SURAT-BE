@@ -12,6 +12,7 @@ const SystemDetail = sequelize.define(
 		},
 		masterId: {
 			type: DataTypes.UUID,
+			field: "master_id",
 			references: {
 				model: System,
 				key: "id",
@@ -26,6 +27,7 @@ const SystemDetail = sequelize.define(
 		isTake: {
 			type: DataTypes.BOOLEAN,
 			defaultValue: false,
+			field: "is_take"
 		},
 	},
 	{

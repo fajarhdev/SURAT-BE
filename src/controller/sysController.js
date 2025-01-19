@@ -51,7 +51,7 @@ const getExecutiveController = async (req, res) => {
 			400,
 			"Error fetch executive data",
 			null,
-			e,
+			e.message,
 			req,
 			res
 		);

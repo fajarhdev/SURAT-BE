@@ -5,14 +5,21 @@ const ExecutiveDetail = require("../model/executivedetail");
 
 const getExecutiveService = async () => {
 	const executive = await sequelize.query(
-		`SELECT * 
-        FROM MASTER_EXECUTIVE m 
-        JOIN MASTER_DETAIL d 
-        ON m.id = d.master_id 
-        WHERE d.id = d.parent_id`,
-		{
-			type: QueryTypes.SELECT,
-		}
+		`SELECT 
+    			me.id, 
+    			me.code, 
+    			JSON_AGG(de.*) AS details
+				FROM 
+					"MASTER_EXECUTIVE" me
+				LEFT JOIN 
+					"DETAIL_EXECUTIVE" de 
+				ON 
+					me.id = de.master_id
+				GROUP BY 
+					me.id, me.code;`,
+						{
+							type: QueryTypes.SELECT,
+						}
 	);
 
 	return executive;

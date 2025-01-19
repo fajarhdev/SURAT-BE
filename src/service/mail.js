@@ -11,6 +11,7 @@ const Unit = require("../model/unit");
 const User = require("../model/user");
 const fs = require("fs");
 const path = require("path");
+const sequelize = require("../../config/database");
 
 const getIncomingMailService = async () => {
 	try {
@@ -94,7 +95,7 @@ const saveNumMail = async () => {
 			// Update detail record if master exists
 			const detail = await SystemDetail.findOne({
 				where: {
-					master_id: sys.id,
+					masterId: sys.id,
 					code: "MAILROW",
 				},
 			});
@@ -110,7 +111,7 @@ const saveNumMail = async () => {
 					// Create new detail record if none exists
 					await SystemDetail.create(
 						{
-							master_id: sys.id,
+							masterId: sys.id,
 							code: "MAILROW",
 							value: 1,
 						},
