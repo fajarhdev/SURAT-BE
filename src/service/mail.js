@@ -104,7 +104,7 @@ const saveNumMail = async () => {
 				if (detail) {
 					// Update existing detail record
 					await detail.update(
-						{ value: detail.value + 1 },
+						{ value: Number(detail.value + 1) },
 						{ transaction: t }
 					);
 				} else {
@@ -304,7 +304,7 @@ const createOutMailService = async (mail, user) => {
 			);
 		}
 
-		if (isCadangan) {
+		if (!isCadangan) {
 			const sys = await SystemDetail.findByPk(mail.numMail);
 			const updateSys = await SystemDetail.update(
 				{ isTake: true },
