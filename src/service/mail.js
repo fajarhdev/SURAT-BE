@@ -104,7 +104,7 @@ const saveNumMail = async () => {
 				if (detail) {
 					// Update existing detail record
 					await detail.update(
-						{ value: detail.value },
+						{ value: detail.value + 1 },
 						{ transaction: t }
 					);
 				} else {
