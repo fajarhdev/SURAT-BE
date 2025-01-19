@@ -95,10 +95,19 @@ const getOutgoingMailService = async () => {
 				numMail: mail.numMail,
 				numCodeMail: mail.numCodeMail,
 				subject: mail.subject,
-				problem: problem.name,
+				problem: {
+					id: problem.id,
+					problem: problem.name
+				},
 				desUnit: mail.destUnit,
-				chiefSign: pejabat.desc,
-				mailMaker: user.name,
+				chiefSign: {
+					id: pejabat.id,
+					chiefSign: pejabat.desc
+				},
+				mailMaker: {
+					id: user.id,
+					mailMaker: user.name
+				},
 				outDate: mail.outDate,
 				outTime: mail.outTime,
 			})
