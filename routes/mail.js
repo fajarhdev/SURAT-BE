@@ -36,12 +36,12 @@ router.delete(
 
 router.get("/getoutgoingmail", verifyToken, getOutgoingMailController);
 router.post("/createoutgoingmail", verifyToken, createOutgoingMailController);
-router.post(
+router.patch(
 	"/updateoutgoingmail/:id",
 	verifyToken,
 	updateOutgoingMailController
 );
-router.post(
+router.delete(
 	"/deleteoutgoingmail/:id",
 	verifyToken,
 	deleteOutgoingMailController

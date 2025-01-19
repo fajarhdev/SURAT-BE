@@ -104,12 +104,13 @@ const saveNumMail = async () => {
 				if (detail) {
 					// Update existing detail record
 					await detail.update(
-						{ value: Number(detail.value + 1) },
+						{ value: Number(detail.value) + 1 },
 						{ transaction: t }
 					);
+					return detail; // Return the updated detail
 				} else {
 					// Create new detail record if none exists
-					await SystemDetail.create(
+					const newDetail = await SystemDetail.create(
 						{
 							masterId: sys.id,
 							code: "MAILROW",
@@ -117,10 +118,12 @@ const saveNumMail = async () => {
 						},
 						{ transaction: t }
 					);
+					return newDetail; // Return the newly created detail
 				}
 			});
 
-			return result; // Return the updated or newly created detail
+// Now result will hold the updated or newly created detail
+			return result;
 		}
 	} catch (e) {
 		// Log the error and rethrow with additional information
@@ -304,6 +307,8 @@ const createOutMailService = async (mail, user) => {
 			);
 		}
 
+		numMail = saveNum.value;
+
 		if (!isCadangan) {
 			const sys = await SystemDetail.findByPk(mail.numMail);
 			const updateSys = await SystemDetail.update(
@@ -346,60 +351,53 @@ const createOutMailService = async (mail, user) => {
 
 const updateOutMailService = async (mail, user, id) => {
 	try {
-		validateMailOtg(mail);
+		validateMailOtg(mail, true);
 
 		// find code mail
-		const codeMail = await MailCode.findOne({
-			where: {
-				code: mail.mailCode,
-			},
-		});
+		// const codeMail = await MailCode.findOne({
+		// 	where: {
+		// 		code: mail.mailCode,
+		// 	},
+		// });
 
 		// find problem
-		const problem = await Topic.findOne({
-			where: {
-				id: mail.problem,
-			},
-			include: TopicDetail,
-		});
+		// const problem = await Topic.findOne({
+		// 	where: {
+		// 		id: mail.problem,
+		// 	},
+		// 	include: TopicDetail,
+		// });
 
 		// find executive
-		const executive = await Executive.findOne({
-			where: {
-				id: mail.chief,
-			},
-			include: ExecutiveDetail,
-		});
+		// const executive = await Executive.findOne({
+		// 	where: {
+		// 		id: mail.chief,
+		// 	},
+		// 	include: ExecutiveDetail,
+		// });
 
 		// find mail maker (user yang terlogin)
 		const userData = await User.findOne({
 			where: {
-				id: user,
+				id: user.id,
 			},
 		});
 
 		// find unit
 		const unit = await Unit.findOne({
 			where: {
-				id: mail.unit,
+				id: mail.desUnit,
 			},
 		});
 
 		const createMail = await OutMail.update(
 			{
-				numMail: numMail,
-				numCodeMail: codeMail.id,
-				codeMail: codeMail.id,
 				subject: mail.subject,
-				problem: problem.TopicDetail.id,
+				problem: mail.problem,
 				desUnit: unit.id,
-				chiefSign: executive.ExecutiveDetail.id,
-				chiefDesc: executive.ExecutiveDetail.id,
-				mailMaker: userData.id,
-				outDate: mail.outDate,
-				outTime: mail.outTime,
-				isFriday: isFriday,
-				isCadangan: isCadangan,
+				chiefSign: mail.chiefSign,
+				chiefDesc: mail.chiefDesc,
+				mailMaker: userData.id
 			},
 			{
 				where: {
@@ -461,18 +459,20 @@ const validateMailInc = (mail, file, isUpdate = false) => {
 	}
 };
 
-const validateMailOtg = (mail) => {
+const validateMailOtg = (mail, isUpdate = false) => {
 	const requiredFields = [
-		// { field: "numCodeMail", value: mail.numCodeMail },
-		{ field: "codeMail", value: mail.codeMail },
 		{ field: "subject", value: mail.subject },
 		{ field: "problem", value: mail.problem },
 		{ field: "desUnit", value: mail.desUnit },
 		{ field: "chiefSign", value: mail.chiefSign },
 		{ field: "chiefDesc", value: mail.chiefDesc },
-		{ field: "outDate", value: mail.outDate },
-		{ field: "outTime", value: mail.outTime },
 	];
+
+	if (!isUpdate) {
+		requiredFields.push({ field: "codeMail", value: mail.codeMail });
+		requiredFields.push({ field: "codeMail", value: mail.codeMail });
+		requiredFields.push({ field: "codeMail", value: mail.codeMail });
+	}
 
 	for (const { field, value } of requiredFields) {
 		if (value === null || value === undefined || value === "") {
