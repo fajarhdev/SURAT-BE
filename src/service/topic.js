@@ -55,17 +55,6 @@ const buildHierarchy = async (master) => {
 	return result;
 };
 
-// Contoh penggunaan
-const insertData = async () => {
-	try {
-		const masterTopics = await Topic.findAll(); // Ambil semua master topic
-		const hierarchy = await buildHierarchy(masterTopics);
-		console.log(JSON.stringify(hierarchy, null, 2));
-	} catch (error) {
-		console.error("Error building hierarchy:", error);
-	}
-};
-
 const getTopicService = async () => {
 	const result = [];
 	const master = await Topic.findAll();
