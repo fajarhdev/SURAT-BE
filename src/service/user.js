@@ -32,17 +32,12 @@ const getUserService = async (page = 1, pageSize = 10) => {
     			jsonb_build_object('id', mu2.id, 'name', mu2."name") AS unit
 			FROM "MASTER_USER" mu
 			JOIN "MASTER_ROLE" mr ON mu."role" = mr.id
-			JOIN "MASTER_UNIT" mu2 ON mu.unit = mu2.id
-			LIMIT :pageSize OFFSET :offset;
+			JOIN "MASTER_UNIT" mu2 ON mu.unit = mu2.id;
 		`;
 
 		// Jalankan query dengan parameter
 		const users = await sequelize.query(query, {
 			type: QueryTypes.SELECT,
-			replacements: {
-				pageSize: pageSize,
-				offset: offset,
-			},
 		});
 
 		return users;
@@ -177,6 +172,8 @@ const modifyUserService = async (user, id) => {
 				numPhone: user.numPhone,
 				email: user.email,
 				role: user.role,
+				username: user.username,
+				password: user.password
 			},
 			{
 				where: {
