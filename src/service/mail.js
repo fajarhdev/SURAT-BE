@@ -374,22 +374,12 @@ const createOutMailService = async (mail, user) => {
 			},
 		});
 
-
-		// // find unit
-		// const unit = await Unit.findOne({
-		// 	where: {
-		// 		id: mail.desUnit,
-		// 	},
-		// });
-
 		const today = new Date(); // Get the current date
 		const dayIndex = today.getDay(); // Get the day index (0 = Sunday, 1 = Monday, etc.)
 
 		let numMail = 0;
 
 		const saveNum = await saveNumMail();
-
-		// const latestNumMail = await getLatestOutMailNum();
 
 		if (dayIndex === 5) {
 			numMail = Number(saveNum.detail.value) + 20;
@@ -422,7 +412,7 @@ const createOutMailService = async (mail, user) => {
 		}
 		const currentYear = new Date().getFullYear();
 		//kode surat/nomor surat/masalah utama/pejabat ttd/unit/tahun
-		const numCodeMail = `${codeMail.code}${numMail}/${problem.name}/${executive.code}/${mail.desUnit}/${currentYear}`;
+		const numCodeMail = `${codeMail.code} ${numMail}/${problem.name}/${executive.code}/${mail.desUnit}/${currentYear}`;
 
 		const createMail = await OutMail.create({
 			numMail: numMail,
@@ -496,7 +486,7 @@ const updateOutMailService = async (mail, user, id) => {
 
 		const currentYear = new Date().getFullYear();
 		//kode surat/nomor surat/masalah utama/pejabat ttd/unit/tahun
-		const numCodeMail = `${codeMail.code}${getCurrentMail.numMail}/${problem.name}/${executive.code}/${mail.desUnit}/${currentYear}`;
+		const numCodeMail = `${codeMail.code} ${getCurrentMail.numMail}/${problem.name}/${executive.code}/${mail.desUnit}/${currentYear}`;
 
 		const createMail = await OutMail.update(
 			{
