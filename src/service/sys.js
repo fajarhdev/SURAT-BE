@@ -4,11 +4,17 @@ const SystemDetail = require("../model/systemdetail");
 
 const getNomorCadanganService = async () => {
 	try {
-		const nomorCadangann = await System.findOne({
+		const nomorCadanganMaster = await System.findOne({
 			where: {
 				key: "NUMMAILCADANGAN",
 			},
-			include: SystemDetail,
+		});
+
+		const nomorCadangan = await SystemDetail.findAll({
+			where: {
+				masterId: nomorCadanganMaster.id,
+				isTake: false
+			}
 		});
 
 		return nomorCadangann;
