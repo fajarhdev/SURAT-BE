@@ -381,34 +381,25 @@ const createOutMailService = async (mail, user) => {
 
 		const saveNum = await saveNumMail();
 
-		if (dayIndex === 5) {
-			numMail = Number(saveNum.detail.value) + 20;
-			isFriday = true;
-			// const saveNum = await saveNumMail(numMail);
-			const nomorCadangan = await saveNumCadangan(
-				saveNum.detail.value,
-				numMail
-			);
-			console.log(
-				"NOMOR CADANGAN YANG TERSIMPAN => " + nomorCadangan
-			);
-		}
-
 		numMail = saveNum.value;
 
 		if (isCadangan) {
-			const sys = await SystemDetail.findByPk(mail.numMail);
+			const sys = await SystemDetail.findOne({
+				where: {
+					id: mail.nomorcadangan
+				}
+			});
+
 			const updateSys = await SystemDetail.update(
 				{ isTake: true },
 				{
 					where: {
 						id: mail.nomorcadangan,
-						code: "NUMMAILSUB",
+						code: "NUMCAD",
 					},
 				}
 			);
-			numMail = sys.value;
-
+			numMail = Number(sys.value);
 		}
 		const currentYear = new Date().getFullYear();
 		//kode surat/nomor surat/masalah utama/pejabat ttd/unit/tahun
