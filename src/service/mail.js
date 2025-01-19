@@ -257,7 +257,7 @@ const deleteIncomingMailService = async (id) => {
 
 const createOutMailService = async (mail, user) => {
 	let isFriday = false;
-	const isCadangan = mail.isCadangan;
+	const isCadangan = mail.isCadangan ?? false;
 
 	try {
 		validateMailOtg(mail);
@@ -336,7 +336,7 @@ const createOutMailService = async (mail, user) => {
 
 		numMail = saveNum.value;
 
-		if (!isCadangan) {
+		if (isCadangan) {
 			const sys = await SystemDetail.findByPk(mail.numMail);
 			const updateSys = await SystemDetail.update(
 				{ isTake: true },
