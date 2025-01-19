@@ -409,7 +409,7 @@ const createOutMailService = async (mail, user) => {
 			codeMail: codeMail.id,
 			subject: mail.subject,
 			problem: problem.id,
-			desUnit: mail.desUnit,
+			destUnit: mail.desUnit,
 			chiefSign: executive.id,
 			chiefDesc: executive.desc,
 			mailMaker: userData.id,
