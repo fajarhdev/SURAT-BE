@@ -53,9 +53,58 @@ const getOneOutgoingMailService = async (id) => {
 
 const getOutgoingMailService = async () => {
 	try {
+		let result = [];
 		const outMail = await OutMail.findAll();
 
-		return outMail;
+		for (const mail of outMail) {
+
+			let problem = await Topic.findOne({
+				where: {
+					id: mail.problem
+				}
+			});
+			if (problem === null || problem === undefined){
+				problem = await TopicDetail.findOne({
+					where: {
+						id: mail.problem
+					}
+				});
+			}
+
+			let pejabat = await Executive.findOne({
+				where: {
+					id: mail.chiefSign
+				}
+			});
+			if (pejabat === null || pejabat === undefined){
+				pejabat = await ExecutiveDetail.findOne({
+					where: {
+						id: mail.chiefSign
+					}
+				});
+			}
+
+			const user = await User.findOne({
+				where: {
+					id: mail.mailMaker
+				}
+			})
+
+			result.push({
+				id: mail.id,
+				numMail: mail.numMail,
+				numCodeMail: mail.numCodeMail,
+				subject: mail.subject,
+				problem: problem.name,
+				destUnit: mail.destUnit,
+				chiefSign: pejabat.desc,
+				mailMaker: user.name,
+				outDate: mail.outDate,
+				outTime: mail.out,
+			})
+		}
+
+		return result;
 	} catch (e) {
 		throw new Error(e.message);
 	}
