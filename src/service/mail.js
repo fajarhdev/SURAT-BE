@@ -599,7 +599,8 @@ const validateMailInc = (mail, file, isUpdate = false) => {
 	// Tambahkan kondisi untuk file jika isUpdate adalah true
 	if (isUpdate) {
 		if (file === undefined) {
-			requiredFields.push({ field: "image", value: mail.file });
+			// requiredFields.push({ field: "image", value: mail.file });
+			console.log("FILE NYA NO UPDATE")
 		} else {
 			requiredFields.push({
 				field: "image",
