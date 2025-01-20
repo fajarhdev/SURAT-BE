@@ -2,6 +2,7 @@ const { DataTypes } = require("sequelize");
 const sequelize = require("../../config/database");
 const Unit = require("./unit");
 const User = require("./user");
+const SystemDetail = require("./systemdetail");
 
 const OutMail = sequelize.define(
 	"OTGMAILMASTER",
@@ -61,6 +62,15 @@ const OutMail = sequelize.define(
 			type: DataTypes.BOOLEAN,
 			field: "is_friday",
 		},
+		isCadangan: {
+			type: DataTypes.BOOLEAN,
+			field: "is_cadangan",
+			defaultValue: false
+		},
+		idCadangan: {
+			type: DataTypes.UUID,
+			field: "id_cadangan"
+		}
 	},
 	{
 		tableName: "OTGMAILMASTER",

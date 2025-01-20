@@ -386,7 +386,7 @@ const createOutMailService = async (mail, user) => {
 		if (isCadangan) {
 			const sys = await SystemDetail.findOne({
 				where: {
-					id: mail.nomorcadangan
+					id: mail.numMail
 				}
 			});
 
@@ -394,13 +394,14 @@ const createOutMailService = async (mail, user) => {
 				{ isTake: true },
 				{
 					where: {
-						id: mail.nomorcadangan,
+						id: mail.numMail,
 						code: "NUMCAD",
 					},
 				}
 			);
 			numMail = Number(sys.value);
 		}
+
 		const currentYear = new Date().getFullYear();
 		//kode surat/nomor surat/masalah utama/pejabat ttd/unit/tahun
 		const numCodeMail = `${codeMail.code} ${numMail}/${problem.name}/${executive.code}/${mail.desUnit}/${currentYear}`;
@@ -419,6 +420,7 @@ const createOutMailService = async (mail, user) => {
 			outTime: mail.outTime,
 			isFriday: isFriday,
 			isCadangan: isCadangan,
+			idCadangan: mail.numMail
 		});
 
 		return createMail;
@@ -507,6 +509,24 @@ const updateOutMailService = async (mail, user, id) => {
 
 const deleteOutMailService = async (id) => {
 	try {
+
+		const getMail = await OutMail.findOne({
+			where: {
+				id: id
+			}
+		});
+
+		if (getMail.isCadangan === true) {
+			const updateSys = await SystemDetail.update({
+				isTake: false
+			},{
+				where: {
+					id: getMail.idCadangan
+				}
+			});
+
+		}
+
 		const mail = await OutMail.destroy({
 			where: {
 				id: id,
