@@ -23,7 +23,9 @@ const roleFindById = async (id) => {
 
 const getRoleService = async () => {
 	try {
-		const role = await Role.findAll();
+		const role = await Role.findAll({
+			order: [['createdAt', 'DESC']]
+		});
 
 		return role;
 	} catch (e) {

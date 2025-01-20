@@ -21,24 +21,25 @@ const getUserService = async (page = 1, pageSize = 10) => {
 		const offset = (page - 1) * pageSize;
 
 		const query = `
-			SELECT 
-    			mu.id,
-    			mu.name,
-    			mu."numPhone",
-    			mu.email,
-    			mu.username,
-    			mu."password",
-    			jsonb_build_object('id', mr.id, 'name', mr."name") AS role,
-    			jsonb_build_object('id', mu2.id, 'name', mu2."name") AS unit
-			FROM "MASTER_USER" mu
-			JOIN "MASTER_ROLE" mr ON mu."role" = mr.id
-			JOIN "MASTER_UNIT" mu2 ON mu.unit = mu2.id;
-		`;
+    SELECT 
+        mu.id,
+        mu.name,
+        mu."numPhone",
+        mu.email,
+        mu.username,
+        mu."password",
+        jsonb_build_object('id', mr.id, 'name', mr."name") AS role,
+        jsonb_build_object('id', mu2.id, 'name', mu2."name") AS unit
+    FROM "MASTER_USER" mu
+    JOIN "MASTER_ROLE" mr ON mu."role" = mr.id
+    JOIN "MASTER_UNIT" mu2 ON mu.unit = mu2.id
+    ORDER BY mu."createdAt" DESC;  -- Mengurutkan berdasarkan createdAt
+`;
 
-		// Jalankan query dengan parameter
 		const users = await sequelize.query(query, {
 			type: QueryTypes.SELECT,
 		});
+
 
 		return users;
 	} catch (e) {

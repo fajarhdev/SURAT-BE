@@ -56,53 +56,56 @@ const getOneOutgoingMailService = async (id) => {
 const getOutgoingMailService = async () => {
 	try {
 		let result = [];
-		const outMail = await OutMail.findAll();
+		const outMail = await OutMail.findAll({
+			order: [['createdAt', 'DESC']], // Order by createdAt in descending order
+		});
 
 		for (const mail of outMail) {
 			const codeMail = await MailCode.findOne({
 				where: {
-					id: mail.codeMail
-				}
+					id: mail.codeMail,
+				},
+				order: [['createdAt', 'DESC']], // Ensure the latest MailCode is fetched
 			});
 
 			let problem = await Topic.findOne({
 				where: {
-					id: mail.problem
-				}
+					id: mail.problem,
+				},
 			});
-			if (problem === null || problem === undefined){
+			if (!problem) {
 				problem = await TopicDetail.findOne({
 					where: {
-						id: mail.problem
-					}
+						id: mail.problem,
+					},
 				});
 			}
 
 			let pejabat = await Executive.findOne({
 				where: {
-					id: mail.chiefSign
-				}
+					id: mail.chiefSign,
+				},
 			});
-			if (pejabat === null || pejabat === undefined){
+			if (!pejabat) {
 				pejabat = await ExecutiveDetail.findOne({
 					where: {
-						id: mail.chiefSign
-					}
+						id: mail.chiefSign,
+					},
 				});
 			}
 
 			const user = await User.findOne({
 				where: {
-					id: mail.mailMaker
-				}
-			})
+					id: mail.mailMaker,
+				},
+			});
 
 			result.push({
 				id: mail.id,
 				codeMail: {
 					id: codeMail.id,
 					desc: codeMail.desc,
-					code: codeMail.code
+					code: codeMail.code,
 				},
 				numMail: mail.numMail,
 				numCodeMail: mail.numCodeMail,
@@ -110,21 +113,21 @@ const getOutgoingMailService = async () => {
 				problem: {
 					id: problem.id,
 					code: problem.code,
-					name: problem.name
+					name: problem.name,
 				},
 				desUnit: mail.destUnit,
 				chiefSign: {
 					id: pejabat.id,
 					name: pejabat.desc,
-					code: pejabat.code
+					code: pejabat.code,
 				},
 				mailMaker: {
 					id: user.id,
-					mailMaker: user.name
+					mailMaker: user.name,
 				},
 				outDate: mail.outDate,
 				outTime: mail.outTime,
-			})
+			});
 		}
 
 		return result;
