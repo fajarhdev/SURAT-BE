@@ -480,11 +480,12 @@ const updateOutMailService = async (mail, user, id) => {
 
 		const getCurrentMail = await getOneOutgoingMailService(id);
 
+		let numMail = 0;
 
 		let sys = null;
 		if (isCadangan) {
 			//data baru nomor cadangan
-			const sys = await SystemDetail.findOne({
+			sys = await SystemDetail.findOne({
 				where: {
 					id: mail.numMail
 				}
@@ -513,7 +514,14 @@ const updateOutMailService = async (mail, user, id) => {
 
 		const currentYear = new Date().getFullYear();
 		//kode surat/nomor surat/masalah utama/pejabat ttd/unit/tahun
-		const numCodeMail = `${codeMail.code} ${getCurrentMail.numMail}/${problem.name}/${executive.code}/${mail.desUnit}/${currentYear}`;
+		let numCode = 0;
+
+		if(isCadangan) {
+			numCode = numMail;
+		}else{
+			numCode = getCurrentMail.numMail;
+		}
+		const numCodeMail = `${codeMail.code} ${numCode}/${problem.name}/${executive.code}/${mail.desUnit}/${currentYear}`;
 
 		const createMail = await OutMail.update(
 			{
@@ -527,8 +535,7 @@ const updateOutMailService = async (mail, user, id) => {
 				mailMaker: userData.id,
 				outDate: mail.outDate,
 				outTime: mail.outTime,
-				...(isCadangan ? { numMail: numMail } : {}), // Tambahkan hanya jika isCadangan true
-				...(isCadangan ? { idCadangan: sys.id } : {}), // Tambahkan hanya jika isCadangan true
+				...(isCadangan ? { numMail: numMail, idCadangan: sys.id } : {}),
 			},
 			{
 				where: {
