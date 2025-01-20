@@ -15,7 +15,9 @@ const sequelize = require("../../config/database");
 
 const getIncomingMailService = async () => {
 	try {
-		const incMail = await IncMail.findAll();
+		const incMail = await IncMail.findAll({
+			order: [['createdAt', 'DESC']]
+		});
 
 		return incMail;
 	} catch (e) {
@@ -430,6 +432,7 @@ const createOutMailService = async (mail, user) => {
 };
 
 const updateOutMailService = async (mail, user, id) => {
+	const isCadangan = mail.isCadangan ?? false;
 	try {
 		validateMailOtg(mail, true);
 
@@ -477,6 +480,48 @@ const updateOutMailService = async (mail, user, id) => {
 
 		const getCurrentMail = await getOneOutgoingMailService(id);
 
+		// {
+		// 	"id": "1c44ce2e-eb4a-4ec4-8fa8-fd3d5174bd15",
+		// 	"numMail": "8d5b40c2-d0e3-4482-a358-7e71f73803b0",
+		// 	"codeMail": "935be126-9c15-4bf5-b06e-e99186bd130f",
+		// 	"problem": "8810a6c1-995c-4c15-9bbd-bf4c5a4b3199",
+		// 	"chiefSign": "41581309-6391-474e-8bc7-6086df3cead0",
+		// 	"subject": "qwe",
+		// 	"desUnit": "qwe",
+		// 	"isCadangan": true,
+		// 	"outDate": "2025-01-20",
+		// 	"outTime": "12:00:00"
+		// }
+
+		if (isCadangan) {
+			//data baru nomor cadangan
+			const sys = await SystemDetail.findOne({
+				where: {
+					id: mail.numMail
+				}
+			});
+
+			//update data baru nomor cadangan
+			const updateSys = await SystemDetail.update(
+				{ isTake: true },
+				{
+					where: {
+						id: mail.numMail,
+						code: "NUMCAD",
+					},
+				}
+			);
+
+			const updateOldData = await SystemDetail.update({
+				isTake: false
+			},{
+				where: {
+					id: getCurrentMail.idCadangan
+				}
+			})
+			numMail = Number(sys.value);
+		}
+
 		const currentYear = new Date().getFullYear();
 		//kode surat/nomor surat/masalah utama/pejabat ttd/unit/tahun
 		const numCodeMail = `${codeMail.code} ${getCurrentMail.numMail}/${problem.name}/${executive.code}/${mail.desUnit}/${currentYear}`;
@@ -493,6 +538,7 @@ const updateOutMailService = async (mail, user, id) => {
 				mailMaker: userData.id,
 				outDate: mail.outDate,
 				outTime: mail.outTime,
+				...(isCadangan ? { numMail: mail.numMail } : {}), // Tambahkan hanya jika isCadangan true
 			},
 			{
 				where: {
