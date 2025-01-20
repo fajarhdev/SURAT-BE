@@ -480,19 +480,8 @@ const updateOutMailService = async (mail, user, id) => {
 
 		const getCurrentMail = await getOneOutgoingMailService(id);
 
-		// {
-		// 	"id": "1c44ce2e-eb4a-4ec4-8fa8-fd3d5174bd15",
-		// 	"numMail": "8d5b40c2-d0e3-4482-a358-7e71f73803b0",
-		// 	"codeMail": "935be126-9c15-4bf5-b06e-e99186bd130f",
-		// 	"problem": "8810a6c1-995c-4c15-9bbd-bf4c5a4b3199",
-		// 	"chiefSign": "41581309-6391-474e-8bc7-6086df3cead0",
-		// 	"subject": "qwe",
-		// 	"desUnit": "qwe",
-		// 	"isCadangan": true,
-		// 	"outDate": "2025-01-20",
-		// 	"outTime": "12:00:00"
-		// }
 
+		let sys = null;
 		if (isCadangan) {
 			//data baru nomor cadangan
 			const sys = await SystemDetail.findOne({
@@ -538,7 +527,8 @@ const updateOutMailService = async (mail, user, id) => {
 				mailMaker: userData.id,
 				outDate: mail.outDate,
 				outTime: mail.outTime,
-				...(isCadangan ? { numMail: mail.numMail } : {}), // Tambahkan hanya jika isCadangan true
+				...(isCadangan ? { numMail: numMail } : {}), // Tambahkan hanya jika isCadangan true
+				...(isCadangan ? { idCadangan: sys.id } : {}), // Tambahkan hanya jika isCadangan true
 			},
 			{
 				where: {
