@@ -108,7 +108,7 @@ const getOutgoingMailService = async () => {
 					code: codeMail.code,
 				},
 				numMail: {
-					name: mail.numMail,
+					value: mail.numMail,
 					id: mail.idCadangan
 				},
 				numCodeMail: mail.numCodeMail,
