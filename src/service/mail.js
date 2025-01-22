@@ -130,6 +130,7 @@ const getOutgoingMailService = async () => {
 				},
 				outDate: mail.outDate,
 				outTime: mail.outTime,
+				isCadangan: mail.isCadangan
 			});
 		}
 
