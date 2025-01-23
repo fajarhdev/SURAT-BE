@@ -37,7 +37,7 @@ const boss = new PgBoss({
     console.log('Job scheduled to run every Friday at midnight');
 
     // Register pekerjaan, check if it hasn't been registered before
-    if (boss.getQueue()) {
+    if (boss.getQueue('reset-nomor-surat')) {
         await boss.createQueue('reset-nomor-surat');
         await boss.work('reset-nomor-surat', { retryLimit: 3, retryDelay: 60000 }, jobFriday);
         console.log('Worker for "reset-nomor-surat" has been registered');
