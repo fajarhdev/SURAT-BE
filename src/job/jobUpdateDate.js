@@ -21,3 +21,5 @@ const updateDate = async () => {
         throw new Error("Error job update date")
     }
 }
+
+module.exports = updateDate;

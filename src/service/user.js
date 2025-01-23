@@ -40,7 +40,6 @@ const getUserService = async (page = 1, pageSize = 10) => {
 			type: QueryTypes.SELECT,
 		});
 
-
 		return users;
 	} catch (e) {
 		throw Error(e.message);
@@ -110,8 +109,8 @@ const createSuperAdmin = async () => {
 				unit: superadminUnit.id,
 				numPhone: "1234567890",
 				role: superadminRole.id,
-				username: "superadmin",
-				password: "superadmin123", // Sebaiknya hash password ini
+				username: "superAdmin",
+				password: "Telkom@REG4", // Sebaiknya hash password ini
 			},
 		});
 
@@ -131,6 +130,16 @@ const createUserService = async (user) => {
 		// const hashedPassword = await bcrypt.hash(user.password, 10);
 
 		validateUser(user);
+
+		const checkUser = await User.findOne({
+			where: {
+				username: user.username
+			}
+		});
+
+		if (checkUser) {
+			throw Error("User is exist");
+		}
 
 		const userData = await User.create({
 			name: user.name,
@@ -174,7 +183,7 @@ const modifyUserService = async (user, id) => {
 				email: user.email,
 				role: user.role,
 				username: user.username,
-				password: user.password
+				password: user.password,
 			},
 			{
 				where: {
