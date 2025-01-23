@@ -25,15 +25,25 @@ const boss = new PgBoss({
 
     // Register pekerjaan
     // await jobFriday(boss);
-    await boss.createQueue('nomor-surat-cadangan-update');
-    await boss.work('nomor-surat-cadangan-update', {retryLimit: 3, retryDelay: 60000}, jobFriday);
-    console.log('Worker for "nomor-surat-cadangan-update" has been registered');
+    // Register pekerjaan, check if it hasn't been registered before
+
+    if (boss.getQueue('nomor-surat-cadangan-update')) {
+        await boss.createQueue('nomor-surat-cadangan-update');
+        await boss.work('nomor-surat-cadangan-update', { retryLimit: 3, retryDelay: 60000 }, jobFriday);
+        console.log('Worker for "nomor-surat-cadangan-update" has been registered');
+    }
     // Schedule the job to run every Friday at midnight
     await boss.schedule('nomor-surat-cadangan-update', '*/5 * * * *', {priority: 1}); //0 0 * * 5
     console.log('Job scheduled to run every Friday at midnight');
 
-    await boss.createQueue('reset-nomor-surat');
-    await boss.work('reset-nomor-surat', {retryLimit: 3, retryDelay: 60000}, resetNumMail);
+    // Register pekerjaan, check if it hasn't been registered before
+    if (boss.getQueue()) {
+        await boss.createQueue('reset-nomor-surat');
+        await boss.work('reset-nomor-surat', { retryLimit: 3, retryDelay: 60000 }, jobFriday);
+        console.log('Worker for "reset-nomor-surat" has been registered');
+    }
+    // await boss.createQueue('reset-nomor-surat');
+    // await boss.work('reset-nomor-surat', {retryLimit: 3, retryDelay: 60000}, resetNumMail);
     await boss.schedule('reset-nomor-surat', '*/5 * * * *', {priority: 2}); //0 0 1 1 *
 
     // await boss.createQueue('update-date');
