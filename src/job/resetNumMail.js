@@ -16,18 +16,22 @@ const resetNumMail = async () => {
             throw new Error("Master Surat with key 'NUMMAIL' not found");
         }
 
-        // Update the SystemDetail where code = 'MAILROW' and masterId = masterSurat.id
-        const updateNomorSurat = await SystemDetail.update(
-            { value: 1 }, // Fields to update
-            {
-                where: {
-                    code: 'MAILROW',
-                    masterId: masterSurat.id // Define the condition for which records to update
-                }
-            }
-        );
+        const date = new Date();
 
-        console.log(`Updated ${updateNomorSurat[0]} rows`);
+        if (date.getFullYear() === 2026) {
+            // Update the SystemDetail where code = 'MAILROW' and masterId = masterSurat.id
+            const updateNomorSurat = await SystemDetail.update(
+                { value: 1 }, // Fields to update
+                {
+                    where: {
+                        code: 'MAILROW',
+                        masterId: masterSurat.id // Define the condition for which records to update
+                    }
+                }
+            );
+
+            console.log(`Updated ${updateNomorSurat[0]} rows`);
+        }
 
         // If you need to delete records, you can use destroy:
         // const deleteSuratCadangan = await SystemDetail.destroy({
