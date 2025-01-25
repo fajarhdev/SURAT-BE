@@ -1,38 +1,23 @@
 const System = require("../model/system");
 const SystemDetail = require("../model/systemdetail");
 
-const jobFriday = async (boss) => {
-    // await boss.work('nomor-surat-cadangan-update', {retryLimit: 3, retryDelay: 60000}, async () => {
+const jobFriday = async (job) => {
         console.log('Worker for "nomor-surat-cadangan-update" has been running');
 
         try {
             // Get Tanggal
-            const sys = await System.findOne({
+            const tanggal = await System.findOne({
                 where: {
                     key: 'TGLTODAY'
                 }
             });
 
-            console.log(`SYSTEM, ${sys.key}`);
-
-            const sysDetail = await SystemDetail.findOne({
+            const tanggalDetail = await SystemDetail.findOne({
                 where: {
-                    masterId: sys.id
+                    masterId: tanggal.id
                 }
             });
             // END GET TGL
-            console.log("SYSTEM DETAIL" + sysDetail.code);
-
-            if (!sys) {
-                console.log("GK KETEMU UY");
-                throw new Error("System with key 'TGLTODAY' not found");
-            }
-
-            if (!sysDetail) {
-                console.log("GK KETEMU UY");
-                throw new Error(`SystemDetail for masterId ${sys.id} not found`);
-            }
-            console.log("YOOYOYOYOYOYOYOYOOYOY");
 
             // GET NOMOR OTOMATIS
             const nomorOtomatis = await System.findOne({
@@ -49,7 +34,7 @@ const jobFriday = async (boss) => {
 
             // END GET NOMOR OTOMATIS
 
-            const sysCad = await System.findOne({
+            const masterCadangan = await System.findOne({
                 where: {
                     key: 'NUMMAILCADANGAN'
                 }
@@ -59,30 +44,25 @@ const jobFriday = async (boss) => {
 
             const newVal = oldVal +21;
 
-            const date = new Date(sysDetail.value); // Convert the input to a Date object
+            const date = new Date(tanggalDetail.value); // Convert the input to a Date object
 
-            if (date.getDay() === 3) {
+            if (date.getDay() === 6) {
                 console.log('DALEM LOOP');
 
                 const newValues = [];
                 for (let i = oldVal + 1; i <= oldVal + 20; i++) {
-                    newValues.push({ code: 'NUMCAD', masterId: sysCad.id, value: i });
+                    newValues.push({ code: 'NUMCAD', masterId: masterCadangan.id, value: i });
                 }
                 console.log(newValues)
+                // insert data nomor cadangan
                 await SystemDetail.bulkCreate(newValues);
 
-                // const sysCadDetail = await SystemDetail.findOne({
-                //     where: {
-                //         masterId: sysCad.id
-                //     },
-                //     order: [['value', 'DESC']]
-                // });
-
+                // update nomor otomatis nya
                 await SystemDetail.update({
                     value: newVal
                 }, {
                     where: {
-                        masterId: sysDetail
+                        masterId: nomorOtomatis.id
                     }
                 });
             }

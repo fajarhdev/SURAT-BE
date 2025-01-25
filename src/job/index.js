@@ -2,8 +2,9 @@ const PgBoss = require('pg-boss');
 const jobFriday = require("./jobFriday");
 const resetNumMail = require("./resetNumMail");
 const updateDate = require("./jobUpdateDate");
+const runBackup = require("./backupDB");
+const deletePhoto = require("./deletePhoto");
 require("dotenv").config();
-
 
 const boss = new PgBoss({
     host: process.env.DB_HOST,
@@ -20,33 +21,40 @@ const boss = new PgBoss({
 });
 
 (async () => {
+    await boss.on('failed', console.error);
     await boss.start();
+    await boss.clearStorage(); // Optional: Remove all jobs in storage
     console.log('pg-boss started!');
 
-    // Register pekerjaan
-    // await jobFriday(boss);
-    // Register pekerjaan, check if it hasn't been registered before
+    // Create the queues (ensure they exist)
+    await boss.createQueue('nomor-surat-cadangan-update');
+    await boss.createQueue('update-tanggal');
+    await boss.createQueue('reset-nomor-surat');
+    await boss.createQueue('backup-db');
+    await boss.createQueue('delete-photo');
 
-    if (boss.getQueue('nomor-surat-cadangan-update')) {
-        await boss.createQueue('nomor-surat-cadangan-update');
-        await boss.work('nomor-surat-cadangan-update', { retryLimit: 3, retryDelay: 60000 }, jobFriday);
-        console.log('Worker for "nomor-surat-cadangan-update" has been registered');
-    }
-    // Schedule the job to run every Friday at midnight
-    await boss.schedule('nomor-surat-cadangan-update', '*/5 * * * *', {priority: 1}); //0 0 * * 5
-    console.log('Job scheduled to run every Friday at midnight');
+    // Send jobs to the queues
+    await boss.send('nomor-surat-cadangan-update', {});
+    await boss.send('update-tanggal', {});
+    await boss.send('reset-nomor-surat', {});
+    await boss.send('backup-db', {});
+    await boss.send('delete-photo', {});
 
-    // Register pekerjaan, check if it hasn't been registered before
-    if (boss.getQueue('reset-nomor-surat')) {
-        await boss.createQueue('reset-nomor-surat');
-        await boss.work('reset-nomor-surat', { retryLimit: 3, retryDelay: 60000 }, jobFriday);
-        console.log('Worker for "reset-nomor-surat" has been registered');
-    }
-    // await boss.createQueue('reset-nomor-surat');
-    // await boss.work('reset-nomor-surat', {retryLimit: 3, retryDelay: 60000}, resetNumMail);
-    await boss.schedule('reset-nomor-surat', '*/5 * * * *', {priority: 2}); //0 0 1 1 *
+    // Register workers for the queues
+    await boss.work('nomor-surat-cadangan-update', { retryLimit: 3, retryDelay: 60000 }, jobFriday);
+    await boss.work('update-tanggal', { retryLimit: 3, retryDelay: 60000 }, updateDate);
+    await boss.work('reset-nomor-surat', { retryLimit: 3, retryDelay: 60000 }, resetNumMail);
+    await boss.work('backup-db', {retryLimit: 3, retryDelay: 60000}, runBackup);
+    await boss.work('delete-photo', {retryLimit: 3, retryDelay: 60000}, deletePhoto);
 
-    // await boss.createQueue('update-date');
-    // await boss.work('update-date', {retryLimit: 3, retryDelay: 60000 }, updateDate);
-    // await boss.schedule('update-date', '*/5 * * * *', {}) //0 0 * * *
+    // Schedule the jobs
+    await boss.schedule('nomor-surat-cadangan-update', '*/30 * * * *', { priority: 2 });
+    await boss.schedule('update-tanggal', '*/2 * * * *', { priority: 1 });
+    await boss.schedule('reset-nomor-surat', '*/5 * * * *', { priority: 2 });
+    await boss.schedule('backup-db', '*/30 * * * *', { priority: 3 });
+    await boss.schedule('delete-photo', '*/30 * * * *', { priority: 4 });
+
+
+    console.log('pg-boss finished!');
 })();
+
