@@ -47,9 +47,9 @@ const jobFriday = async (job) => {
 
             const date = new Date(tanggalDetail.value); // Convert the input to a Date object
 
+            const t = await sequelize.transaction(); // Start a transaction
             if (date.getDay() === 6) {
                 console.log('DALEM LOOP');
-                const t = await sequelize.transaction(); // Start a transaction
 
                 const newValues = [];
                 for (let i = oldVal + 1; i <= oldVal + 20; i++) {
@@ -65,12 +65,15 @@ const jobFriday = async (job) => {
                 }, {
                     where: {
                         masterId: nomorOtomatis.id
-                    }
+                    },
+                    transaction: t
                 });
+                await t.commit(); // Commit the transaction
             }
 
             console.log('Worker for "nomor-surat-cadangan-update" has been finish');
         } catch (err) {
+            // await t.rollback();
             console.error(`Job failed: ${job.id}, retrying...`);
             throw new Error(`Error job Friday: ${err.message}`);
         }
