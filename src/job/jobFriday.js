@@ -1,5 +1,6 @@
 const System = require("../model/system");
 const SystemDetail = require("../model/systemdetail");
+const sequelize = require('../../config/database');
 
 const jobFriday = async (job) => {
         console.log('Worker for "nomor-surat-cadangan-update" has been running');
@@ -48,6 +49,7 @@ const jobFriday = async (job) => {
 
             if (date.getDay() === 6) {
                 console.log('DALEM LOOP');
+                const t = await sequelize.transaction(); // Start a transaction
 
                 const newValues = [];
                 for (let i = oldVal + 1; i <= oldVal + 20; i++) {
@@ -55,7 +57,7 @@ const jobFriday = async (job) => {
                 }
                 console.log(newValues)
                 // insert data nomor cadangan
-                await SystemDetail.bulkCreate(newValues);
+                await SystemDetail.bulkCreate(newValues, { transaction: t });
 
                 // update nomor otomatis nya
                 await SystemDetail.update({
