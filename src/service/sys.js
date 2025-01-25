@@ -14,7 +14,8 @@ const getNomorCadanganService = async () => {
 			where: {
 				masterId: nomorCadanganMaster.id,
 				isTake: false
-			}
+			},
+			order: [['createdAt', 'ASC']]
 		});
 
 		return nomorCadangan;

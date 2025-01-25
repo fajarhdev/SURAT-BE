@@ -52,12 +52,12 @@ const jobFriday = async (job) => {
                 console.log('DALEM LOOP');
 
                 const newValues = [];
-                for (let i = oldVal + 1; i <= oldVal + 20; i++) {
+                for (let i = oldVal; i <= oldVal + 20; i++) {
                     newValues.push({ code: 'NUMCAD', masterId: masterCadangan.id, value: i });
                 }
                 console.log(newValues)
                 // insert data nomor cadangan
-                await SystemDetail.bulkCreate(newValues, { transaction: t });
+                await SystemDetail.bulkCreate(newValues);
 
                 // update nomor otomatis nya
                 await SystemDetail.update({
@@ -66,9 +66,8 @@ const jobFriday = async (job) => {
                     where: {
                         masterId: nomorOtomatis.id
                     },
-                    transaction: t
                 });
-                await t.commit(); // Commit the transaction
+                // await t.commit(); // Commit the transaction
             }
 
             console.log('Worker for "nomor-surat-cadangan-update" has been finish');
