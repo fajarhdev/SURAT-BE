@@ -16,7 +16,7 @@ const {QueryTypes} = require("sequelize");
 
 const getYearIncoming = async () => {
 	try {
-		const query = 'SELECT DISTINCT EXTRACT(YEAR FROM "OTGMAILMASTER"."createdAt") AS year FROM "OTGMAILMASTER";'
+		const query = 'SELECT DISTINCT EXTRACT(YEAR FROM "INCMAILMASTER"."createdAt") AS year FROM "INCMAILMASTER";'
 
 		const year = sequelize.query(query, {
 			type: QueryTypes.SELECT
@@ -30,7 +30,7 @@ const getYearIncoming = async () => {
 
 const getYearOutgouing = async () => {
 	try {
-		const query = 'SELECT DISTINCT EXTRACT(YEAR FROM "INCMAILMASTER"."createdAt") AS year FROM "INCMAILMASTER";'
+		const query = 'SELECT DISTINCT EXTRACT(YEAR FROM "OTGMAILMASTER"."createdAt") AS year FROM "OTGMAILMASTER";'
 
 		const year = sequelize.query(query, {
 			type: QueryTypes.SELECT
@@ -50,7 +50,7 @@ const getIncomingMailService = async () => {
 
 		const year = await getYearIncoming();
 
-		return incMail, year;
+		return [incMail, year];
 	} catch (e) {
 		throw new Error(e.message);
 	}
@@ -167,7 +167,7 @@ const getOutgoingMailService = async () => {
 			});
 		}
 
-		return result, year;
+		return [result, year];
 	} catch (e) {
 		throw new Error(e.message);
 	}
