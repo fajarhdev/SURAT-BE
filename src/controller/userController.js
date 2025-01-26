@@ -11,6 +11,7 @@ const createUserController = async (req, res) => {
 			"Succes create user",
 			user,
 			null,
+			null,
 			req,
 			res
 		);
@@ -42,6 +43,7 @@ const updateUserController = async (req, res) => {
 			"Succes update user",
 			user,
 			null,
+			null,
 			req,
 			res
 		);
@@ -71,6 +73,7 @@ const deleteUserController = async (req, res) => {
 			200,
 			"Succes delete user",
 			user,
+			null,
 			null,
 			req,
 			res
@@ -102,6 +105,7 @@ const getUserController = async (req, res) => {
 			200,
 			"Succes fetch user",
 			user,
+			null,
 			null,
 			req,
 			res

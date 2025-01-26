@@ -2,7 +2,6 @@ const PgBoss = require('pg-boss');
 const jobFriday = require("./jobFriday");
 const resetNumMail = require("./resetNumMail");
 const updateDate = require("./jobUpdateDate");
-const runBackup = require("./backupDB");
 const deletePhoto = require("./deletePhoto");
 require("dotenv").config();
 
@@ -30,29 +29,25 @@ const boss = new PgBoss({
     await boss.createQueue('nomor-surat-cadangan-update');
     await boss.createQueue('update-tanggal');
     await boss.createQueue('reset-nomor-surat');
-    await boss.createQueue('backup-db');
     await boss.createQueue('delete-photo');
 
     // Send jobs to the queues
     await boss.send('nomor-surat-cadangan-update', {});
     await boss.send('update-tanggal', {});
     await boss.send('reset-nomor-surat', {});
-    await boss.send('backup-db', {});
     await boss.send('delete-photo', {});
 
     // Register workers for the queues
     await boss.work('nomor-surat-cadangan-update', { retryLimit: 3, retryDelay: 60000 }, jobFriday);
     await boss.work('update-tanggal', { retryLimit: 3, retryDelay: 60000 }, updateDate);
     await boss.work('reset-nomor-surat', { retryLimit: 3, retryDelay: 60000 }, resetNumMail);
-    await boss.work('backup-db', {retryLimit: 3, retryDelay: 60000}, runBackup);
     await boss.work('delete-photo', {retryLimit: 3, retryDelay: 60000}, deletePhoto);
 
     // Schedule the jobs
-    await boss.schedule('nomor-surat-cadangan-update', '*/30 * * * *', { priority: 2 });
-    await boss.schedule('update-tanggal', '*/2 * * * *', { priority: 1 });
-    await boss.schedule('reset-nomor-surat', '*/5 * * * *', { priority: 2 });
-    await boss.schedule('backup-db', '*/30 * * * *', { priority: 3 });
-    await boss.schedule('delete-photo', '*/30 * * * *', { priority: 4 });
+    await boss.schedule('nomor-surat-cadangan-update', '*/50 * * * *', { priority: 2 });
+    await boss.schedule('update-tanggal', '*/50 * * * *', { priority: 1 });
+    await boss.schedule('reset-nomor-surat', '*/50 * * * *', { priority: 2 });
+    await boss.schedule('delete-photo', '*/1 * * * *', { priority: 3 });
 
 
     console.log('pg-boss finished!');

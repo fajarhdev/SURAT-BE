@@ -11,6 +11,7 @@ const createUnitController = async (req, res) => {
             "Succes create Unit data",
             unit,
             null,
+            null,
             req,
             res
         );
@@ -39,6 +40,7 @@ const modifyUnitController = async (req, res) => {
             200,
             "Succes update Unit data",
             unit,
+            null,
             null,
             req,
             res
@@ -69,6 +71,7 @@ const deleteUnitController = async (req, res) => {
             "Succes delete Unit data",
             unit,
             null,
+            null,
             req,
             res
         );
@@ -96,6 +99,7 @@ const getUnitController = async (req, res) => {
             200,
             "Succes fetch unit data",
             role,
+            null,
             null,
             req,
             res

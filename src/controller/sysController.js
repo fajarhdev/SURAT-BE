@@ -13,6 +13,7 @@ const getTopicController = async (req, res) => {
 			"Succes fetch topic data",
 			getTopic,
 			null,
+			null,
 			req,
 			res
 		);
@@ -40,6 +41,7 @@ const getExecutiveController = async (req, res) => {
 			200,
 			"Succes fetch exectuve data",
 			getExecutive,
+			null,
 			null,
 			req,
 			res
@@ -69,6 +71,7 @@ const getNomorCadanganController = async (req, res) => {
 			"Succes fetch nomor cadangan data",
 			getNomorCadangan,
 			null,
+			null,
 			req,
 			res
 		);
@@ -97,6 +100,7 @@ const getUnitController = async (req, res) => {
 			"Succes fetch Unit data",
 			getUnit,
 			null,
+			null,
 			req,
 			res
 		);
@@ -124,6 +128,7 @@ const getCodeSuratController = async (req, res) => {
 			200,
 			"Succes fetch code surat data",
 			getUnit,
+			null,
 			null,
 			req,
 			res

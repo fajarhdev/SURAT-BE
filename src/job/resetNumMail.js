@@ -16,9 +16,18 @@ const resetNumMail = async () => {
             throw new Error("Master Surat with key 'NUMMAIL' not found");
         }
 
-        const date = new Date();
+        const tanggal = await SystemDetail.findOne({
+            where: {
+                code: 'TGLTODAY'
+            }
+        });
 
-        if (date.getFullYear() === 2026) {
+        const date = new Date(tanggal.value);
+
+        // Check if the date is January 1st
+        const isNewYear = date.getDate() === 1 && date.getMonth() === 0;
+
+        if (isNewYear) {
             // Update the SystemDetail where code = 'MAILROW' and masterId = masterSurat.id
             const updateNomorSurat = await SystemDetail.update(
                 { value: 1 }, // Fields to update
@@ -33,12 +42,6 @@ const resetNumMail = async () => {
             console.log(`Updated ${updateNomorSurat[0]} rows`);
         }
 
-        // If you need to delete records, you can use destroy:
-        // const deleteSuratCadangan = await SystemDetail.destroy({
-        //     where: {
-        //         code: 'NUMCAD'
-        //     }
-        // });
 
     } catch (err) {
         throw new Error(`Error job reset nomor email: ${err.message}`);

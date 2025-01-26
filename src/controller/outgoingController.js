@@ -11,12 +11,13 @@ const getOutgoingMailController = async (req, res) => {
 	const user = req.user;
 
 	try {
-		const getOutgoingMailData = await getOutgoingMailService();
+		const [getOutgoingMailData, year] = await getOutgoingMailService();
 
 		const result = await response(
 			200,
 			"Succes fetch outgoing mail data",
 			getOutgoingMailData,
+			year,
 			null,
 			req,
 			res
@@ -52,6 +53,7 @@ const createOutgoingMailController = async (req, res) => {
 			"Succes create outgoing mail data",
 			createOutgoingMailData,
 			null,
+			null,
 			req,
 			res
 		);
@@ -77,6 +79,7 @@ const updateOutgoingMailController = async (req, res) => {
 			"Succes update outgoing mail data",
 			update,
 			null,
+			null,
 			req,
 			res
 		);
@@ -99,6 +102,7 @@ const deleteOutgoingMailController = async (req, res) => {
 			200,
 			"Succes delete outgoing mail data",
 			update,
+			null,
 			null,
 			req,
 			res

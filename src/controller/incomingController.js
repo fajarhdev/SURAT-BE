@@ -4,12 +4,13 @@ const response = require("./util/response");
 const getIncomingMailController = async (req, res) => {
 	const user = req.user;
 	try {
-		const getIncomingMailData = await getIncomingMailService();
+		const [getIncomingMailData, year] = await getIncomingMailService();
 
 		const result = await response(
 			200,
 			"Succes fetch incoming mail data",
 			getIncomingMailData,
+			year,
 			null,
 			req,
 			res
@@ -45,6 +46,7 @@ const createIncomingMailController = async (req, res) => {
 			200,
 			"Success create incoming mail",
 			createIncomingMailData,
+			null,
 			null,
 			req,
 			res
@@ -83,6 +85,7 @@ const updateIncomingMailController = async (req, res) => {
 			"Success update incoming mail",
 			updateIncomingMailData,
 			null,
+			null,
 			req,
 			res
 		);
@@ -112,6 +115,7 @@ const deleteIncomingMailController = async (req, res) => {
 			200,
 			"Success delete incoming mail",
 			updateIncomingMailData,
+			null,
 			null,
 			req,
 			res

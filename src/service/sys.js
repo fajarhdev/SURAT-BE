@@ -11,15 +11,6 @@ const getNomorCadanganService = async () => {
 				key: "NUMMAILCADANGAN",
 			},
 		});
-		//
-		// const nomorCadangan = await SystemDetail.findAll({
-		// 	where: {
-		// 		masterId: nomorCadanganMaster.id,
-		// 		isTake: false
-		// 	},
-		// 	order: [['createdAt', 'ASC']]
-		// });
-
 		const query = 'SELECT * FROM "DETAIL_SYSTEM" WHERE master_id = :masterId AND is_take = false ORDER BY CAST(value AS INTEGER)';
 
 		const nomorCadangan = await sequelize.query(query, {

@@ -12,6 +12,35 @@ const User = require("../model/user");
 const fs = require("fs");
 const path = require("path");
 const sequelize = require("../../config/database");
+const {QueryTypes} = require("sequelize");
+
+const getYearIncoming = async () => {
+	try {
+		const query = 'SELECT DISTINCT EXTRACT(YEAR FROM "OTGMAILMASTER"."createdAt") AS year FROM "OTGMAILMASTER";'
+
+		const year = sequelize.query(query, {
+			type: QueryTypes.SELECT
+		});
+
+		return year;
+	} catch (e) {
+		throw new Error(e.message);
+	}
+}
+
+const getYearOutgouing = async () => {
+	try {
+		const query = 'SELECT DISTINCT EXTRACT(YEAR FROM "INCMAILMASTER"."createdAt") AS year FROM "INCMAILMASTER";'
+
+		const year = sequelize.query(query, {
+			type: QueryTypes.SELECT
+		});
+
+		return year;
+	} catch (e) {
+		throw new Error(e.message);
+	}
+}
 
 const getIncomingMailService = async () => {
 	try {
@@ -19,7 +48,9 @@ const getIncomingMailService = async () => {
 			order: [['createdAt', 'DESC']]
 		});
 
-		return incMail;
+		const year = await getYearIncoming();
+
+		return incMail, year;
 	} catch (e) {
 		throw new Error(e.message);
 	}
@@ -59,6 +90,8 @@ const getOutgoingMailService = async () => {
 		const outMail = await OutMail.findAll({
 			order: [['createdAt', 'DESC']], // Order by createdAt in descending order
 		});
+
+		const year = await getYearOutgouing();
 
 		for (const mail of outMail) {
 			const codeMail = await MailCode.findOne({
@@ -134,7 +167,7 @@ const getOutgoingMailService = async () => {
 			});
 		}
 
-		return result;
+		return result, year;
 	} catch (e) {
 		throw new Error(e.message);
 	}

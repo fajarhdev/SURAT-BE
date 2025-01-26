@@ -43,32 +43,52 @@ const jobFriday = async (job) => {
 
             const oldVal = Number(nomorOtomatisDetail.value);
 
-            const newVal = oldVal +21;
+            const newVal = oldVal +20;
 
             const date = new Date(tanggalDetail.value); // Convert the input to a Date object
-
+            console.log("DATE: " + date);
+            console.log("TODAY"+date.getDay());
             const t = await sequelize.transaction(); // Start a transaction
-            if (date.getDay() === 6) {
-                console.log('DALEM LOOP');
-
-                const newValues = [];
-                for (let i = oldVal; i <= oldVal + 20; i++) {
-                    newValues.push({ code: 'NUMCAD', masterId: masterCadangan.id, value: i });
-                }
-                console.log(newValues)
-                // insert data nomor cadangan
-                await SystemDetail.bulkCreate(newValues);
-
-                // update nomor otomatis nya
-                await SystemDetail.update({
-                    value: newVal
-                }, {
+            if (date.getDay() === 0) { // Check if it's Sunday
+                const tanggalTerbaru = await SystemDetail.findOne({
                     where: {
-                        masterId: nomorOtomatis.id
+                        code: 'NUMCAD',
+                        masterId: masterCadangan.id,
                     },
+                    order: [["createdAt", "ASC"]]
                 });
-                // await t.commit(); // Commit the transaction
+
+                // Extract only the date part for comparison
+                const tanggalDetailDate = new Date(tanggalDetail.value);
+                const tanggalTerbaruDate = new Date(tanggalTerbaru.createdAt);
+
+                const isSameDate =
+                    tanggalDetailDate.getFullYear() === tanggalTerbaruDate.getFullYear() &&
+                    tanggalDetailDate.getMonth() === tanggalTerbaruDate.getMonth() &&
+                    tanggalDetailDate.getDate() === tanggalTerbaruDate.getDate();
+
+                if (!isSameDate) { // If dates are different
+                    const newValues = [];
+                    for (let i = oldVal; i <= oldVal + 20; i++) {
+                        newValues.push({ code: 'NUMCAD', masterId: masterCadangan.id, value: i });
+                    }
+                    console.log(newValues);
+
+                    // Insert new data
+                    await SystemDetail.bulkCreate(newValues);
+
+                    // Update nomor otomatis
+                    await SystemDetail.update(
+                        { value: newVal },
+                        {
+                            where: {
+                                masterId: nomorOtomatis.id
+                            },
+                        }
+                    );
+                }
             }
+
 
             console.log('Worker for "nomor-surat-cadangan-update" has been finish');
         } catch (err) {
