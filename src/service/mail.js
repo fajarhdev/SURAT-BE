@@ -13,6 +13,7 @@ const fs = require("fs");
 const path = require("path");
 const sequelize = require("../../config/database");
 const {QueryTypes} = require("sequelize");
+const { Op } = require('sequelize');
 
 const getYearIncoming = async () => {
 	try {
@@ -42,9 +43,19 @@ const getYearOutgouing = async () => {
 	}
 }
 
-const getIncomingMailService = async () => {
+const getIncomingMailService = async (year) => {
 	try {
+		// Convert the input year to a date range
+		const startDate = new Date(`${year}-01-01`);
+		const endDate = new Date(`${year}-12-31 23:59:59`);
+
+		// Fetch data within the specified year
 		const incMail = await IncMail.findAll({
+			where: {
+				createdAt: {
+					[Op.between]: [startDate, endDate]
+				}
+			},
 			order: [['createdAt', 'DESC']]
 		});
 
@@ -84,11 +95,21 @@ const getOneOutgoingMailService = async (id) => {
 	}
 };
 
-const getOutgoingMailService = async () => {
+const getOutgoingMailService = async (year) => {
 	try {
 		let result = [];
+		// Convert the input year to a date range
+		const startDate = new Date(`${year}-01-01`);
+		const endDate = new Date(`${year}-12-31 23:59:59`);
+
+		// Fetch data within the specified year
 		const outMail = await OutMail.findAll({
-			order: [['createdAt', 'DESC']], // Order by createdAt in descending order
+			where: {
+				createdAt: {
+					[Op.between]: [startDate, endDate]
+				}
+			},
+			order: [['createdAt', 'DESC']] // Order by createdAt in descending order
 		});
 
 		const year = await getYearOutgouing();

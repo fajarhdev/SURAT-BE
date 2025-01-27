@@ -3,6 +3,7 @@ const jobFriday = require("./jobFriday");
 const resetNumMail = require("./resetNumMail");
 const updateDate = require("./jobUpdateDate");
 const deletePhoto = require("./deletePhoto");
+const Masterjob = require("../model/masterjob");
 require("dotenv").config();
 
 const boss = new PgBoss({
@@ -17,6 +18,7 @@ const boss = new PgBoss({
     max: 10, // Maximum number of connections in the pool
     idleTimeoutMillis: 30000, // Close idle clients after 30 seconds
     connectionTimeoutMillis: 20000, // Timeout for connecting to the database
+    schema: 'surat'
 });
 
 (async () => {
@@ -44,11 +46,29 @@ const boss = new PgBoss({
     await boss.work('delete-photo', {retryLimit: 3, retryDelay: 60000}, deletePhoto);
 
     // Schedule the jobs
-    await boss.schedule('nomor-surat-cadangan-update', '*/50 * * * *', { priority: 2 });
-    await boss.schedule('update-tanggal', '*/50 * * * *', { priority: 1 });
-    await boss.schedule('reset-nomor-surat', '*/50 * * * *', { priority: 2 });
-    await boss.schedule('delete-photo', '*/1 * * * *', { priority: 3 });
+    await boss.schedule('nomor-surat-cadangan-update', '*/50 * * * *', { priority: 2, timezone: 'Asia/Jakarta' });
+    await boss.schedule('update-tanggal', '*/50 * * * *', { priority: 1, timezone: 'Asia/Jakarta' });
+    await boss.schedule('reset-nomor-surat', '*/50 * * * *', { priority: 2, timezone: 'Asia/Jakarta' });
+    await boss.schedule('delete-photo', '*/1 * * * *', { priority: 3, timezone: 'Asia/Jakarta' });
 
+    const jobList = await boss.getSchedules();
+    let jobListObj = [];
+
+    for (const job of jobList) {
+        jobListObj.push({
+            name: job.name,
+            desc: null,
+            lastRunning: null, // Fixed typo: "lasRunning" -> "lastRunning"
+            cron: job.cron
+        });
+    }
+
+
+    try{
+        await Masterjob.bulkCreate(jobListObj);
+    }catch (e) {
+        throw e;
+    }
 
     console.log('pg-boss finished!');
 })();
