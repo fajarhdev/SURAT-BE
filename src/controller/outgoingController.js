@@ -9,7 +9,8 @@ const response = require("../controller/util/response");
 
 const getOutgoingMailController = async (req, res) => {
 	const user = req.user;
-	const years = req.params.year;
+	const years = req.query.year;
+	console.log(years);
 	try {
 		const [getOutgoingMailData, year] = await getOutgoingMailService(years);
 

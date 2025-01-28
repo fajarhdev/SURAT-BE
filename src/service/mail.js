@@ -43,11 +43,11 @@ const getYearOutgouing = async () => {
 	}
 }
 
-const getIncomingMailService = async (year) => {
+const getIncomingMailService = async (years) => {
 	try {
 		// Convert the input year to a date range
-		const startDate = new Date(`${year}-01-01`);
-		const endDate = new Date(`${year}-12-31 23:59:59`);
+		const startDate = new Date(`${years}-01-01`);
+		const endDate = new Date(`${years}-12-31 23:59:59`);
 
 		// Fetch data within the specified year
 		const incMail = await IncMail.findAll({
@@ -95,12 +95,12 @@ const getOneOutgoingMailService = async (id) => {
 	}
 };
 
-const getOutgoingMailService = async (year) => {
+const getOutgoingMailService = async (years) => {
 	try {
 		let result = [];
 		// Convert the input year to a date range
-		const startDate = new Date(`${year}-01-01`);
-		const endDate = new Date(`${year}-12-31 23:59:59`);
+		const startDate = new Date(`${years}-01-01`);
+		const endDate = new Date(`${years}-12-31 23:59:59`);
 
 		// Fetch data within the specified year
 		const outMail = await OutMail.findAll({
