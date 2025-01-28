@@ -46,10 +46,10 @@ const boss = new PgBoss({
     await boss.work('delete-photo', {retryLimit: 3, retryDelay: 60000}, deletePhoto);
 
     // Schedule the jobs
-    await boss.schedule('nomor-surat-cadangan-update', '*/50 * * * *', { priority: 2, timezone: 'Asia/Jakarta' });
-    await boss.schedule('update-tanggal', '*/50 * * * *', { priority: 1, timezone: 'Asia/Jakarta' });
-    await boss.schedule('reset-nomor-surat', '*/50 * * * *', { priority: 2, timezone: 'Asia/Jakarta' });
-    await boss.schedule('delete-photo', '*/1 * * * *', { priority: 3, timezone: 'Asia/Jakarta' });
+    await boss.schedule('nomor-surat-cadangan-update', '0 0 * * 5', { priority: 2, timezone: 'Asia/Jakarta' }); // every friday
+    await boss.schedule('update-tanggal', '0 0 * * *', { priority: 1, timezone: 'Asia/Jakarta' }); // everyday 00:00
+    await boss.schedule('reset-nomor-surat', '0 0 1 1 *', { priority: 2, timezone: 'Asia/Jakarta' }); // every year
+    await boss.schedule('delete-photo', '0 0 1 */6 *', { priority: 3, timezone: 'Asia/Jakarta' }); // every 6 month
 
     const jobList = await boss.getSchedules();
     let jobListObj = [];
@@ -58,15 +58,41 @@ const boss = new PgBoss({
         jobListObj.push({
             name: job.name,
             desc: null,
-            lastRunning: null, // Fixed typo: "lasRunning" -> "lastRunning"
+            lastRunning: null,
             cron: job.cron
         });
     }
 
+    try {
+        // Fetch existing records from Masterjob
+        const existingJobs = await Masterjob.findAll();
+        const existingJobMap = new Map();
 
-    try{
-        await Masterjob.bulkCreate(jobListObj);
-    }catch (e) {
+        // Create a map for quick lookup of existing jobs
+        for (const existingJob of existingJobs) {
+            existingJobMap.set(existingJob.name, {
+                cron: existingJob.cron,
+            });
+        }
+
+        // Filter out jobs that are already in the database with no changes
+        const newOrUpdatedJobs = jobListObj.filter((job) => {
+            const existingJob = existingJobMap.get(job.name);
+            if (!existingJob) {
+                return true; // Job doesn't exist in the database, so insert it
+            }
+
+            // Check if the job details are different
+            return job.cron !== existingJob.cron
+        });
+
+        // Only insert or update if there are new or changed jobs
+        if (newOrUpdatedJobs.length > 0) {
+            await Masterjob.bulkCreate(newOrUpdatedJobs, {
+                updateOnDuplicate: ['cron'], // Update these fields if duplicates are found
+            });
+        }
+    } catch (e) {
         throw e;
     }
 
