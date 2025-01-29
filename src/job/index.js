@@ -75,22 +75,20 @@ const boss = new PgBoss({
             });
         }
 
-        // Filter out jobs that are already in the database with no changes
-        const newOrUpdatedJobs = jobListObj.filter((job) => {
+        // Process jobs
+        for (const job of jobListObj) {
             const existingJob = existingJobMap.get(job.name);
+
             if (!existingJob) {
-                return true; // Job doesn't exist in the database, so insert it
+                // Job doesn't exist, insert it
+                await Masterjob.create(job);
+            } else if (job.cron !== existingJob.cron) {
+                // Job exists but cron is different, update it
+                await Masterjob.update(
+                    { cron: job.cron },
+                    { where: { name: job.name } }
+                );
             }
-
-            // Check if the job details are different
-            return job.cron !== existingJob.cron
-        });
-
-        // Only insert or update if there are new or changed jobs
-        if (newOrUpdatedJobs.length > 0) {
-            await Masterjob.bulkCreate(newOrUpdatedJobs, {
-                updateOnDuplicate: ['cron'], // Update these fields if duplicates are found
-            });
         }
     } catch (e) {
         throw e;

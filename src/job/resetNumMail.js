@@ -30,7 +30,7 @@ const resetNumMail = async () => {
         if (isNewYear) {
             // Update the SystemDetail where code = 'MAILROW' and masterId = masterSurat.id
             const updateNomorSurat = await SystemDetail.update(
-                { value: 1 }, // Fields to update
+                { value: 0 }, // Fields to update
                 {
                     where: {
                         code: 'MAILROW',

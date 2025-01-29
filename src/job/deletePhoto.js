@@ -6,6 +6,8 @@ const cronParser = require('cron-parser');
 
 const deletePhoto = async () => {
     try {
+        console.log("START JOB DELETE PHOTO");
+
         // Fetch job data for 'delete-photo'
         const jobData = await Masterjob.findOne({
             where: { name: 'delete-photo' },
@@ -43,10 +45,23 @@ const deletePhoto = async () => {
             console.error('Failed to parse cron expression:', err.message);
             return;
         }
+        let updateDataJob;
+
+        // update awal untuk inisiasi job
+        if (jobData.lastRunning === null) {
+            updateDataJob = await Masterjob.update({
+                lastRunning: tanggal,
+                nextRunning: nextExecution
+            }, {
+                where: {
+                    name: 'delete-photo'
+                }
+            })
+        }
 
         // Validate if today is the day to run the deletion
         const today = tanggal.toDateString(); // System date (e.g., 'Tue Jan 28 2025')
-        const nextRunDate = nextExecution.toDateString(); // Next scheduled execution date
+        const nextRunDate = updateDataJob.nextRunning.toDateString(); // Next scheduled execution date
 
         if (today !== nextRunDate) {
             console.log(`Today (${today}) is not the scheduled day to delete files. Next run is on ${nextRunDate}.`);
