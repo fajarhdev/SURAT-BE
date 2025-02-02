@@ -122,7 +122,7 @@ const jobFriday = async (job) => {
                     const tanggalJob = new Date(tanggalSystem.value); // Get the current date from system
 
                     // Calculate the next execution date using the cron expression
-                    let nextExecution;
+                    let nextExecution = 0;
                     try {
                         const cronExpression = jobData.cron; // Assuming the cron expression is stored in the job
                         const interval = cronParser.parseExpression(cronExpression, { currentDate: tanggalJob });
