@@ -376,11 +376,34 @@ const updateIncomingMailService = async (mail, id, file) => {
 
 const deleteIncomingMailService = async (id) => {
 	try {
+		const incMail = await IncMail.findOne({
+			where: {
+				id: id
+			}
+		});
+
+		const filePath = path.join(
+			__dirname,
+			"../..",
+			"public",
+			"upload",
+			incMail.image
+		);
+
+		fs.unlink(filePath, (err) => {
+			if (err) {
+				console.error(err);
+				// throw new Error("Failed to delete the file.");
+			}
+			console.log("File delete success");
+		});
+
 		const mail = await IncMail.destroy({
 			where: {
 				id: id,
 			},
 		});
+		console.log("mail delete success");
 
 		return mail;
 	} catch (e) {
