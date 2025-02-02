@@ -37,6 +37,12 @@ const insertTopicDetails = async (details, masterId, parentId) => {
 const insertData = async () => {
     try {
         console.log('START SEED TOPIC');
+        const masterData = await Topic.findAll();
+        const detailData = await TopicDetail.findAll();
+
+        if(masterData.length > 0 && detailData.length > 0) {
+            return;
+        }
 
         for (const topic of data) {
             await insertTopic(topic);

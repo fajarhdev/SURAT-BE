@@ -9,6 +9,11 @@ const pejabatSeed = async () => {
 	const inc = 1;
 	try {
 		console.log('START SEED EXECUTIVE');
+		const dataMaster = await Executive.findAll();
+		const dataDetail = await ExecutiveDetail.findAll();
+		if (dataMaster.length > 0 && dataDetail.length > 0) {
+			return;
+		}
 		// Read the Excel file
 		const filepath = path.join(__dirname + "/TAKAH TR3.xlsx");
 		const workbook = xlsx.readFile(filepath);

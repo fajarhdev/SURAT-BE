@@ -1,5 +1,6 @@
 const fs = require('fs');
 const { seedExecutive, seedKodeSurat, seedTopic } = require("../runner");
+const MailCode = require("../../model/mailcode");
 
 const dataKodeSurat = fs.readFileSync(
     "../backend_new/src/helper/seed/dataKodeSurat.json",
@@ -9,9 +10,18 @@ const dataKodeSurat = fs.readFileSync(
 const jsonDataKodeSurat = JSON.parse(dataKodeSurat);
 
 const seed = async () => {
-    console.log('START SEED KODE SURAT');
-    await seedKodeSurat(jsonDataKodeSurat);
-    console.log('FINISH SEED KODE SURAT');
+    try{
+        console.log('START SEED KODE SURAT');
+        const masterData = await MailCode.findAll();
+        if(masterData.length > 0) {
+            return;
+        }
+        await seedKodeSurat(jsonDataKodeSurat);
+    }catch(err){
+        throw err;
+    }finally {
+        console.log('FINISH SEED KODE SURAT');
+    }
 }
 
 module.exports = seed;

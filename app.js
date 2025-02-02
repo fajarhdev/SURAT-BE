@@ -13,7 +13,7 @@ const roleRouter  = require("./routes/role");
 const userRouter = require("./routes/user");
 const sequelize = require("./config/database");
 const models = require("./src/model/index");
-const {createSuperAdminRole} = require("./src/service/role");
+const {createSuperAdminRole, createInitRole} = require("./src/service/role");
 const { createSuperAdminUnit, createInitUnit} = require("./src/service/unit");
 const { createSuperAdmin } = require("./src/service/user");
 const job = require("./src/job/index");
@@ -57,17 +57,18 @@ function delay(ms) {
 }
 
 async function runInit() {
-	console.log('INITIATED DB SEED')
+	console.log('INITIATED DB SEED');
 	await pejabatSeed();
 	await topicSeed();
 	await kodeSurat();
 	await createInitUnit();
+	await createInitRole();
 	await initSys();
-	console.log('FINISH INITIATED DB SEED')
-	console.log('JOB INITIATED')
+	console.log('FINISH INITIATED DB SEED');
+	console.log('JOB INITIATED');
 	await delay(10000); // Wait for 10 seconds
 	await job();
-	console.log('JOB FINISH INITIATED')
+	console.log('JOB FINISH INITIATED');
 }
 // Initialize the job
 async function initialize() {

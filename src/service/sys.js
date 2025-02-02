@@ -3,11 +3,22 @@ const System = require("../model/system");
 const SystemDetail = require("../model/systemdetail");
 const sequelize = require("../../config/database");
 const {QueryTypes} = require("sequelize");
+const { Op } = require('sequelize'); // Import Sequelize operators
 
 const initSys = async () => {
 	try {
 		console.log('START SEED SYSTEM DB');
+		const masterData = await System.findAll({
+			where: {
+				key: {
+					[Op.in]: ['TGLTODAY', 'NUMMAIL', 'NUMMAILCADANGAN'] // Array of keys to match
+				}
+			}
+		});
 
+		if (masterData.length > 0) {
+			return;
+		}
 		const listInitMaster = [
 			{
 				key: 'TGLTODAY',
@@ -48,9 +59,10 @@ const initSys = async () => {
 
 		// Insert details in bulk
 		await SystemDetail.bulkCreate(listInitDetail); // Assuming `SystemDetail` is your Sequelize model for the details table
-		console.log('FINISH SEED SYSTEM DB');
 	}catch (e) {
 		throw e;
+	}finally {
+		console.log('FINISH SEED SYSTEM DB');
 	}
 }
 

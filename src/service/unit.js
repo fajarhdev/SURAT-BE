@@ -1,8 +1,20 @@
 const Unit = require("../model/unit");
+const { Op } = require('sequelize');
 
 const createInitUnit = async () => {
 	try {
 		console.log('START SEED UNIT');
+
+		const masterData = await Unit.findAll({
+			where: {
+				name: {
+					[Op.in]: ['REG4', 'Semarang', 'Yogyakarta', 'Solo', 'Magelang', 'Purwokerto', 'Pekalongan', 'Kudus']
+				}
+			}
+		});
+		if (masterData.length > 0) {
+			return;
+		}
 
 		const listUnits = ['REG4', 'Semarang', 'Yogyakarta', 'Solo', 'Magelang', 'Purwokerto', 'Pekalongan', 'Kudus'];
 		let objUnit = [];
@@ -13,9 +25,10 @@ const createInitUnit = async () => {
 			});
 		}
 		await Unit.bulkCreate(objUnit);
-		console.log('FINISH SEED UNIT');
 	}catch(e) {
 		throw e;
+	}finally {
+		console.log('FINISH SEED UNIT');
 	}
 }
 

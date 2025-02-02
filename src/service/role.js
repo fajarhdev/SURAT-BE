@@ -1,5 +1,32 @@
 const Role = require("../model/role");
 
+const createInitRole = async () => {
+	try {
+		console.log("START SEED ROLE");
+		const masterData = await Role.findAll({
+			where: {
+				name: 'admin'
+			}
+		});
+		if (masterData.length > 0) {
+			return;
+		}
+
+		const role = await Role.findOrCreate({
+			where: {
+				name: 'admin',
+				level: 1
+			}
+		});
+
+		return role;
+	}catch(err) {
+		throw err;
+	}finally {
+		console.log("FINISH SEED ROLE");
+	}
+}
+
 const createSuperAdminRole = async () => {
 	// Cari atau buat role superadmin
     const role = await Role.findOrCreate({
@@ -73,4 +100,4 @@ const modifyRole = async (role) => {
 	}
 };
 
-module.exports = {createSuperAdminRole, roleFindById, createRole, deleteRole, modifyRole, getRoleService};
+module.exports = {createSuperAdminRole, roleFindById, createRole, deleteRole, modifyRole, getRoleService, createInitRole};
