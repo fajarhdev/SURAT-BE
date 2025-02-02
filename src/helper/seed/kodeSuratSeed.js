@@ -1,9 +1,11 @@
 const fs = require('fs');
 const { seedExecutive, seedKodeSurat, seedTopic } = require("../runner");
 const MailCode = require("../../model/mailcode");
+const path = require("path");
 
+const pathfile = path.join(__dirname + "/dataKodeSurat.json");
 const dataKodeSurat = fs.readFileSync(
-    "../backend_new/src/helper/seed/dataKodeSurat.json",
+    pathfile,
     "utf8"
 );
 
