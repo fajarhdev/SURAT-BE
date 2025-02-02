@@ -1,10 +1,7 @@
-const PgBoss = require('pg-boss');
-const jobFriday = require("./jobFriday");
-const resetNumMail = require("./resetNumMail");
-const updateDate = require("./jobUpdateDate");
 const deletePhoto = require("./deletePhoto");
 const Masterjob = require("../model/masterjob");
 require("dotenv").config();
+const PgBoss = require("pg-boss");
 
 const boss = new PgBoss({
     host: process.env.DB_HOST,
@@ -21,7 +18,7 @@ const boss = new PgBoss({
     schema: 'surat'
 });
 
-(async () => {
+async function startPgBoss() {
     await boss.on('failed', console.error);
     await boss.start();
     await boss.clearStorage(); // Optional: Remove all jobs in storage
@@ -43,13 +40,13 @@ const boss = new PgBoss({
     await boss.work('nomor-surat-cadangan-update', { retryLimit: 3, retryDelay: 60000 }, jobFriday);
     await boss.work('update-tanggal', { retryLimit: 3, retryDelay: 60000 }, updateDate);
     await boss.work('reset-nomor-surat', { retryLimit: 3, retryDelay: 60000 }, resetNumMail);
-    await boss.work('delete-photo', {retryLimit: 3, retryDelay: 60000}, deletePhoto);
+    await boss.work('delete-photo', { retryLimit: 3, retryDelay: 60000 }, deletePhoto);
 
     // Schedule the jobs
-    await boss.schedule('nomor-surat-cadangan-update', '0 0 * * 5', { priority: 2, timezone: 'Asia/Jakarta' }); // every friday
-    await boss.schedule('update-tanggal', '0 0 * * *', { priority: 1, timezone: 'Asia/Jakarta' }); // everyday 00:00
+    await boss.schedule('nomor-surat-cadangan-update', '0 0 * * 5', { priority: 2, timezone: 'Asia/Jakarta' }); // every Friday
+    await boss.schedule('update-tanggal', '0 0 * * *', { priority: 1, timezone: 'Asia/Jakarta' }); // every day 00:00
     await boss.schedule('reset-nomor-surat', '0 0 1 1 *', { priority: 2, timezone: 'Asia/Jakarta' }); // every year
-    await boss.schedule('delete-photo', '0 0 1 */6 *', { priority: 3, timezone: 'Asia/Jakarta' }); // every 6 month
+    await boss.schedule('delete-photo', '0 0 1 */6 *', { priority: 3, timezone: 'Asia/Jakarta' }); // every 6 months
 
     const jobList = await boss.getSchedules();
     let jobListObj = [];
@@ -95,5 +92,7 @@ const boss = new PgBoss({
     }
 
     console.log('pg-boss finished!');
-})();
+}
 
+// Export the function
+module.exports = startPgBoss;

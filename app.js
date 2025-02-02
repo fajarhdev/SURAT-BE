@@ -16,6 +16,7 @@ const models = require("./src/model/index");
 const {createSuperAdminRole} = require("./src/service/role");
 const { createSuperAdminUnit } = require("./src/service/unit");
 const { createSuperAdmin } = require("./src/service/user");
+const job = require("./src/job/index");
 
 const app = express();
 
@@ -45,6 +46,19 @@ sequelize
 	.catch((err) => {
 		console.error("An error occurred while syncing the models:", err);
 	});
+
+// running the job
+function delay(ms) {
+	return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function runJob() {
+	console.log('JOB INITIATED')
+	await delay(10000); // Wait for 2 seconds
+	await job();
+	console.log('JOB FINISH INITIATED')
+}
+await runJob();
 
 app.use("/api/auth", indexRouter);
 app.use("/api/mail", mailRouter);

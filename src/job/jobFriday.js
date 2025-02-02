@@ -63,32 +63,38 @@ const jobFriday = async (job) => {
             console.log("DATE: " + date);
             console.log("TODAY"+date.getDay());
             const t = await sequelize.transaction(); // Start a transaction
-            if (date.getDay() === 0) { // Check if it's Sunday
+            if (date.getDay() === 5) { // Check if it's Friday
                 const tanggalTerbaru = await SystemDetail.findOne({
                     where: {
-                        code: 'NUMCAD',
+                        code: 'NUMMAILCADANGAN',
                         masterId: masterCadangan.id,
                     },
                     order: [["createdAt", "ASC"]]
                 });
 
-                // Extract only the date part for comparison
-                const tanggalDetailDate = new Date(tanggalDetail.value);
-                const tanggalTerbaruDate = new Date(tanggalTerbaru.createdAt);
+                let isSameDate;
+                if (tanggalTerbaru !== null || tanggalTerbaru !== undefined) {
+                    // Extract only the date part for comparison
+                    const tanggalDetailDate = new Date(tanggalDetail.value);
+                    const tanggalTerbaruDate = new Date(tanggalTerbaru.createdAt);
 
-                const isSameDate =
-                    tanggalDetailDate.getFullYear() === tanggalTerbaruDate.getFullYear() &&
-                    tanggalDetailDate.getMonth() === tanggalTerbaruDate.getMonth() &&
-                    tanggalDetailDate.getDate() === tanggalTerbaruDate.getDate();
+                    isSameDate =
+                        tanggalDetailDate.getFullYear() === tanggalTerbaruDate.getFullYear() &&
+                        tanggalDetailDate.getMonth() === tanggalTerbaruDate.getMonth() &&
+                        tanggalDetailDate.getDate() === tanggalTerbaruDate.getDate();
+                } else {
+                    // di db kosong
+                    isSameDate = false;
+                }
 
                 if (!isSameDate) { // If dates are different
                     const newValues = [];
                     for (let i = oldVal; i <= oldVal + 20; i++) {
-                        newValues.push({ code: 'NUMCAD', masterId: masterCadangan.id, value: i });
+                        newValues.push({ code: 'NUMMAILCADANGAN', masterId: masterCadangan.id, value: i });
                     }
                     console.log(newValues);
 
-                    // Insert new data
+                    // Insert new data nomor cadangan
                     await SystemDetail.bulkCreate(newValues);
 
                     // Update nomor otomatis

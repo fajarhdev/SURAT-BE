@@ -1,5 +1,21 @@
 const Unit = require("../model/unit");
 
+const createInitUnit = async () => {
+	try {
+		const listUnits = ['REG4', 'Semarang', 'Yogyakarta', 'Solo', 'Magelang', 'Purwokerto', 'Pekalongan', 'Kudus'];
+		let objUnit;
+		for (const listUnit in listUnits) {
+			objUnit.push({
+				name: listUnit,
+				address: ""
+			});
+		}
+		await Unit.bulkCreate(objUnit);
+	}catch(e) {
+		throw e;
+	}
+}
+
 const createSuperAdminUnit = async () => {
 	try {
 		const unit = await Unit.findOrCreate({

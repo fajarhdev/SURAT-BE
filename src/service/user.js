@@ -103,7 +103,7 @@ const createSuperAdmin = async () => {
 		// const hashedPassword = await bcrypt.hash("superadmin123", 10);
 
 		const superadminUser = await User.findOrCreate({
-			where: { username: "superadmin" }, // Cari pengguna berdasarkan username
+			where: { username: "superAdmin" }, // Cari pengguna berdasarkan username
 			defaults: {
 				name: "Super Admin",
 				unit: superadminUnit.id,

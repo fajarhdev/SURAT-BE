@@ -4,6 +4,69 @@ const SystemDetail = require("../model/systemdetail");
 const sequelize = require("../../config/database");
 const {QueryTypes} = require("sequelize");
 
+const initSys = async () => {
+	try {
+		const listInitMaster = [
+			{
+				key: 'TGLTODAY',
+				desc: 'TANGGAL HARI INI'
+			},
+			{
+				key: 'NUMMAIL',
+				desc: 'PENOMORAN SURAT OTOMATIS'
+			},
+			{
+				key: 'NUMMAILCADANGAN',
+				desc: 'PENOMORAN SURAT CADANGAN'
+			}
+		];
+
+		let listInitDetail = [];
+		// insert master
+		for (const listInitMasterKey in listInitMaster) {
+			const initMaster = await insertInit(listInitMasterKey);
+			if (listInitMasterKey.key === 'TGLTODAY') {
+				listInitDetail.push({
+					masterId: initMaster.id,
+					code: initMaster.key,
+					value: new Date(),
+					isTake: false
+				});
+			}else if(listInitMasterKey.key === 'NUMMAIL') {
+				listInitDetail.push({
+					masterId: initMaster.id,
+					code: initMaster.key,
+					value: '0',
+					isTake: false
+				});
+			}else if(listInitMasterKey.key === '') {
+
+			}
+		}
+		await SystemDetail.bulkCreate(listInitDetail);
+	}catch (e) {
+		throw e;
+	}
+}
+
+const insertInit = async (sys) => {
+	try {
+		const sys = await System.create(sys);
+	}catch (e) {
+		throw e;
+	}
+}
+
+const checkMaster = async (key) => {
+	try {
+		const sys = await System.findOne({
+			key: key
+		});
+	}catch (e) {
+		throw e;
+	}
+}
+
 const getNomorCadanganService = async () => {
 	try {
 		const nomorCadanganMaster = await System.findOne({

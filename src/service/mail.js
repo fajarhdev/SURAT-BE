@@ -228,7 +228,7 @@ const saveNumMail = async () => {
 				const detail = await SystemDetail.create(
 					{
 						master_id: master.id,
-						code: "MAILROW",
+						code: "NUMMAIL",
 						value: 1,
 					},
 					{ transaction: t }
@@ -243,7 +243,7 @@ const saveNumMail = async () => {
 			const detail = await SystemDetail.findOne({
 				where: {
 					masterId: sys.id,
-					code: "MAILROW",
+					code: "NUMMAIL",
 				},
 			});
 
@@ -260,7 +260,7 @@ const saveNumMail = async () => {
 					const newDetail = await SystemDetail.create(
 						{
 							masterId: sys.id,
-							code: "MAILROW",
+							code: "NUMMAIL",
 							value: 1,
 						},
 						{ transaction: t }
@@ -458,7 +458,7 @@ const createOutMailService = async (mail, user) => {
 				{
 					where: {
 						id: mail.numMail,
-						code: "NUMCAD",
+						code: "NUMMAILCADANGAN",
 					},
 				}
 			);
@@ -558,7 +558,7 @@ const updateOutMailService = async (mail, user, id) => {
 				{
 					where: {
 						id: mail.numMail,
-						code: "NUMCAD",
+						code: "NUMMAILCADANGAN",
 					},
 				}
 			);

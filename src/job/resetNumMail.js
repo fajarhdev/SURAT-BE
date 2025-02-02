@@ -28,12 +28,12 @@ const resetNumMail = async () => {
         const isNewYear = date.getDate() === 1 && date.getMonth() === 0;
 
         if (isNewYear) {
-            // Update the SystemDetail where code = 'MAILROW' and masterId = masterSurat.id
+            // Update the SystemDetail where code = 'NUMMAIL' and masterId = masterSurat.id
             const updateNomorSurat = await SystemDetail.update(
                 { value: 0 }, // Fields to update
                 {
                     where: {
-                        code: 'MAILROW',
+                        code: 'NUMMAIL',
                         masterId: masterSurat.id // Define the condition for which records to update
                     }
                 }
