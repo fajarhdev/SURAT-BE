@@ -2,15 +2,18 @@ const Unit = require("../model/unit");
 
 const createInitUnit = async () => {
 	try {
+		console.log('START SEED UNIT');
+
 		const listUnits = ['REG4', 'Semarang', 'Yogyakarta', 'Solo', 'Magelang', 'Purwokerto', 'Pekalongan', 'Kudus'];
-		let objUnit;
-		for (const listUnit in listUnits) {
+		let objUnit = [];
+		for (let i = 0; i < listUnits.length; i++) {
 			objUnit.push({
-				name: listUnit,
+				name: listUnits[i],
 				address: ""
 			});
 		}
 		await Unit.bulkCreate(objUnit);
+		console.log('FINISH SEED UNIT');
 	}catch(e) {
 		throw e;
 	}
@@ -86,4 +89,4 @@ const modifyUnit = async (unit) => {
 	}
 }
 
-module.exports = { createSuperAdminUnit, getAllUnitService, createUnit, deleteUnit, modifyUnit };
+module.exports = { createSuperAdminUnit, getAllUnitService, createUnit, deleteUnit, modifyUnit, createInitUnit };

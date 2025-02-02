@@ -36,14 +36,18 @@ const insertTopicDetails = async (details, masterId, parentId) => {
 // Menyisipkan semua data JSON
 const insertData = async () => {
     try {
+        console.log('START SEED TOPIC');
+
         for (const topic of data) {
             await insertTopic(topic);
         }
         console.log('Data successfully inserted!');
+        console.log('FINISH SEED TOPIC');
     } catch (error) {
         console.error('Error inserting data:', error);
     }
 };
 
 // Run the insertion process
-insertData();
+// insertData();
+module.exports = insertData;

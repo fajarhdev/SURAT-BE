@@ -1,7 +1,11 @@
 const deletePhoto = require("./deletePhoto");
+const jobFriday = require("./jobFriday");
+const resetNumMail = require("./resetNumMail");
+const updateDate = require("./jobUpdateDate");
+
 const Masterjob = require("../model/masterjob");
 require("dotenv").config();
-const PgBoss = require("pg-boss");
+const PgBoss = require('pg-boss');
 
 const boss = new PgBoss({
     host: process.env.DB_HOST,

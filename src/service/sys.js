@@ -6,6 +6,8 @@ const {QueryTypes} = require("sequelize");
 
 const initSys = async () => {
 	try {
+		console.log('START SEED SYSTEM DB');
+
 		const listInitMaster = [
 			{
 				key: 'TGLTODAY',
@@ -22,46 +24,41 @@ const initSys = async () => {
 		];
 
 		let listInitDetail = [];
-		// insert master
-		for (const listInitMasterKey in listInitMaster) {
-			const initMaster = await insertInit(listInitMasterKey);
-			if (listInitMasterKey.key === 'TGLTODAY') {
+
+// Insert master and prepare details
+		for (const masterItem of listInitMaster) {
+			const initMaster = await insertInit(masterItem); // Assuming `insertInit` is a function that inserts the master and returns the inserted object
+
+			if (masterItem.key === 'TGLTODAY') {
 				listInitDetail.push({
 					masterId: initMaster.id,
-					code: initMaster.key,
+					code: masterItem.key,
 					value: new Date(),
 					isTake: false
 				});
-			}else if(listInitMasterKey.key === 'NUMMAIL') {
+			} else if (masterItem.key === 'NUMMAIL') {
 				listInitDetail.push({
 					masterId: initMaster.id,
-					code: initMaster.key,
+					code: masterItem.key,
 					value: '0',
 					isTake: false
 				});
-			}else if(listInitMasterKey.key === '') {
-
 			}
 		}
-		await SystemDetail.bulkCreate(listInitDetail);
+
+		// Insert details in bulk
+		await SystemDetail.bulkCreate(listInitDetail); // Assuming `SystemDetail` is your Sequelize model for the details table
+		console.log('FINISH SEED SYSTEM DB');
 	}catch (e) {
 		throw e;
 	}
 }
 
-const insertInit = async (sys) => {
+const insertInit = async (masterSys) => {
 	try {
-		const sys = await System.create(sys);
-	}catch (e) {
-		throw e;
-	}
-}
+		const sys = await System.create(masterSys);
 
-const checkMaster = async (key) => {
-	try {
-		const sys = await System.findOne({
-			key: key
-		});
+		return sys;
 	}catch (e) {
 		throw e;
 	}
@@ -97,4 +94,4 @@ const getCodeSurat = async () => {
 	}
 }
 
-module.exports = {getNomorCadanganService, getCodeSurat};
+module.exports = {getNomorCadanganService, getCodeSurat, initSys};

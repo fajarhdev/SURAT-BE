@@ -4,10 +4,11 @@ const ExecutiveDetail = require("../../model/executivedetail"); // Adjust path a
 const path = require("path");
 
 // Read and parse the JSON file
-(async () => {
+const pejabatSeed = async () => {
 	let count = 0;
 	const inc = 1;
 	try {
+		console.log('START SEED EXECUTIVE');
 		// Read the Excel file
 		const filepath = path.join(__dirname + "/TAKAH TR3.xlsx");
 		const workbook = xlsx.readFile(filepath);
@@ -26,18 +27,18 @@ const path = require("path");
 			const code = row["Kode Unit"];
 
 			if (code === masterCode) {
-				console.log("MASTER: ", row);
+				// console.log("MASTER: ", row);
 
 				// Level 1 (Master)
 				currentMaster = await Executive.create({
 					code: code,
 					desc: desc,
 				});
-				console.log("Created Master:", currentMaster.id, desc);
+				// console.log("Created Master:", currentMaster.id, desc);
 				currentParent = null; // Reset parent for top-level
 			} else if (parentRegex.test(code)) {
 				if(desc.includes("SM") || desc.includes("GM")) {
-					console.log("PARENT (LEVEL 2): ", row);
+					// console.log("PARENT (LEVEL 2): ", row);
 
 					// Level 2 (Parent under Master)
 					if (!currentMaster) {
@@ -53,11 +54,11 @@ const path = require("path");
 						desc: desc,
 						masterId: currentMaster.id,
 					});
-					console.log("Created Parent:", currentParent.id, desc);
+					// console.log("Created Parent:", currentParent.id, desc);
 				}
 
 			} else if (childRegex.test(code)) {
-				console.log("CHILD (LEVEL 3): ", row);
+				// console.log("CHILD (LEVEL 3): ", row);
 
 				// Level 3 (Child under Parent)
 				if (!currentParent) {
@@ -73,7 +74,7 @@ const path = require("path");
 					masterId: currentMaster.id,
 					parentId: currentParent.id,
 				});
-				console.log("Created Child:", child.id, desc);
+				// console.log("Created Child:", child.id, desc);
 			} else {
 				console.log("Unknown level: ", row);
 			}
@@ -83,6 +84,8 @@ const path = require("path");
 	} catch (error) {
 		console.error("Error inserting data:", error);
 	} finally {
-		console.log("SELESAI INSERT DATA");
+		console.log('FINISH SEED EXECUTIVE');
 	}
-})();
+};
+
+module.exports = pejabatSeed;
