@@ -73,7 +73,7 @@ const jobFriday = async (job) => {
                 });
 
                 let isSameDate;
-                if (!tanggalTerbaru) {
+                if (tanggalTerbaru) {
                     // Extract only the date part for comparison
                     const tanggalDetailDate = new Date(tanggalDetail.value);
                     const tanggalTerbaruDate = new Date(tanggalTerbaru.createdAt);
