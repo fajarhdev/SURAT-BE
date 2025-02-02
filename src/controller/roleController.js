@@ -21,6 +21,7 @@ const createRoleController = async (req, res) => {
             400,
             "Error create role data",
             null,
+            null,
             e,
             req,
             res
@@ -52,6 +53,7 @@ const modifyRoleController = async (req, res) => {
             400,
             "Error modify role data",
             null,
+            null,
             e,
             req,
             res
@@ -82,6 +84,7 @@ const deleteRoleController = async (req, res) => {
             400,
             "Error delete role data",
             null,
+            null,
             e,
             req,
             res
@@ -110,6 +113,7 @@ const getRoleController = async (req, res) => {
         const error = await response(
             400,
             "Error fetch role data",
+            null,
             null,
             e,
             req,

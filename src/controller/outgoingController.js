@@ -30,6 +30,7 @@ const getOutgoingMailController = async (req, res) => {
 			400,
 			"Error fetch outgoing mail",
 			null,
+			null,
 			e,
 			req,
 			res
@@ -61,7 +62,7 @@ const createOutgoingMailController = async (req, res) => {
 
 		return result;
 	} catch (e) {
-		const error = await response(400, e.message, null, e, req, res);
+		const error = await response(400, e.message, null, null,e, req, res);
 
 		return error;
 	}
@@ -87,7 +88,7 @@ const updateOutgoingMailController = async (req, res) => {
 
 		return result;
 	} catch (e) {
-		const error = await response(400, e.message, null, e, req, res);
+		const error = await response(400, e.message, null, null,e, req, res);
 
 		return error;
 	}
@@ -111,7 +112,7 @@ const deleteOutgoingMailController = async (req, res) => {
 
 		return result;
 	} catch (e) {
-		const error = await response(400, e.message, null, e, req, res);
+		const error = await response(400, e.message, null, null,e, req, res);
 
 		return error;
 	}

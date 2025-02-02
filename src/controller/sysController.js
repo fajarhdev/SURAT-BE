@@ -24,6 +24,7 @@ const getTopicController = async (req, res) => {
 			400,
 			"Error fetch topic data",
 			null,
+			null,
 			e,
 			req,
 			res
@@ -52,6 +53,7 @@ const getExecutiveController = async (req, res) => {
 		const error = await response(
 			400,
 			"Error fetch executive data",
+			null,
 			null,
 			e.message,
 			req,
@@ -82,6 +84,7 @@ const getNomorCadanganController = async (req, res) => {
 			400,
 			"Error fetch nomor cadangan data",
 			null,
+			null,
 			e,
 			req,
 			res
@@ -111,6 +114,7 @@ const getUnitController = async (req, res) => {
 			400,
 			"Error fetch Unit data",
 			null,
+			null,
 			e,
 			req,
 			res
@@ -139,6 +143,7 @@ const getCodeSuratController = async (req, res) => {
 		const error = await response(
 			400,
 			"Error fetch code surat data",
+			null,
 			null,
 			e,
 			req,

@@ -22,6 +22,7 @@ const createUserController = async (req, res) => {
 			400,
 			e.message,
 			null,
+			null,
 			e,
 			req,
 			res
@@ -54,6 +55,7 @@ const updateUserController = async (req, res) => {
 			400,
 			e.message,
 			null,
+			null,
 			e,
 			req,
 			res
@@ -84,6 +86,7 @@ const deleteUserController = async (req, res) => {
         const error = await response(
 			400,
 			"Error delete user",
+			null,
 			null,
 			e,
 			req,
@@ -116,6 +119,7 @@ const getUserController = async (req, res) => {
 		const error = await response(
 			400,
 			"Error fetch user",
+			null,
 			null,
 			e,
 			req,

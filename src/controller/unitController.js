@@ -22,6 +22,7 @@ const createUnitController = async (req, res) => {
             400,
             "Error create Unit data",
             null,
+            null,
             e,
             req,
             res
@@ -52,6 +53,7 @@ const modifyUnitController = async (req, res) => {
             400,
             "Error update Unit data",
             null,
+            null,
             e,
             req,
             res
@@ -81,6 +83,7 @@ const deleteUnitController = async (req, res) => {
         const error = await response(
             400,
             "Error delete Unit data",
+            null,
             null,
             e,
             req,
