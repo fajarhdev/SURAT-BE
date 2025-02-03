@@ -57,7 +57,7 @@ const jobFriday = async (job) => {
 
             const oldVal = Number(nomorOtomatisDetail.value);
 
-            const newVal = oldVal +20;
+            const newVal = oldVal +21;
 
             const date = new Date(tanggalDetail.value); // Convert the input to a Date object
             console.log("DATE: " + date);
@@ -91,7 +91,7 @@ const jobFriday = async (job) => {
 
                 if (!isSameDate) { // If dates are different
                     const newValues = [];
-                    for (let i = oldVal; i <= oldVal + 20; i++) {
+                    for (let i = oldVal + 1; i <= oldVal + 20; i++) {
                         newValues.push({ code: 'NUMMAILCADANGAN', masterId: masterCadangan.id, value: i });
                     }
                     console.log(newValues);
@@ -125,7 +125,7 @@ const jobFriday = async (job) => {
 
                     // Calculate the next execution date using the cron expression
                     // Declare nextExecution outside the try block
-                    let nextExecution = null;
+                    // let nextExecution = null;
 
                     try {
                         const cronExpression = jobData.cron; // Assuming the cron expression is stored in the job
