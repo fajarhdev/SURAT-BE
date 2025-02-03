@@ -63,7 +63,9 @@ const jobFriday = async (job) => {
             console.log("DATE: " + date);
             console.log("TODAY"+date.getDay());
             const t = await sequelize.transaction(); // Start a transaction
-            if (date.getDay() === 5) { // Check if it's Friday
+            let nextExecution = null;
+
+            if (date.getDay() === 0) { // Check if it's Friday
                 const tanggalTerbaru = await SystemDetail.findOne({
                     where: {
                         code: 'NUMMAILCADANGAN',
