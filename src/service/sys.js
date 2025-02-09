@@ -83,7 +83,14 @@ const getNomorCadanganService = async () => {
 				key: "NUMMAILCADANGAN",
 			},
 		});
-		const query = 'SELECT * FROM "DETAIL_SYSTEM" WHERE master_id = :masterId AND is_take = false ORDER BY CAST(value AS INTEGER)';
+		const query = `SELECT *
+			FROM "DETAIL_SYSTEM"
+			WHERE code = 'NUMMAILCADANGAN'
+			AND EXTRACT(YEAR FROM "createdAt") = (
+			    SELECT EXTRACT(YEAR FROM MAX("createdAt"))
+			    FROM "DETAIL_SYSTEM"
+			    WHERE code = 'NUMMAILCADANGAN' LIMIT 1
+			);`;
 
 		const nomorCadangan = await sequelize.query(query, {
 			replacements: { masterId: nomorCadanganMaster.id },
