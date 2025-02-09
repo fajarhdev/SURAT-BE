@@ -460,8 +460,8 @@ const createOutMailService = async (mail, user) => {
 			},
 		});
 
-		const today = new Date(); // Get the current date
-		const dayIndex = today.getDay(); // Get the day index (0 = Sunday, 1 = Monday, etc.)
+		// const today = new Date(); // Get the current date
+		// const dayIndex = today.getDay(); // Get the day index (0 = Sunday, 1 = Monday, etc.)
 
 		let numMail = 0;
 
@@ -476,7 +476,7 @@ const createOutMailService = async (mail, user) => {
 				}
 			});
 
-			const updateSys = await SystemDetail.update(
+			await SystemDetail.update(
 				{ isTake: true },
 				{
 					where: {

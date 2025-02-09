@@ -57,7 +57,7 @@ const jobFriday = async (job) => {
 
             const oldVal = Number(nomorOtomatisDetail.value);
 
-            const newVal = oldVal +21;
+            const newVal = oldVal +20;
 
             const date = new Date(tanggalDetail.value); // Convert the input to a Date object
             console.log("DATE: " + date);
@@ -65,7 +65,7 @@ const jobFriday = async (job) => {
             const t = await sequelize.transaction(); // Start a transaction
             let nextExecution = null;
 
-            if (date.getDay() === 0) { // Check if it's Friday
+            if (date.getDay() === 6) { // Check if it's Friday
                 const tanggalTerbaru = await SystemDetail.findOne({
                     where: {
                         code: 'NUMMAILCADANGAN',
