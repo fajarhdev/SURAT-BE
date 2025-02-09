@@ -1,68 +1,69 @@
-const { QueryTypes } = require("sequelize");
-const sequelize = require("../../config/database");
-const Topic = require('../model/topic');
-const TopicDetail = require('../model/topicdetail');
+const { Op } = require("sequelize");
+const Topic = require("../model/topic");
+const TopicDetail = require("../model/topicdetail");
 
-const buildHierarchy = async (master) => {
-	const result = [];
-
-	for (const topic of master) {
-		const detail = await TopicDetail.findOne({
-			where: {
-				masterId: topic.id,
-				parentId: null, // Ambil root-level detail (tidak memiliki parent)
+const buildHierarchy = async (masterTopics) => {
+	// Fetch all topic details in one query
+	const topicDetailList = await TopicDetail.findAll({
+		where: {
+			masterId: {
+				[Op.in]: masterTopics.map((topic) => topic.id), // Fetch all at once
 			},
-		});
+		},
+		raw: true, // Fetch as plain objects for faster processing
+	});
 
-		if (!detail) continue;
+	// Build a lookup map for quick access
+	const topicDetailMap = new Map();
+	topicDetailList.forEach((detail) => {
+		if (!topicDetailMap.has(detail.masterId)) {
+			topicDetailMap.set(detail.masterId, []);
+		}
+		topicDetailMap.get(detail.masterId).push(detail);
+	});
 
-		// Rekursif untuk mengambil anak-anak
-		const buildChildren = async (parentId) => {
-			const children = await TopicDetail.findAll({
-				where: {
-					parentId: parentId,
-				},
-			});
+	// Build hierarchy efficiently
+	const buildChildren = (parentId, details) => {
+		const children = details.filter((d) => d.parentId === parentId);
+		return children.map((child) => ({
+			id: child.id,
+			code: child.code,
+			name: child.name,
+			desc: child.desc,
+			children: buildChildren(child.id, details), // Recursive call
+		}));
+	};
 
-			// Untuk setiap anak, tambahkan children di dalamnya (jika ada)
-			return await Promise.all(
-				children.map(async (child) => ({
-					id: child.id,
-					code: child.code,
-					name: child.name,
-					desc: child.desc,
-					children: await buildChildren(child.id), // Rekursif ke tingkat berikutnya
-				}))
-			);
-		};
+	// Construct the final hierarchy
+	return masterTopics.map((topic) => {
+		const details = topicDetailMap.get(topic.id) || [];
+		const rootDetail = details.find((d) => d.parentId === null);
+		if (!rootDetail) return null;
 
-		const children = await buildChildren(detail.id);
-
-		result.push({
+		return {
 			id: topic.id,
 			code: topic.code,
 			name: topic.name,
 			desc: topic.desc,
 			children: [
 				{
-					id: detail.id,
-					code: detail.code,
-					name: detail.name,
-					desc: detail.desc,
-					children: children,
+					id: rootDetail.id,
+					code: rootDetail.code,
+					name: rootDetail.name,
+					desc: rootDetail.desc,
+					children: buildChildren(rootDetail.id, details),
 				},
 			],
-		});
-	}
-
-	return result;
+		};
+	}).filter(Boolean);
 };
 
 const getTopicService = async () => {
-	const masterTopics = await Topic.findAll(); // Ambil semua master topic
-	const hierarchy = await buildHierarchy(masterTopics);
+	// Fetch all master topics at once
+	const masterTopics = await Topic.findAll({ raw: true });
+	if (!masterTopics.length) return [];
 
-	return hierarchy;
-}
+	return await buildHierarchy(masterTopics);
+};
 
 module.exports = getTopicService;

@@ -1,68 +1,63 @@
-const { QueryTypes } = require("sequelize");
-const sequelize = require("../../config/database");
+const { Op } = require("sequelize");
 const Executive = require("../model/executive");
 const ExecutiveDetail = require("../model/executivedetail");
 
-const buildHierarchy = async (master) => {
-	const result = [];
-
-	for (const executive of master) {
-		// Fetch all root-level details for the current master
-		const rootDetails = await ExecutiveDetail.findAll({
-			where: {
-				masterId: executive.id,
-				parentId: null, // Fetch all root-level details
+const buildHierarchy = async (executives) => {
+	// Fetch all executive details in one query
+	const executiveDetails = await ExecutiveDetail.findAll({
+		where: {
+			masterId: {
+				[Op.in]: executives.map((executive) => executive.id), // Fetch all at once
 			},
-		});
+		},
+		raw: true, // Faster data retrieval
+	});
 
-		if (rootDetails.length === 0) continue;
+	// Create a lookup map for details based on parentId
+	const detailMap = new Map();
+	executiveDetails.forEach((detail) => {
+		if (!detailMap.has(detail.parentId)) {
+			detailMap.set(detail.parentId, []);
+		}
+		detailMap.get(detail.parentId).push(detail);
+	});
 
-		// Recursive function to build children hierarchy
-		const buildChildren = async (parentId) => {
-			const children = await ExecutiveDetail.findAll({
-				where: {
-					parentId: parentId,
-				},
-			});
+	// Recursive function to build hierarchy
+	const buildChildren = (parentId) => {
+		const children = detailMap.get(parentId) || [];
+		return children.map((child) => ({
+			id: child.id,
+			code: child.code,
+			name: child.desc,
+			children: buildChildren(child.id), // Recursive call
+		}));
+	};
 
-			// Map children and recursively build their hierarchy
-			return await Promise.all(
-				children.map(async (child) => ({
-					id: child.id,
-					code: child.code,
-					name: child.desc,
-					children: await buildChildren(child.id), // Recursive call for the next level
-				}))
-			);
-		};
+	// Construct the hierarchy
+	return executives.map((executive) => {
+		const rootDetails = detailMap.get(null) // Get root-level details (parentId = null)
+			?.filter((detail) => detail.masterId === executive.id) || [];
 
-		// Build hierarchy for each root detail
-		const detailsWithChildren = await Promise.all(
-			rootDetails.map(async (detail) => ({
-				id: detail.id,
-				code: detail.code,
-				name: detail.desc,
-				children: await buildChildren(detail.id), // Build children for the root-level detail
-			}))
-		);
-
-		// Push the result for this master
-		result.push({
+		return {
 			id: executive.id,
 			code: executive.code,
 			name: executive.desc,
-			children: detailsWithChildren, // Attach all root-level details with their children
-		});
-	}
-
-	return result;
+			children: rootDetails.map((detail) => ({
+				id: detail.id,
+				code: detail.code,
+				name: detail.desc,
+				children: buildChildren(detail.id),
+			})),
+		};
+	});
 };
 
 const getExecutiveService = async () => {
-	const master = await Executive.findAll();
-	const hierarchy = await buildHierarchy(master);
+	// Fetch all executives in one query
+	const executives = await Executive.findAll({ raw: true });
+	if (!executives.length) return [];
 
-	return hierarchy;
+	return await buildHierarchy(executives);
 };
 
 module.exports = getExecutiveService;
