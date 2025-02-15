@@ -9,7 +9,6 @@ const {
 } = require("../src/controller/sysController");
 const router = express.Router();
 
-/* GET home page. */
 router.get("/getunit", verifyToken, getUnitController);
 router.get("/gettopic", verifyToken, getTopicController);
 router.get("/getexecutive", verifyToken, getExecutiveController);

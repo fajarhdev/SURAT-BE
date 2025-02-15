@@ -58,19 +58,3 @@ TopicDetail.belongsTo(TopicDetail, {
 	foreignKey: "parentId",
 	as: "parent", // Alias for parent topic detail
 });
-
-// Role.hasMany(User, {
-// 	foreignKey: "role",
-// });
-
-// User.belongsTo(Role, {
-// 	foreignKey: "role",
-// });
-
-// Unit.hasMany(User, {
-// 	foreignKey: "unit",
-// });
-
-// User.belongsTo(Unit, {
-// 	foreignKey: "unit",
-// });
