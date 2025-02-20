@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+      backend:
+            container_name: surat_backend
+            ports:
+                  - "3000:3000"
+            environment:
+                  - DB_HOST=dpg-cuee2mhopnds738h0vu0-a.singapore-postgres.render.com
+                  - DB_NAME=surat_oxio
+                  - DB_USERNAME=admin
+                  - DB_PASSWORD=PpH5r7xew2yAgPnNnRT8i7MVQI1NV7U3
+                  - DB_PORT=5432
