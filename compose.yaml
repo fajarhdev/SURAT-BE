@@ -11,3 +11,5 @@ services:
                   - DB_USERNAME=admin
                   - DB_PASSWORD=PpH5r7xew2yAgPnNnRT8i7MVQI1NV7U3
                   - DB_PORT=5432
+            build:
+                  -
