@@ -4,8 +4,8 @@ const path = "../../public";
 
 const uploadDir = path.join(__dirname, "public/upload");
 
-if (!fs.existsSync(path)) {
-	fs.mkdirSync(path, { recursive: true });
+if (!fs.existsSync(uploadDir)) {
+	fs.mkdirSync(uploadDir, { recursive: true });
 }
 
 // Configure multer storage
