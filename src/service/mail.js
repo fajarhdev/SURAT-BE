@@ -12,36 +12,38 @@ const User = require("../model/user");
 const fs = require("fs");
 const path = require("path");
 const sequelize = require("../../config/database");
-const {QueryTypes} = require("sequelize");
-const { Op } = require('sequelize');
+const { QueryTypes } = require("sequelize");
+const { Op } = require("sequelize");
 
 const getYearIncoming = async () => {
 	try {
-		const query = 'SELECT DISTINCT EXTRACT(YEAR FROM "INCMAILMASTER"."createdAt") AS year FROM "INCMAILMASTER";'
+		const query =
+			'SELECT DISTINCT EXTRACT(YEAR FROM "INCMAILMASTER"."createdAt") AS year FROM "INCMAILMASTER";';
 
 		const year = sequelize.query(query, {
-			type: QueryTypes.SELECT
+			type: QueryTypes.SELECT,
 		});
 
 		return year;
 	} catch (e) {
 		throw new Error(e.message);
 	}
-}
+};
 
 const getYearOutgouing = async () => {
 	try {
-		const query = 'SELECT DISTINCT EXTRACT(YEAR FROM "OTGMAILMASTER"."createdAt") AS year FROM "OTGMAILMASTER";'
+		const query =
+			'SELECT DISTINCT EXTRACT(YEAR FROM "OTGMAILMASTER"."createdAt") AS year FROM "OTGMAILMASTER";';
 
 		const year = sequelize.query(query, {
-			type: QueryTypes.SELECT
+			type: QueryTypes.SELECT,
 		});
 
 		return year;
 	} catch (e) {
 		throw new Error(e.message);
 	}
-}
+};
 
 const getIncomingMailService = async (years) => {
 	try {
@@ -53,10 +55,10 @@ const getIncomingMailService = async (years) => {
 		const incMail = await IncMail.findAll({
 			where: {
 				createdAt: {
-					[Op.between]: [startDate, endDate]
-				}
+					[Op.between]: [startDate, endDate],
+				},
 			},
-			order: [['createdAt', 'DESC']]
+			order: [["createdAt", "DESC"]],
 		});
 
 		const year = await getYearIncoming();
@@ -106,10 +108,10 @@ const getOutgoingMailService = async (years) => {
 		const outMail = await OutMail.findAll({
 			where: {
 				createdAt: {
-					[Op.between]: [startDate, endDate]
-				}
+					[Op.between]: [startDate, endDate],
+				},
 			},
-			order: [['createdAt', 'DESC']] // Order by createdAt in descending order
+			order: [["createdAt", "DESC"]], // Order by createdAt in descending order
 		});
 
 		const year = await getYearOutgouing();
@@ -119,7 +121,7 @@ const getOutgoingMailService = async (years) => {
 				where: {
 					id: mail.codeMail,
 				},
-				order: [['createdAt', 'DESC']], // Ensure the latest MailCode is fetched
+				order: [["createdAt", "DESC"]], // Ensure the latest MailCode is fetched
 			});
 
 			let problem = await Topic.findOne({
@@ -163,7 +165,7 @@ const getOutgoingMailService = async (years) => {
 				},
 				numMail: {
 					value: mail.numMail,
-					id: mail.idCadangan
+					id: mail.idCadangan,
 				},
 				numCodeMail: mail.numCodeMail,
 				subject: mail.subject,
@@ -184,7 +186,7 @@ const getOutgoingMailService = async (years) => {
 				},
 				outDate: mail.outDate,
 				outTime: mail.outTime,
-				isCadangan: mail.isCadangan
+				isCadangan: mail.isCadangan,
 			});
 		}
 
@@ -221,7 +223,10 @@ const saveNumMail = async () => {
 			// Insert new master and detail records if master doesn't exist
 			const result = await sequelize.transaction(async (t) => {
 				const master = await System.create(
-					{ key: "NUMMAIL", desc: "Penomoran Surat Otomastis" },
+					{
+						key: "NUMMAIL",
+						desc: "Penomoran Surat Otomastis",
+					},
 					{ transaction: t }
 				);
 
@@ -269,7 +274,7 @@ const saveNumMail = async () => {
 				}
 			});
 
-// Now result will hold the updated or newly created detail
+			// Now result will hold the updated or newly created detail
 			return result;
 		}
 	} catch (e) {
@@ -378,8 +383,8 @@ const deleteIncomingMailService = async (id) => {
 	try {
 		const incMail = await IncMail.findOne({
 			where: {
-				id: id
-			}
+				id: id,
+			},
 		});
 
 		const filePath = path.join(
@@ -431,11 +436,11 @@ const createOutMailService = async (mail, user) => {
 				id: mail.problem,
 			},
 		});
-		if(problem === undefined || problem === null) {
+		if (problem === undefined || problem === null) {
 			problem = await TopicDetail.findOne({
 				where: {
-					id: mail.problem
-				}
+					id: mail.problem,
+				},
 			});
 		}
 
@@ -445,11 +450,11 @@ const createOutMailService = async (mail, user) => {
 				id: mail.chiefSign,
 			},
 		});
-		if(executive === undefined || executive === null) {
+		if (executive === undefined || executive === null) {
 			executive = await ExecutiveDetail.findOne({
 				where: {
-					id: mail.chiefSign
-				}
+					id: mail.chiefSign,
+				},
 			});
 		}
 
@@ -472,8 +477,8 @@ const createOutMailService = async (mail, user) => {
 		if (isCadangan) {
 			const sys = await SystemDetail.findOne({
 				where: {
-					id: mail.numMail
-				}
+					id: mail.numMail,
+				},
 			});
 
 			await SystemDetail.update(
@@ -506,7 +511,7 @@ const createOutMailService = async (mail, user) => {
 			outTime: mail.outTime,
 			isFriday: isFriday,
 			isCadangan: isCadangan,
-			idCadangan: mail.numMail
+			idCadangan: mail.numMail,
 		});
 
 		return createMail;
@@ -533,11 +538,11 @@ const updateOutMailService = async (mail, user, id) => {
 				id: mail.problem,
 			},
 		});
-		if(problem === undefined || problem === null) {
+		if (problem === undefined || problem === null) {
 			problem = await TopicDetail.findOne({
 				where: {
-					id: mail.problem
-				}
+					id: mail.problem,
+				},
 			});
 		}
 
@@ -547,20 +552,13 @@ const updateOutMailService = async (mail, user, id) => {
 				id: mail.chiefSign,
 			},
 		});
-		if(executive === undefined || executive === null) {
+		if (executive === undefined || executive === null) {
 			executive = await ExecutiveDetail.findOne({
 				where: {
-					id: mail.chiefSign
-				}
+					id: mail.chiefSign,
+				},
 			});
 		}
-
-		// find mail maker (user yang terlogin)
-		const userData = await User.findOne({
-			where: {
-				id: user.id,
-			},
-		});
 
 		const getCurrentMail = await getOneOutgoingMailService(id);
 
@@ -571,8 +569,8 @@ const updateOutMailService = async (mail, user, id) => {
 			//data baru nomor cadangan
 			sys = await SystemDetail.findOne({
 				where: {
-					id: mail.numMail
-				}
+					id: mail.numMail,
+				},
 			});
 
 			//update data baru nomor cadangan
@@ -586,13 +584,16 @@ const updateOutMailService = async (mail, user, id) => {
 				}
 			);
 
-			const updateOldData = await SystemDetail.update({
-				isTake: false
-			},{
-				where: {
-					id: getCurrentMail.idCadangan
+			const updateOldData = await SystemDetail.update(
+				{
+					isTake: false,
+				},
+				{
+					where: {
+						id: getCurrentMail.idCadangan,
+					},
 				}
-			})
+			);
 			numMail = Number(sys.value);
 		}
 
@@ -600,9 +601,9 @@ const updateOutMailService = async (mail, user, id) => {
 		//kode surat/nomor surat/masalah utama/pejabat ttd/unit/tahun
 		let numCode = 0;
 
-		if(isCadangan) {
+		if (isCadangan) {
 			numCode = numMail;
-		}else{
+		} else {
 			numCode = getCurrentMail.numMail;
 		}
 		const numCodeMail = `${codeMail.code} ${numCode}/${problem.name}/${executive.code}/${mail.desUnit}/${currentYear}`;
@@ -616,10 +617,11 @@ const updateOutMailService = async (mail, user, id) => {
 				destUnit: mail.desUnit,
 				chiefSign: executive.id,
 				chiefDesc: executive.desc,
-				mailMaker: userData.id,
 				outDate: mail.outDate,
 				outTime: mail.outTime,
-				...(isCadangan ? { numMail: numMail, idCadangan: sys.id } : {}),
+				...(isCadangan
+					? { numMail: numMail, idCadangan: sys.id }
+					: {}),
 			},
 			{
 				where: {
@@ -636,22 +638,23 @@ const updateOutMailService = async (mail, user, id) => {
 
 const deleteOutMailService = async (id) => {
 	try {
-
 		const getMail = await OutMail.findOne({
 			where: {
-				id: id
-			}
+				id: id,
+			},
 		});
 
 		if (getMail.isCadangan === true) {
-			const updateSys = await SystemDetail.update({
-				isTake: false
-			},{
-				where: {
-					id: getMail.idCadangan
+			const updateSys = await SystemDetail.update(
+				{
+					isTake: false,
+				},
+				{
+					where: {
+						id: getMail.idCadangan,
+					},
 				}
-			});
-
+			);
 		}
 
 		const mail = await OutMail.destroy({
@@ -681,7 +684,7 @@ const validateMailInc = (mail, file, isUpdate = false) => {
 	if (isUpdate) {
 		if (file === undefined) {
 			// requiredFields.push({ field: "image", value: mail.file });
-			console.log("FILE NYA NO UPDATE")
+			console.log("FILE NYA NO UPDATE");
 		} else {
 			requiredFields.push({
 				field: "image",
