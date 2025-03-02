@@ -7,7 +7,7 @@ const {
 	createSuperAdmin,
 	userFindByUsernameService,
 } = require("../service/user");
-const {roleFindById} = require("../service/role");
+const { roleFindById } = require("../service/role");
 require("dotenv").config();
 
 // Secret keys
@@ -19,14 +19,28 @@ let refreshTokens = [];
 
 // Helper untuk membuat JWT
 const generateAccessToken = async (user, role) => {
-	return jwt.sign({ id: user.id, username: user.username, role: role.name, name: user.name }, JWT_SECRET, {
-		expiresIn: "15m",
-	});
+	return jwt.sign(
+		{
+			id: user.id,
+			username: user.username,
+			role: role.name,
+			name: user.name,
+		},
+		JWT_SECRET,
+		{
+			expiresIn: "15m",
+		}
+	);
 };
 
 const generateRefreshToken = async (user, role) => {
 	return jwt.sign(
-		{ id: user.id, username: user.username, role: role.name, name: user.name },
+		{
+			id: user.id,
+			username: user.username,
+			role: role.name,
+			name: user.name,
+		},
 		REFRESH_SECRET,
 		{
 			expiresIn: "7d",
@@ -41,18 +55,18 @@ const loginController = async (req, res) => {
 	try {
 		// validasi database
 		const db = await checkUserDB();
-		
+
 		// Validasi pengguna
 		const user = await userFindByUsernameService(username);
 		let role = null;
-		if(user !== null) {
+		if (user !== null) {
 			role = await roleFindById(user.role);
 		}
 
 		if (db !== null) {
 			if (user === null) {
 				// if (!user || !bcrypt.compareSync(password, user.password)) {
-					
+
 				// }
 				return res.status(401).json({
 					message: "Invalid username or password",
@@ -73,12 +87,13 @@ const loginController = async (req, res) => {
 		res.cookie("refreshToken", refreshToken, {
 			httpOnly: true,
 			secure: false, // Aktifkan secure di production
-			sameSite: 'lax',
+			sameSite: "lax",
 		}).json({ accessToken });
 	} catch (e) {
 		const error = await response(
 			400,
 			"Error when login",
+			null,
 			null,
 			e,
 			req,

@@ -2,6 +2,8 @@ const multer = require("multer");
 const fs = require("fs");
 const path = "../../public";
 
+const uploadDir = path.join(__dirname, "public/upload");
+
 if (!fs.existsSync(path)) {
 	fs.mkdirSync(path, { recursive: true });
 }
@@ -9,7 +11,7 @@ if (!fs.existsSync(path)) {
 // Configure multer storage
 const storage = multer.diskStorage({
 	destination: (req, file, cb) => {
-		cb(null, "public/upload/"); // Specify upload directory
+		cb(null, uploadDir); // Specify upload directory
 	},
 	filename: (req, file, cb) => {
 		const uniqueSuffix =
