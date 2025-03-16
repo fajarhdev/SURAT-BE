@@ -1,6 +1,6 @@
 const multer = require("multer");
 const fs = require("fs");
-const path = "../../public";
+const path = require("path");
 
 const uploadDir = path.join(__dirname, "public/upload");
 
