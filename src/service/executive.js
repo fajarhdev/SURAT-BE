@@ -2,15 +2,15 @@ const { Op } = require("sequelize");
 const Executive = require("../model/executive");
 const ExecutiveDetail = require("../model/executivedetail");
 
-const buildHierarchy = async (executives) => {
+const buildHierarchy = async (executives, user) => {
 	// Fetch all executive details in one query
 	const executiveDetails = await ExecutiveDetail.findAll({
 		where: {
 			masterId: {
-				[Op.in]: executives.map((executive) => executive.id), // Fetch all at once
+				[Op.in]: executives.map((executive) => executive.id),
 			},
 		},
-		raw: true, // Faster data retrieval
+		raw: true,
 	});
 
 	// Create a lookup map for details based on parentId
@@ -22,42 +22,35 @@ const buildHierarchy = async (executives) => {
 		detailMap.get(detail.parentId).push(detail);
 	});
 
-	// Recursive function to build hierarchy
-	const buildChildren = (parentId) => {
-		const children = detailMap.get(parentId) || [];
-		return children.map((child) => ({
-			id: child.id,
-			code: child.code,
-			name: child.desc,
-			children: buildChildren(child.id), // Recursive call
-		}));
-	};
+	// Create master and child data structure
+	const master =
+		user.role === "superadmin"
+			? executives.map((executive) => ({
+					id: executive.id,
+					code: executive.code,
+					name: executive.desc,
+			  }))
+			: [];
 
-	// Construct the hierarchy
-	return executives.map((executive) => {
-		const rootDetails = detailMap.get(null) // Get root-level details (parentId = null)
-			?.filter((detail) => detail.masterId === executive.id) || [];
-
-		return {
-			id: executive.id,
-			code: executive.code,
-			name: executive.desc,
-			children: rootDetails.map((detail) => ({
-				id: detail.id,
-				code: detail.code,
-				name: detail.desc,
-				children: buildChildren(detail.id),
-			})),
-		};
+	const child = [];
+	executiveDetails.forEach((detail) => {
+		child.push({
+			id: detail.id,
+			code: detail.code,
+			name: detail.desc,
+			parentId: detail.parentId,
+		});
 	});
+
+	return { master, child };
 };
 
-const getExecutiveService = async () => {
+const getExecutiveService = async (user) => {
 	// Fetch all executives in one query
 	const executives = await Executive.findAll({ raw: true });
 	if (!executives.length) return [];
 
-	return await buildHierarchy(executives);
+	return await buildHierarchy(executives, user);
 };
 
 module.exports = getExecutiveService;

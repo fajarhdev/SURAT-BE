@@ -35,8 +35,9 @@ const getTopicController = async (req, res) => {
 };
 
 const getExecutiveController = async (req, res) => {
+	const user = req.user;
 	try {
-		const getExecutive = await getExecutiveService();
+		const getExecutive = await getExecutiveService(user);
 
 		const result = await response(
 			200,
