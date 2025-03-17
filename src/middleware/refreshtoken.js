@@ -9,7 +9,12 @@ const RefreshToken = async (refreshToken) => {
 		const decode = jwt.verify(refreshToken, secretKeyRefreh);
 
 		const newAccessToken = jwt.sign(
-			{ id: decode.id, username: decode.username },
+			{
+				id: decode.id,
+				username: decode.username,
+				role: decode.role,
+				name: decode.name,
+			},
 			secretKeyAccess,
 			{
 				expiresIn: "30s",
