@@ -32,15 +32,18 @@ const buildHierarchy = async (executives, user) => {
 			  }))
 			: [];
 
-	const child = [];
-	executiveDetails.forEach((detail) => {
-		child.push({
-			id: detail.id,
-			code: detail.code,
-			name: detail.desc,
-			parentId: detail.parentId,
-		});
-	});
+	const buildChildren = (parentId) => {
+		const children = detailMap.get(parentId) || [];
+		return children.map((child) => ({
+			id: child.id,
+			code: child.code,
+			name: child.desc,
+			parentId: child.parentId,
+			children: buildChildren(child.id),
+		}));
+	};
+
+	const child = buildChildren(null);
 
 	return { master, child };
 };
