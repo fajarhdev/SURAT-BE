@@ -65,7 +65,19 @@ const jobFriday = async (job) => {
 		const t = await sequelize.transaction(); // Start a transaction
 		let nextExecution = null;
 
-		if (date.getDay() === 5) {
+		const masterJob = await System.findOne({
+			where: {
+				key: "JOBFRIDAY",
+			},
+		});
+
+		const jobDetail = await SystemDetail.findOne({
+			where: {
+				masterId: jobDetail.id,
+			},
+		});
+
+		if (date.getDay() === jobDetail.value) {
 			// Check if it's Friday
 			const tanggalTerbaru = await SystemDetail.findOne({
 				where: {
