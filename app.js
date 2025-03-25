@@ -18,7 +18,7 @@ const { createSuperAdminUnit, createInitUnit } = require("./src/service/unit");
 const { createSuperAdmin } = require("./src/service/user");
 const job = require("./src/job/index");
 const pejabatSeed = require("./src/helper/seed/pejabatSeed");
-const topicSeed = require("./src/helper/seed/topicSeed");
+const topicSeedNew = require("./src/helper/seed/topicSeedNew");
 const kodeSurat = require("./src/helper/seed/kodeSuratSeed");
 const { initSys } = require("./src/service/sys");
 
@@ -61,7 +61,8 @@ function delay(ms) {
 async function runInit() {
 	console.log("INITIATED DB SEED");
 	await pejabatSeed();
-	await topicSeed();
+	// await topicSeed();
+	await topicSeedNew();
 	await kodeSurat();
 	await createInitUnit();
 	await createInitRole();
