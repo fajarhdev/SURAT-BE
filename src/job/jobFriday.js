@@ -73,7 +73,7 @@ const jobFriday = async (job) => {
 
 		const jobDetail = await SystemDetail.findOne({
 			where: {
-				masterId: jobDetail.id,
+				masterId: masterJob.id,
 			},
 		});
 
