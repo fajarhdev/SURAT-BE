@@ -18,7 +18,7 @@ const { createSuperAdminUnit, createInitUnit } = require("./src/service/unit");
 const { createSuperAdmin } = require("./src/service/user");
 const job = require("./src/job/index");
 const pejabatSeed = require("./src/helper/seed/pejabatSeed");
-const topicSeedNew = require("./src/helper/seed/topicSeedNew");
+const topicSeedNew = require("./src/helper/seed/topic");
 const kodeSurat = require("./src/helper/seed/kodeSuratSeed");
 const { initSys } = require("./src/service/sys");
 
