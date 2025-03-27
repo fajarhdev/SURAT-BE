@@ -18,8 +18,11 @@ const topicSeedNew = async () => {
 		const filepath = path.join(__dirname + "/Klasifikasi Masalah.xlsx");
 		const workbook = xlsx.readFile(filepath);
 		const sheetName = workbook.SheetNames[1];
-		const data = xlsx.utils.sheet_to_json(workbook.Sheets[sheetName]);
-
+		const data = xlsx.utils.sheet_to_json(workbook.Sheets[sheetName], {
+   	 			header: 1,     // Membaca data sebagai array (bukan object JSON)
+    				range: 1        // Mulai dari baris ke-2 (indeks 1 karena 0-based index)
+				});
+		console.log(sheetName);
 		let currentMaster = null;
 		let currentParent = null;
 
