@@ -67,8 +67,6 @@ const topicSeedNew = async () => {
 					masterId: currentMaster.id,
 					parentId: currentParent.id,
 				});
-			} else {
-				console.log("Unknown level: ", row);
 			}
 		}
 
