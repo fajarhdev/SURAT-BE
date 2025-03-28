@@ -35,27 +35,29 @@ const buildHierarchy = async (masterTopics) => {
 	};
 
 	// Construct the final hierarchy
-	return masterTopics.map((topic) => {
-		const details = topicDetailMap.get(topic.id) || [];
-		const rootDetail = details.find((d) => d.parentId === null);
-		if (!rootDetail) return null;
+	return masterTopics
+		.map((topic) => {
+			const details = topicDetailMap.get(topic.id) || [];
+			const rootDetails = details.filter(
+				(d) => d.parentId === null
+			); // Fix: Ambil semua root-level children
+			if (!rootDetails.length) return null;
 
-		return {
-			id: topic.id,
-			code: topic.code,
-			name: topic.name,
-			desc: topic.desc,
-			children: [
-				{
+			return {
+				id: topic.id,
+				code: topic.code,
+				name: topic.name,
+				desc: topic.desc,
+				children: rootDetails.map((rootDetail) => ({
 					id: rootDetail.id,
 					code: rootDetail.code,
 					name: rootDetail.name,
 					desc: rootDetail.desc,
 					children: buildChildren(rootDetail.id, details),
-				},
-			],
-		};
-	}).filter(Boolean);
+				})),
+			};
+		})
+		.filter(Boolean);
 };
 
 const getTopicService = async () => {

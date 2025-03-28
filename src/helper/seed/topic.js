@@ -8,21 +8,20 @@ const topicSeedNew = async () => {
 	let count = 0;
 	const inc = 1;
 	try {
-		console.log('START SEED TOPIC');
+		console.log("START SEED TOPIC");
 		const dataMaster = await Topic.findAll();
 		const dataDetail = await TopicDetail.findAll();
 		if (dataMaster.length > 0 && dataDetail.length > 0) {
 			return;
 		}
 		// Read the Excel file
-		const filepath = path.join(__dirname + "/Klasifikasi Masalah.xlsx");
+		const filepath = path.join(__dirname + "/KLASIFIKASI MASALAH.xlsx");
 		const workbook = xlsx.readFile(filepath);
-		const sheetName = workbook.SheetNames[1];
+		const sheetName = workbook.SheetNames[0];
 		const data = xlsx.utils.sheet_to_json(workbook.Sheets[sheetName], {
-   	 			header: 1,     // Membaca data sebagai array (bukan object JSON)
-    				range: 1        // Mulai dari baris ke-2 (indeks 1 karena 0-based index)
-				});
-		console.log(sheetName);
+			range: 1, // Mulai dari baris ke-2 (indeks 1 karena 0-based index)
+		});
+
 		let currentMaster = null;
 		let currentParent = null;
 
@@ -30,22 +29,22 @@ const topicSeedNew = async () => {
 			const title = row["Judul"];
 			const code = row["Kode"];
 			const desc = row["Keterangan"];
-			
-			const expMaster = '/^[A-Z]{2}\.000$/';
-			const expChild = '/^[A-Z]{2}\.[1-9]00$/';
+
+			const expMaster = /^[A-Z]{2}.000$/;
+			const expChild = /^[A-Z]{2}.[1-9]00$/;
 
 			if (expMaster.test(code)) {
 				currentMaster = await Topic.create({
 					code: code,
 					name: title,
-					desc: desc
+					desc: desc,
 				});
 				currentParent = null; // Reset parent for top-level
 			} else if (expChild.test(code)) {
 				if (!currentMaster) {
 					throw new Error(
 						`Found Parent (Level 2) without a Master: ${JSON.stringify(
-								row
+							row
 						)}`
 					);
 				}
@@ -77,7 +76,7 @@ const topicSeedNew = async () => {
 	} catch (error) {
 		console.error("Error inserting data:", error);
 	} finally {
-		console.log('FINISH SEED TOPIC');
+		console.log("FINISH SEED TOPIC");
 	}
 };
 
