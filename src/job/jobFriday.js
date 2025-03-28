@@ -77,7 +77,7 @@ const jobFriday = async (job) => {
 			},
 		});
 
-		if (date.getDay() === jobDetail.value) {
+		if (date.getDay() === parseInt(jobDetail.value)) {
 			// Check if it's Friday
 			const tanggalTerbaru = await SystemDetail.findOne({
 				where: {
