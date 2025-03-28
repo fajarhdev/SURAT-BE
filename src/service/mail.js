@@ -606,7 +606,7 @@ const updateOutMailService = async (mail, user, id) => {
 		} else {
 			numCode = getCurrentMail.numMail;
 		}
-		const numCodeMail = `${codeMail.code} ${numCode}/${problem.name}/${executive.code}/${mail.desUnit}/${currentYear}`;
+		const numCodeMail = `${codeMail.code} ${numCode}/${problem.code}/${executive.code}/${mail.desUnit}/${currentYear}`;
 
 		const createMail = await OutMail.update(
 			{
