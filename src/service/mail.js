@@ -495,7 +495,7 @@ const createOutMailService = async (mail, user) => {
 
 		const currentYear = new Date().getFullYear();
 		//kode surat/nomor surat/masalah utama/pejabat ttd/unit/tahun
-		const numCodeMail = `${codeMail.code} ${numMail}/${problem.code}/${executive.code}/${mail.desUnit}/${currentYear}`;
+		const numCodeMail = `${codeMail.code} ${numMail}/${problem.code}/${executive.code}/REG4/${currentYear}`;
 
 		const createMail = await OutMail.create({
 			numMail: numMail,
@@ -606,7 +606,7 @@ const updateOutMailService = async (mail, user, id) => {
 		} else {
 			numCode = getCurrentMail.numMail;
 		}
-		const numCodeMail = `${codeMail.code} ${numCode}/${problem.code}/${executive.code}/${mail.desUnit}/${currentYear}`;
+		const numCodeMail = `${codeMail.code} ${numCode}/${problem.code}/${executive.code}/REG4/${currentYear}`;
 
 		const createMail = await OutMail.update(
 			{
